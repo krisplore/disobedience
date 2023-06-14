@@ -11,13 +11,13 @@ def set_invite():
     NUMBER_INVITE = 2
     invite = []
     for i in range(NUMBER_INVITE):
-        invite.append(str(uuid.uuid4()
+        invite.append(str(uuid.uuid4()))
     return invite
 
 def set_tegs(tegs):
-    tegs_array = tegs.split(',')
-    tegs_array = [item.strip() for item in tegs_array]
-    return tegs_array
+    tegs = tegs.split(',')
+    tegs = [item.strip() for item in tegs]
+    return tegs
 
 
 source = {}
@@ -30,7 +30,7 @@ for key in user_key:
 
 callsign = source['callsign']
 tegs = source['tegs']
-print(type(tegs))
+
 source['id'] = set_id()
 source['type'] = set_type()
 source['reliability'] = 4.98

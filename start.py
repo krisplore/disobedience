@@ -1,31 +1,29 @@
-import yaml
 import uuid
 import datetime
-id = str(uuid.uuid4())
-callsign = input()
-category = int(input())  # type
-reliability = float(input())
-note = input()
-tegs = input()
-invited_by = input()
-invite = uuid.uuid4(), uuid.uuid4()
-created = datetime.datetime.now().time().strftime('%H:%M:%S')
-modified = ''
-fact = input()
-    # 'Verified':
-    # 'Total':
-    # 'False_facts':
 
- #       'id' # GUID
-  #      'source': "ewf"  # GUID
-   #     'created': datetime(2023, 6, 12, 15, 33, 0),
-    #    'description': 'Military detachment spotted',
-   #    'happened'
-   #     'location': '20.858659, 96.052031', # словарь широта и долгота, высота
-   #         'address'
-   #         'note' # 3 этаж допустим
-   #     'corrobaration': 4,
-   #     'corrobarated_by':
-   #     'modified'
+def set_id_fact():
+    return str(uuid.uuid5(uuid.NAMESPACE_OID, description))
+
+def set_created():
+    return datetime.datetime.now().time().strftime('%H:%M:%S')
 
 
+fact = {}
+user_key = ['description', 'happened']
+location_keys = ['latitude', 'longitude', 'height', 'locality', 'address', 'note']
+
+for key in user_key:
+    fact[key] = input(f'Enter answer for item {key}:  ')
+
+location = {}
+for key in location_keys:
+    location[key] = input(f'Enter answer for item {key}:  ')
+
+description = []
+fact['location'] = location
+source = 'John' # link for the dict_sourse file
+id_fact = set_id_fact()
+created = set_created()
+modified = created
+corrobarated_by = []
+corrobaration = len(corrobarated_by)
