@@ -1,5 +1,7 @@
+import yaml
 import uuid
 import datetime
+import re
 
 def set_id():
     return str(uuid.uuid5(uuid.NAMESPACE_OID, callsign))
@@ -16,7 +18,7 @@ def set_invite():
 
 def set_tegs(tegs):
     tegs = tegs.split(',')
-    tegs = [item.strip() for item in tegs]
+    tegs = [re.sub(r'\s+', ' ', item.strip()) for item in tegs]
     return tegs
 
 
@@ -43,4 +45,6 @@ source['fact'] = []
 
 
 print(source)
-
+filename = source['id'] + '.yaml'
+with open(filename, 'w') as file:
+    yaml.dump(source, file)

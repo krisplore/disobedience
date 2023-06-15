@@ -1,0 +1,15 @@
+callsign: John
+created: 08:52:01
+fact: []
+id: 9c65fa47-c4af-5beb-97d5-9d03010bc47a
+invite:
+- 2090f4d2-c557-45fa-980f-fb5a7f3c5165
+- b30d090c-8963-413a-8ed6-b378233073d0
+invited_by: 1234tgfdsdfvczsd
+modified: 08:52:01
+note: some new note
+reliability: 4.98
+tegs:
+- 10 military soldiers spotted
+- 3 tanks
+type: 1
