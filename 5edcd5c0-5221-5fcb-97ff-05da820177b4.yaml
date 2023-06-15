@@ -1,0 +1,15 @@
+callsign: John
+created: 1686838148
+fact: []
+id: 5edcd5c0-5221-5fcb-97ff-05da820177b4
+invite:
+- 9ff63679-06db-4ea0-b361-98167dc9cbe2
+- 6faa3b92-2744-43af-9488-93026890476f
+invited_by: 123-bvwdefrgt-321
+modified: 1686838148
+note: some new note
+reliability: 4.98
+tags:
+- militery spotted
+- 10 tanks
+type: 1
