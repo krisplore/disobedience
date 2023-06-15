@@ -10,7 +10,7 @@ def set_type():
 def set_invite():
     NUMBER_INVITE = 2
     invite = []
-    for i in range(NUMBER_INVITE):
+    for _ in range(NUMBER_INVITE):
         invite.append(str(uuid.uuid4()))
     return invite
 
