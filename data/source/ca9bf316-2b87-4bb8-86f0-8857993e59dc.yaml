@@ -1,0 +1,18 @@
+callsign: Johny
+created: 1686919358
+id: ca9bf316-2b87-4bb8-86f0-8857993e59dc
+invite:
+- ZBBV9Q
+- J7LZAB
+invited_by: 123erfcvbhgfrds234
+modified: 1686919358
+note: some new note
+reliability: 4.98
+stats:
+  confirmed_facts: 0
+  refuted_facts: 0
+  total_facts: 0
+tags:
+- military
+- 10  tanks
+type: 1

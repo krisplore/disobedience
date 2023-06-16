@@ -1,80 +1,96 @@
 import datetime
 import getopt
-import re
 import sys
 import uuid
 import yaml
-import gettext
+import secrets
+import string
 
 EXTENSION = '.yaml'
-NUMBER_INVITE = 2  # вынести и переименовать
+AMOUNT_OF_INVITATIONS = 2
+INVITATION_LENGTH = 6
 
 
-def set_id():  #
-    return str(uuid.uuid5(uuid.NAMESPACE_DNS, 'disobedience'))
+def extract_tags(tags):  # tags!  а что если запятой нет defensive programming
+    tags = [item.strip() for item in tags.split(',') if item.strip()]
+    return tags
+
+
+def generate_id():
+    return str(uuid.uuid4())
 
 
 def set_type():
     return 1
 
 
-def set_invite():  #
+def generate_invite(amount, length):
+    alphabet = string.ascii_uppercase + string.digits
+    excluded_characters = 'IiOo01l'
+    characters = [c for c in alphabet if c not in excluded_characters]
     invite = []
-    for _ in range(NUMBER_INVITE):
-        invite.append(str(uuid.uuid4()))  # 6 англ символов и цифр без спорных uppercase
+    for _ in range(amount):
+        invite.append(''.join((secrets.choice(characters) for _ in range(length))))
     return invite
 
 
-def set_tags(tags):  # tags!
-    tags = tags.split(',')  # а что если запятой нет defensive programming
-    tags = [re.sub(r'\s+', ' ', item.strip()) for item in tags]  # убрать re
-    return tags
+def get_time():
+    return int(datetime.datetime.now().timestamp())
 
 
 def main(argv):
     callsign = ''
-    tags = []
+    tags = ''
     invited_by = ''
 
     try:
-        opts, args = getopt.getopt(argv, 'c:t:i:', ['callsign=', 'tags=', 'invited_by='])
-    except getopt.GetoptError:  #
+        opts, args = getopt.getopt(argv, 'c:t:i:', ['callsign=$', 'tags=$', 'invited_by=$'])
+    except getopt.GetoptError:  # работает только если тэги в кавычках поступают
         print('There is something wrong with arguments')
-        sys.exit(2)
+#        sys.exit(2)   # код возврата 2 - некорректный аргумент командной строки
 
     for opt, arg in opts:
         if opt in ('-c', '--callsign'):
-            callsign = arg      #
+            callsign = arg  #
         elif opt in ('-t', '--tags'):
             tags = arg
         elif opt in ('-i', '--invited_by'):
             invited_by = arg
 
-    source = {}
-    source['callsign'] = callsign
-    source['tags'] = tags
-    source['invited_by'] = invited_by
+    tags_list = extract_tags(tags)
+    id_str = generate_id()
+    type_int = set_type()
+    creation_time_str = get_time()
+    modification_time_str = creation_time_str
+    invitations = generate_invite(AMOUNT_OF_INVITATIONS, INVITATION_LENGTH)
 
-    source['id'] = set_id()
-    source['type'] = set_type()
-    source['reliability'] = 4.98
-    source['tags'] = set_tags(tags)
-    source['note'] = 'some new note'
-    source['invite'] = set_invite()
-    source['created'] = int(datetime.datetime.now().timestamp())
-    source['modified'] = source['created']
-    # source['stats'] = [
-    #     'facts' = [
-    #         'total' = 0
-    #     ]
-    # ]
+    source = {
+        'callsign': callsign,
+        'tags': tags_list,
+        'invited_by': invited_by,
+        'id': id_str,
+        'type': type_int,
+        'reliability': 4.98,
+        'note': 'some new note',
+        'created': creation_time_str,
+        'modified': modification_time_str,
+        'invite': invitations,
+        'stats': {
+            'total_facts': 0,
+            'confirmed_facts': 0,
+            'refuted_facts': 0
+        }
+    }
 
     print(source)
 
-    filename = source['id'] + EXTENSION
+    filename = 'data/source/' + source['id'] + EXTENSION
     with open(filename, 'w') as file:
         yaml.dump(source, file)
 
 
 if __name__ == "__main__":
     main(sys.argv[1:])
+
+
+
