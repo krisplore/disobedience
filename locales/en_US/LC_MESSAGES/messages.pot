@@ -17,6 +17,6 @@ msgstr ""
 
 #: dict_source.py:69
 msgid "There is something wrong with arguments"
-msgstr "Something is wrong with the arguments. Please provide all three arguments: -c <callsign> -t <tags> -i <invited_by>"
+msgstr "Something is wrong with the arguments. Please provide all arguments: -c <callsign> -t <tags> -i <invited_by>"
 
 

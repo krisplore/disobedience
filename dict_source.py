@@ -1,10 +1,14 @@
 import datetime  # использую для получания текущего времени
 import gettext  # использую для перевода строк, обращенных к пользователю/администратору
 import getopt  # использую функции модуля для обработки аргументов командной строки
+import os
 import secrets  # использую для создания уникальных строчек-приглашений в функции generate_invite
 import string  # использую для создания списка - алфавита, для создания уникальных строчек-приглашений
 import sys  # понадобится для обработки ошибок в разборе аргументов командной строки
 import uuid  # использую для создания id источника, чтобы обеспечить уникальность идентификатора
+import random
+import locale
+
 import yaml  # использую для записи словаря source в YAML файл
 
 EXTENSION = '.yaml'
@@ -53,6 +57,7 @@ def generate_invite():
 def get_time():
     return int(datetime.datetime.now().timestamp())
 
+
 # функция была необходима для перевода строк моего словаря, потому что функции gettext не принимает в качестве
 # аргумента тип данных dict
 # функция gettext.translation создает объект, который будет использоваться для перевода текста на английский язык
@@ -68,11 +73,14 @@ def get_time():
 # обработка аргументов командной строки, создание словаря source
 # вывод информации на экран и запись в данных в yaml файл
 def main(argv):
+    startTime = (datetime.datetime.now().timestamp())
     callsign = ''
     tags = ''
     invited_by = ''
 
-    option_map = {    # словарь для связи опций командной строки с именами переменных
+    osLocale = os.getenv('LANG')
+
+    option_map = {    # словарь для связи опций командной строки с именами переменных словаря
         '-c': 'callsign',
         '--callsign': 'callsign',
         '-t': 'tags',
@@ -83,10 +91,11 @@ def main(argv):
 
     # создаю объект languages_en, который инициализируется с помощью модуля gettext
     # устанавливаю объект в качестве переводчика
-    languages_en = gettext.translation('pet_project', localedir='locales', languages=['en'])
-    languages_en.install()
+    print (osLocale)
+    language = gettext.translation('pet_project', localedir='locales', languages=[osLocale])
+    language.install()
 
-    _ = languages_en.gettext  # присваиваю псевдоним для метода gettext чтобы сократить код
+    _ = language.gettext  # присваиваю псевдоним для метода gettext чтобы сократить код
 
     # ключевое слово начинает блок кода, в котором обрабатываются ошибки
     # opts, args - кортеж, в котором будут храниться опции и аргументы, которые возвращаются функцией get opt
@@ -94,19 +103,21 @@ def main(argv):
     # except - возникает только если вышло исключение при обработке аргументов
     # sys.exit(2) прерывает выполнение программы и выходит из нее с кодом 2
     try:
-        opts, args = getopt.getopt(argv, 'c:t:i:', ['callsign=', 'tags=', 'invited_by='])
+        opts, args = getopt.getopt(argv, 'c:t:i:', ['callsign=', 'tags=', 'invited_by='])  # теги не обязательны
     except getopt.GetoptError:  # срабатывает если пользователь хочет ввести неправильную опцию или пустой аргумент
-        print(_('There is something wrong with arguments. Please provide three arguments: -c <callsign> -t <tags> '
-                '-i <invited_by>'))
+        print(_('There is something wrong with arguments'))
         sys.exit(2)  # код возврата 2 - некорректный аргумент командной строки
 
     if '-c' not in [opt for opt, _ in opts] or '-t' not in [opt for opt, _ in opts] or '-i' not in [opt for opt, _ in opts]:
-        print(gettext.gettext('There is something wrong with arguments. Please provide all three arguments: -c '
-                              '<callsign> -t <tags>'  '-i <invited_by>'))
+        print(gettext.gettext('There is something wrong with arguments'))
         sys.exit(2)
 
+    gettext.gettext(_('oi fuckface'))
+
+    # создаю объект и инициализирую его с помощью класса gettext, представляет нулевой перевод (не выполняет действий)
+
     en_translations = gettext.NullTranslations()
-    en_translations.install()
+    en_translations.install()  #
 
     creation_time_str = get_time()
     modification_time_str = creation_time_str
@@ -134,16 +145,6 @@ def main(argv):
         if dictionary_key:
             source[dictionary_key] = arg
 
-    # for key, value in source.items():
-    #     if isinstance(value, str):
-    #         if value:
-    #             translated_value = translate_string(value)
-    #             print(f'{key}: {translated_value}')
-    #         else:
-    #             print(f'{key}: {value}')
-    #     else:
-    #         print(f'{key}: {value}')
-
     for key, value in source.items():  # перебираю ключи и значения словаря
         print(f'{key}: {value}')  # вывожу их на экран
 
@@ -151,6 +152,9 @@ def main(argv):
     with open(filename, 'w') as file:
         yaml.dump(source, file)
 
+    endTime = (datetime.datetime.now().timestamp())
+    elapsed = endTime - startTime
+    print('Time is ', elapsed*1000)
 
 if __name__ == "__main__":
     main(sys.argv[1:])
