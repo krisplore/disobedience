@@ -1,3 +1,11 @@
+#  information
+content = ''
+date_of_information = ''
+location_of_information = ''
+source_reliability
+verification_status = True
+supporting_evidence = ''
+
 import uuid
 import datetime
 

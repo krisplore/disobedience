@@ -1,5 +1,5 @@
 import unittest
-from dict_source import extract_tags
+from add_source_functions import extract_tags
 
 
 class TestExtractTags(unittest.TestCase):

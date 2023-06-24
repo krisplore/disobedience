@@ -1,7 +1,7 @@
 import time
 import unittest
 import datetime
-from dict_source import get_time
+from add_source_functions import get_time
 
 
 class TestGetTime(unittest.TestCase):

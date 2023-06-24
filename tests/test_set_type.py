@@ -1,5 +1,5 @@
 import unittest
-from dict_source import set_type
+from add_source_functions import set_type
 
 
 class SetTypeTestCase(unittest.TestCase):
