@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2023-06-22 11:45+0700\n"
+"POT-Creation-Date: 2023-06-26 22:15+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,8 +15,67 @@ msgstr ""
 "Generated-By: pygettext.py 1.5\n"
 
 
-#: dict_source.py:69
-msgid "There is something wrong with arguments"
-msgstr "Something is wrong with the arguments. Please provide all arguments: -c <callsign> -t <tags> -i <invited_by>"
+#: add_source_main.py:45
+msgid "Invalid options or missing required arguments"
+msgstr ""
 
+#: add_source_main.py:49
+msgid "Not all required arguments entered"
+msgstr ""
+
+#: add_source_main.py:58
+msgid "Callsign"
+msgstr ""
+
+#: add_source_main.py:59
+msgid "Tags"
+msgstr ""
+
+#: add_source_main.py:60
+msgid "Invited_by"
+msgstr ""
+
+#: add_source_main.py:61
+msgid "Id"
+msgstr ""
+
+#: add_source_main.py:62
+msgid "Type"
+msgstr ""
+
+#: add_source_main.py:63
+msgid "Reliability"
+msgstr ""
+
+#: add_source_main.py:64
+msgid "Note"
+msgstr ""
+
+#: add_source_main.py:65
+msgid "Created"
+msgstr ""
+
+#: add_source_main.py:66
+msgid "Modified"
+msgstr ""
+
+#: add_source_main.py:67
+msgid "Invite"
+msgstr ""
+
+#: add_source_main.py:68
+msgid "Stats"
+msgstr ""
+
+#: add_source_main.py:69
+msgid "Total_facts"
+msgstr ""
+
+#: add_source_main.py:70
+msgid "Confirmed_facts"
+msgstr ""
+
+#: add_source_main.py:71
+msgid "Refuted_facts"
+msgstr ""
 

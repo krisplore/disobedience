@@ -50,18 +50,6 @@ def get_time():
     return int(datetime.datetime.now().timestamp())
 
 
-# функция была необходима для перевода строк моего словаря, потому что функции gettext не принимает в качестве
-# аргумента тип данных dict
-# функция gettext.translation создает объект, который будет использоваться для перевода текста на английский язык
-# метод install устанавливает объект translation как текущий переводчик
-# translation.gettext(string) - выполняется перевод текста на английский
-
-# def translate_string(string):
-#     translation = gettext.translation('pet_project', localedir='locales', languages=['en'])
-#     translation.install()
-#     return translation.gettext(string)
-
-
 # обработка аргументов командной строки, создание словаря source
 # вывод информации на экран и запись в данных в yaml файл
 

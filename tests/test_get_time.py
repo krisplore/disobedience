@@ -2,6 +2,7 @@ import time
 import unittest
 import datetime
 from add_source_functions import get_time
+import pyperf
 
 
 class TestGetTime(unittest.TestCase):
