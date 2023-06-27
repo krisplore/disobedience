@@ -32,4 +32,4 @@ install-deps:
 	./venv/bin/pip install -r requirements.txt
 
 collect-deps:
-	./venv/bin/pip3.11 freeze > requirements.txt
+	./venv/bin/pip freeze > requirements.txt
