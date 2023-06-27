@@ -20,7 +20,7 @@ locales/en_US/LC_MESSAGES/messages.mo: locales/en_US/LC_MESSAGES/messages.pot
 
 locales/ru_RU/LC_MESSAGES/messages.mo: locales/ru_RU/LC_MESSAGES/messages.pot
 	# Compiling ru translation
-	msgfmt -v -o locales/ru_RU/LC_MESSAGES/messages.mo locales/ru_RU/LC_MESSAGES/messages.pot
+	msgfmt -v -o $@ $<
 
 unittest:
 	./venv/bin/python -m unittest discover tests/
