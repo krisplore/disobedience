@@ -12,7 +12,7 @@ scan-translation:
 	pygettext3 -d messages -o locales/en_US/LC_MESSAGES/messages.pot add_source_main.py
 	pygettext3 -d messages -o locales/ru_RU/LC_MESSAGES/messages.pot add_source_main.py
 
-locales: locales/*/LC_MESSAGES/messages.mo
+locales: locales/en_US/LC_MESSAGES/messages.mo locales/ru_RU/LC_MESSAGES/messages.mo
 
 locales/en_US/LC_MESSAGES/messages.mo: locales/en_US/LC_MESSAGES/messages.pot
 	# Compiling translation
