@@ -1,9 +1,5 @@
 import unittest
-import uuid
-
-
-def generate_id():
-    return str(uuid.uuid4())
+from src.lib.functions import generate_id
 
 
 class TestGenerateID(unittest.TestCase):
