@@ -4,6 +4,14 @@ from src.lib.functions import *
 
 class MyTestGenerateInvite(unittest.TestCase):
     def test_generate_invite(self):
+        """
+        Checks if the function generate unique invites
+
+        Expected behavior:
+            The function should generate unique invites.
+            The generated invites should not contain whitespace characters.
+            The length of each invite should be equal to INVITE_LENGTH.
+        """
         invite = generate_invite()
         for token in invite:
             self.assertFalse(token.isspace(), 'Invite should not be a whitespace character')
