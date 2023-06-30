@@ -17,11 +17,11 @@ locales: locales/en_US/LC_MESSAGES/disobedience.mo locales/ru_RU/LC_MESSAGES/dis
 
 locales/en_US/LC_MESSAGES/disobedience.mo: locales/en_US/LC_MESSAGES/disobedience.pot
 	# Compiling translation
-	msgfmt -v -o $@ $<
+	msgfmt --check --strict -v -o $@ $<
 
 locales/ru_RU/LC_MESSAGES/disobedience.mo: locales/ru_RU/LC_MESSAGES/disobedience.pot
 	# Compiling ru translation
-	msgfmt -v -o $@ $<
+	msgfmt --check --strict -v -o $@ $<
 
 unittest:
 	./venv/bin/python -m unittest discover tests/
