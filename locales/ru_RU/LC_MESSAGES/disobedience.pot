@@ -19,9 +19,9 @@ msgstr "🇷🇺 Язык системы — русский"
 
 #: src/add.py:35
 msgid "Invalid options or missing required arguments"
-msgstr ""
+msgstr "Неверные опции блабла"
 
 #: src/add.py:44
 msgid "Not all required options entered"
-msgstr ""
+msgstr "Не указаны обязательные опции"
 
