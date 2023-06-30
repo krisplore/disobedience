@@ -1,4 +1,5 @@
 import unittest
+from src.lib.functions import *
 
 
 class MyTestCase(unittest.TestCase):
