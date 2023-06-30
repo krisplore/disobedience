@@ -20,6 +20,8 @@ def main():
     language.install()
     _ = language.gettext
 
+    print(_("Language"))
+
     option_map = {
         'callsign': ('-c', '--callsign'),
         'tags': ('-t', '--tags'),

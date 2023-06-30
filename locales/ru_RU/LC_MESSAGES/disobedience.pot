@@ -14,6 +14,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: pygettext.py 1.5\n"
 
+msgid "Language"
+msgstr "🇷🇺 Язык системы — русский"
 
 #: src/add.py:35
 msgid "Invalid options or missing required arguments"
