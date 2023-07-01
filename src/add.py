@@ -4,18 +4,19 @@ import gettext          # translate the strings
 import yaml             # write dict source to yaml file
 from lib.command_line_parser import parse_command_line
 from lib.functions import get_time, extract_tags, generate_id, generate_invite, set_type
+from pathlib import Path
 
 
 _ = None
 EXTENSION = '.yaml'
-PATH_BASE = '.'
+PATH_BASE = Path(__file__).parent.parent.__str__()
 PATH_TO_LOCALES = PATH_BASE + '/locales'
 PATH_TO_STORAGE = PATH_BASE + 'data/source/'
 NAME_PROJECT = 'disobedience'
 
-
 def main():
     global _
+    print(PATH_BASE)
     language = gettext.translation(NAME_PROJECT, localedir=PATH_TO_LOCALES)
     language.install()
     _ = language.gettext
