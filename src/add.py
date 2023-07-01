@@ -8,9 +8,9 @@ from lib.functions import get_time, extract_tags, generate_id, generate_invite, 
 
 _ = None
 EXTENSION = '.yaml'
-PATH_BASE = '.'
+PATH_BASE = '..'
 PATH_TO_LOCALES = PATH_BASE + '/locales'
-PATH_TO_STORAGE = PATH_BASE + 'data/source/'
+PATH_TO_STORAGE = 'data/source/'
 NAME_PROJECT = 'disobedience'
 
 
