@@ -27,7 +27,7 @@ def main():
     option_map = {
         'callsign': ('-c', '--callsign'),
         'tags': ('-t', '--tags'),
-        'invited by': ('-i', '--invited_by')
+        'invited_by': ('-i', '--invited_by')
 
     }
 
@@ -59,12 +59,13 @@ def main():
 
     opts = parse_command_line(sys.argv[1:])
 
-    options = {}
-    for opt, arg in opts:
-        dictionary_key = option_map.get(opt)
-        if dictionary_key:
-            options[dictionary_key] = arg
+    for key, value in opts:
+        for map_key, map_value in option_map.items():
+            if key in map_value:
+                source[map_key] = value
+                break
 
+    raw_tags = source['tags']
     source['tags'] = extract_tags(raw_tags)
 
     for key, value in source.items():
