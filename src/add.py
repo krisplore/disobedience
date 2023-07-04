@@ -11,7 +11,7 @@ _ = None
 EXTENSION = '.yaml'
 PATH_BASE = Path(__file__).parent.parent.__str__()
 PATH_TO_LOCALES = PATH_BASE + '/locales'
-PATH_TO_STORAGE = PATH_BASE + 'data/source/'
+PATH_TO_STORAGE = PATH_BASE + '/data/source/'
 NAME_PROJECT = 'disobedience'
 
 def main():
