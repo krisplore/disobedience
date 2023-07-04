@@ -14,6 +14,7 @@ PATH_TO_LOCALES = PATH_BASE + '/locales'
 PATH_TO_STORAGE = PATH_BASE + '/data/source/'
 NAME_PROJECT = 'disobedience'
 
+
 def main():
     global _
     print(PATH_BASE)
