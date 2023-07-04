@@ -1,8 +1,10 @@
+"""
+This module provides functions for determining characteristics of a source.
+"""
 import datetime         #
 import secrets          #
 import string           #
 import uuid             #
-
 
 AMOUNT_OF_INVITE = 2
 INVITE_LENGTH = 7
