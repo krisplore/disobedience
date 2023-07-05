@@ -1,5 +1,5 @@
 import unittest
-from src.lib.functions import *
+from src.lib.process.functions import *
 
 
 class MyTestGenerateInvite(unittest.TestCase):

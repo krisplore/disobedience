@@ -1,6 +1,6 @@
 import time
 import unittest
-from src.lib.functions import get_time
+from src.lib.process.functions import get_time
 
 
 class TestGetTime(unittest.TestCase):

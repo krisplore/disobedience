@@ -1,11 +1,9 @@
 import sys              #
-import os
 import gettext          # translate the strings
-import yaml             # write dict source to yaml file
-from lib.command_line_parser import parse_command_line
-from lib.functions import get_time, extract_tags, generate_id, generate_invite, set_type
+from lib.input.command_line_parser import parse_command_line
+from lib.process.functions import get_time, extract_tags, generate_id, generate_invite, set_type
 from pathlib import Path
-from lib.work_with_yaml import save_to_yaml
+from lib.process.save_to_yaml import save_to_yaml
 
 
 _ = None

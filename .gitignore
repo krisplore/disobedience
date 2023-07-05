@@ -3,4 +3,4 @@
 locales/*/*/*.mo
 venv
 draft.txt
-src/lib/test.yaml
+src/lib/input/test.yaml

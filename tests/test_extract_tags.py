@@ -1,5 +1,5 @@
 import unittest
-from src.lib.functions import extract_tags
+from src.lib.process.functions import extract_tags
 
 
 class TestExtractTags(unittest.TestCase):
