@@ -1,9 +1,6 @@
 import getopt
 import sys
 
-REQUIRED_OPTIONS_SHORT = {"-c", "-i"}
-REQUIRED_OPTIONS_FULL = {"--callsign", "--invited_by"}
-
 
 def parse_command_line(argv):
     """
@@ -18,17 +15,12 @@ def parse_command_line(argv):
     """
     try:
         opts, args = getopt.getopt(argv, "c:i:t:", ["callsign=", "invited_by=", "tags="])
-    except getopt.GetoptError:
+    except getopt.GetoptError:  # invalid options - not c, i, t / if --option without argument
         print("Invalid options or missing required arguments")
         sys.exit(2)
 
-    entered_options = set(opt for opt, _ in opts)
-
-    if not (REQUIRED_OPTIONS_SHORT.issubset(entered_options) or REQUIRED_OPTIONS_FULL.issubset(entered_options)):
-        print("Not all required options entered")
-        sys.exit(2)
-
-    parsed_options = [(opt, arg) for opt, arg in opts]
+    parsed_options = dict((opt, arg) for opt, arg in opts)
+    print(type(parsed_options), parsed_options)
 
     return parsed_options
 
