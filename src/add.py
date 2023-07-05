@@ -26,13 +26,15 @@ def main():
     option_map = {
         'callsign': ('-c', '--callsign'),
         'tags': ('-t', '--tags'),
-        'invited_by': ('-i', '--invited_by')
+        'invited_by': ('-i', '--invited_by'),
+        'file_name': ('-r', '--read_from_file')
 
     }
 
     callsign = ''
     raw_tags = ''
     invited_by = ''
+    file_name = ''
 
     creation_time = get_time()
     modification_time = creation_time
@@ -57,8 +59,9 @@ def main():
     }
 
     opts = parse_command_line(sys.argv[1:])
+    print(type(opts), opts)
 
-    for key, value in opts:
+    for key, value in opts.items():
         for map_key, map_value in option_map.items():
             if key in map_value:
                 source[map_key] = value
