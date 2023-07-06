@@ -1,6 +1,6 @@
 import sys              #
 import gettext          # translate the strings
-from lib.input.command_line_parser import parse_command_line
+from lib.input.getopt_input import parse_command_line
 from lib.process.functions import get_time, extract_tags, generate_id, generate_invite, set_type
 from pathlib import Path
 from lib.process.save_to_yaml import save_to_yaml
