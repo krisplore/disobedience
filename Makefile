@@ -5,8 +5,7 @@ test: unittest
 
 pylint:
 	# Lint with pylint
-	pylint src/*.py || true
-	pylint src/**/*.py || true
+	pylint -j 4 --recursive=y src || true
 
 scan-translation:
 	# Scan source code for gettext calls
