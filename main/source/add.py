@@ -12,6 +12,7 @@ PATH_BASE = Path(__file__).parent.parent.__str__()
 PATH_TO_LOCALES = PATH_BASE + '/locales'
 PATH_TO_STORAGE = PATH_BASE + '/data/source/'
 NAME_PROJECT = 'disobedience'
+_SOURCE_SCHEMA_VERSION = 1
 
 
 def main():
@@ -41,6 +42,7 @@ def main():
     id_value = generate_id()
 
     source = {
+        '_source_schema_version': 1,
         'callsign':     callsign,
         'tags':         raw_tags,
         'invited_by':   invited_by,
