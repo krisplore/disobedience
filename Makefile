@@ -1,11 +1,14 @@
 all: lint build test
-lint: pylint
+lint: pylint bandit
 build: locales
 test: unittest coverage
 
 pylint:
 	# Lint with pylint
-	pylint -j 4 --recursive=y src || true
+	venv/bin/pylint --recursive=y src tests || true
+
+bandit:
+	venv/bin/bandit -r src tests
 
 scan-translation:
 	# Scan source code for gettext calls
