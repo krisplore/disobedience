@@ -1,7 +1,7 @@
 all: lint build test
 lint: pylint
 build: locales
-test: unittest
+test: unittest coverage
 
 pylint:
 	# Lint with pylint
@@ -23,7 +23,10 @@ locales/ru_RU/LC_MESSAGES/disobedience.mo: locales/ru_RU/LC_MESSAGES/disobedienc
 	msgfmt --check --strict -v -o $@ $<
 
 unittest:
-	./venv/bin/python -m unittest discover tests/
+	./venv/bin/coverage run -m unittest discover tests/
+
+coverage:
+	./venv/bin/coverage report
 
 setup:
 	python -m venv venv
