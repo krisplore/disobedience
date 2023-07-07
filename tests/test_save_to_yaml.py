@@ -1,5 +1,5 @@
 import unittest
-from src.lib.process.save_to_yaml import save_to_yaml
+from intel.source.save_to_yaml import save_to_yaml
 import os
 
 
