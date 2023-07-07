@@ -2,13 +2,11 @@ import sys              #
 import gettext          # translate the strings
 from intel.source.getopt_input import parse_command_line
 from intel.source.functions import get_time, extract_tags, generate_id, generate_invite, set_type
-from pathlib import Path
 from intel.source.save_to_yaml import save_to_yaml
-
+from intel.definitions import PATH_BASE
 
 _ = None
 EXTENSION = '.yaml'
-PATH_BASE = Path(__file__).parent.parent.__str__()
 PATH_TO_LOCALES = PATH_BASE + '/locales'
 PATH_TO_STORAGE = PATH_BASE + '/data/source/'
 NAME_PROJECT = 'disobedience'
