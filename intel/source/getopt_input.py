@@ -2,7 +2,7 @@ import getopt
 import sys
 
 
-def parse_command_line(argv):
+def parse_input_options(argv):
     """
     Parse command line arguments
 

@@ -1,6 +1,6 @@
 import sys              #
 import gettext          # translate the strings
-from intel.source.getopt_input import parse_command_line
+from intel.source.getopt_input import parse_input_options
 from intel.source.functions import get_time, extract_tags, generate_id, generate_invite, set_type
 from intel.source.save_to_yaml import save_to_yaml
 from intel.definitions import PATH_BASE
@@ -58,7 +58,7 @@ def add():
         }
     }
 
-    opts = parse_command_line(sys.argv[1:])
+    opts = parse_input_options(sys.argv[3:])
     print(type(opts), opts)
 
     for key, value in opts.items():

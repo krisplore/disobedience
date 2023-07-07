@@ -3,7 +3,7 @@ from intel.source.getopt_input import *
 
 
 class MyTestParseCommandLine(unittest.TestCase):
-    def test_parse_command_line(self):
+    def test_parse_input_options(self):
         """
         The function parse_command_line should take a list of command line arguments and return a dict
         representing the parsed options and their corresponding arguments.
@@ -15,7 +15,7 @@ class MyTestParseCommandLine(unittest.TestCase):
             The length of the return list of the function is not less than the required options.
         """
         argv = ['-c', 'Johny', '-i', 'AER24MK', '-t', 'farmer, military']
-        result = parse_command_line(argv)
+        result = parse_input_options(argv)
         expected_result = {'-c': 'Johny', '-i': 'AER24MK', '-t': 'farmer, military'}
         self.assertEqual(result, expected_result, 'Parser should return dict')
         #  self.assertTrue(len(result) >= len(REQUIRED_OPTIONS_FULL), 'Missing required arguments')
