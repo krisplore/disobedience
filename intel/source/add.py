@@ -3,7 +3,7 @@ import gettext          # translate the strings
 from intel.source.getopt_input import parse_input_options
 from intel.source.functions import get_time, extract_tags, generate_id, generate_invite, set_type
 from intel.source.save_to_yaml import save_to_yaml
-from intel.definitions import PATH_BASE
+from intel.definitions import PATH_BASE, SOURCE_SCHEMA_VERSION
 
 _ = None
 EXTENSION = '.yaml'
@@ -40,7 +40,7 @@ def add():
     id_value = generate_id()
 
     source = {
-        '_source_schema_version': 1,
+        '_source_schema_version': SOURCE_SCHEMA_VERSION,
         'callsign':     callsign,
         'tags':         raw_tags,
         'invited_by':   invited_by,
