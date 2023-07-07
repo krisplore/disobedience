@@ -15,7 +15,6 @@ _SOURCE_SCHEMA_VERSION = 1
 
 def add():
     global _
-    print(PATH_BASE)
     language = gettext.translation(NAME_PROJECT, localedir=PATH_TO_LOCALES)
     language.install()
     _ = language.gettext
@@ -33,7 +32,6 @@ def add():
     callsign = ''
     raw_tags = ''
     invited_by = ''
-    file_name = ''
 
     creation_time = get_time()
     modification_time = creation_time
@@ -59,7 +57,7 @@ def add():
     }
 
     opts = parse_input_options(sys.argv[3:])
-    print(type(opts), opts)
+    # print(type(opts), opts)
 
     for key, value in opts.items():
         for map_key, map_value in option_map.items():

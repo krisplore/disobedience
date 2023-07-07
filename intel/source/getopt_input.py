@@ -20,7 +20,7 @@ def parse_input_options(argv):
         sys.exit(2)
 
     parsed_options = dict((opt, arg) for opt, arg in opts)
-    print(type(parsed_options), parsed_options)
+    # print(type(parsed_options), parsed_options)
 
     return parsed_options
 
