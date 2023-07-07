@@ -45,16 +45,16 @@ def add():
         'tags':         raw_tags,
         'invited_by':   invited_by,
         'id':           id_value,
-        '_type':         set_type(),
-        '_reliability':  4.98,
-        '_note':         'some new note',
+        'type':         set_type(),
+        'reliability':  4.98,
+        'note':         'some new note',
         'created':      creation_time,
         'modified':     modification_time,
         'invite':       generate_invite(),
-        '_stats': {
-            '_total facts':      0,
-            '_confirmed facts':  0,
-            '_refuted facts':    0
+        'stats': {
+            'total facts':      0,
+            'confirmed facts':  0,
+            'refuted facts':    0
         }
     }
 
