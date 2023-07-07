@@ -1,6 +1,6 @@
 import sys
-from lib.input.getopt_entity_action import getopt_entity_action
-from source.add import add as source_add
+from intel.getopt_entity_action import getopt_entity_action
+from intel.source.add import add as source_add
 
 
 def main():
