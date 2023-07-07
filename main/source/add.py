@@ -15,7 +15,7 @@ NAME_PROJECT = 'disobedience'
 _SOURCE_SCHEMA_VERSION = 1
 
 
-def main():
+def add():
     global _
     print(PATH_BASE)
     language = gettext.translation(NAME_PROJECT, localedir=PATH_TO_LOCALES)
@@ -77,7 +77,3 @@ def main():
 
     filename = PATH_TO_STORAGE + id_value + EXTENSION
     save_to_yaml(source, filename)
-
-
-if __name__ == "__main__":
-    main()
