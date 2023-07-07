@@ -1,5 +1,5 @@
 import unittest
-from src.lib.process.functions import generate_id
+from intel.source.functions import generate_id
 
 
 class TestGenerateID(unittest.TestCase):

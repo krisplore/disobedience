@@ -1,5 +1,5 @@
 import unittest
-from src.lib.process.functions import extract_tags
+from intel.source.functions import extract_tags
 
 
 class TestExtractTags(unittest.TestCase):

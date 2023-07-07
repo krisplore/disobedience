@@ -1,5 +1,5 @@
 import unittest
-from src.lib.process.functions import *
+from intel.source.functions import *
 
 
 class MyTestGenerateInvite(unittest.TestCase):

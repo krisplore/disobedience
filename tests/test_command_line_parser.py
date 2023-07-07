@@ -1,5 +1,5 @@
 import unittest
-from src.lib.input.command_line_parser import *
+from intel.source.getopt_input import *
 
 
 class MyTestParseCommandLine(unittest.TestCase):

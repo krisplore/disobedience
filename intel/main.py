@@ -1,6 +1,6 @@
 import sys
-from intel.getopt_entity_action import getopt_entity_action
-from intel.source.add import add as source_add
+from getopt_router import getopt_entity_action
+from source.add import add as source_add
 
 
 def main():
