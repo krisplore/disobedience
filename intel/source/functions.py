@@ -6,6 +6,8 @@ import secrets          #
 import string           #
 import uuid             #
 from typing import List, Any
+from intel.definitions import SOURCE_SCHEMA_VERSION
+
 
 AMOUNT_OF_INVITE: int = 2
 INVITE_LENGTH: int = 7
@@ -70,3 +72,50 @@ def get_time():
     :rtype: int
     """
     return int(datetime.datetime.now().timestamp())
+
+
+def create_source_dictionary():
+    """
+    Create an empty source dictionary with default values.
+
+    Returns:
+        Dict[str, Any]: The created source dictionary.
+    """
+    creation_time = get_time()
+    id_value = generate_id()
+
+    source = {
+        '_source_schema_version': SOURCE_SCHEMA_VERSION,
+        'callsign': '',
+        'tags': '',
+        'invited_by': '',
+        'id': id_value,
+        'type': set_type(),
+        'reliability': 4.98,
+        'note': 'some new note',
+        'created': creation_time,
+        'modified': creation_time,
+        'invite': generate_invite(),
+        'stats': {
+            'total facts': 0,
+            'confirmed facts': 0,
+            'refuted facts': 0
+        }
+    }
+
+    return source, id_value
+
+
+def print_source_information(source):
+    """
+    Print the information contained in the source dictionary.
+
+    Args:
+        source (Dict[str, Any]): The source dictionary.
+    """
+    for key, value in source.items():
+        print(f'{key}: {value}')
+
+
+
+
