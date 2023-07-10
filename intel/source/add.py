@@ -1,10 +1,13 @@
+"""
+Responsible for managing the process of adding a new source.
+
+"""
 import sys              #
 import gettext          # translate the strings
-from gettext import NullTranslations, GNUTranslations
 from typing import Dict, Tuple, Any, List
-
 from intel.source.getopt_input import parse_input_options
-from intel.source.functions import get_time, extract_tags, generate_id, generate_invite, set_type
+from intel.source.functions import get_time, extract_tags, \
+    generate_id, generate_invite, set_type
 from intel.source.save_to_yaml import save_to_yaml
 from intel.definitions import PATH_BASE, SOURCE_SCHEMA_VERSION
 
@@ -17,8 +20,14 @@ _SOURCE_SCHEMA_VERSION: int = 1
 
 
 def add():
+    """
+    This function handles the process of adding a new data source.
+    It prompts the user for required information, generates relevant data,
+    and saves it to a YAML file.
+
+    """
     global _
-    language: NullTranslations | GNUTranslations = gettext.translation(NAME_PROJECT, localedir=PATH_TO_LOCALES)
+    language = gettext.translation(NAME_PROJECT, localedir=PATH_TO_LOCALES)
     language.install()
     _ = language.gettext
 

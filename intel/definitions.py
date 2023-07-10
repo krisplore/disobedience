@@ -4,7 +4,8 @@ Module to define constants and related variables.
 This module contains definitions of constants and related variables.
 
 Constants:
-    PATH_BASE (str): The base path of the module, obtained from the parent directory of the current file.
+    PATH_BASE (str): The base path of the module,
+    obtained from the parent directory of the current file.
     SOURCE_SCHEMA_VERSION: The version number of the source schema.
 
 Note:
@@ -13,5 +14,5 @@ Note:
 
 from pathlib import Path
 
-PATH_BASE: str = Path(__file__).parent.parent.__str__()
+PATH_BASE: str = str(Path(__file__).parent.parent)
 SOURCE_SCHEMA_VERSION = 1
