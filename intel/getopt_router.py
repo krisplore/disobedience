@@ -7,7 +7,8 @@ import sys
 
 def getopt_entity_action():
     """
-    Retrieves the entity and action arguments from the command line and returns a list containing them.
+    Retrieves the entity and action arguments from the command line
+    and returns a list containing them.
 
     Args:
         argv (list): A list of command line arguments.

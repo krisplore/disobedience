@@ -1,27 +1,30 @@
 import sys              #
 import gettext          # translate the strings
+from gettext import NullTranslations, GNUTranslations
+from typing import Dict, Tuple, Any, List
+
 from intel.source.getopt_input import parse_input_options
 from intel.source.functions import get_time, extract_tags, generate_id, generate_invite, set_type
 from intel.source.save_to_yaml import save_to_yaml
 from intel.definitions import PATH_BASE, SOURCE_SCHEMA_VERSION
 
-_ = None
-EXTENSION = '.yaml'
-PATH_TO_LOCALES = PATH_BASE + '/locales'
-PATH_TO_STORAGE = PATH_BASE + '/data/source/'
-NAME_PROJECT = 'disobedience'
-_SOURCE_SCHEMA_VERSION = 1
+_: None = None
+EXTENSION: str = '.yaml'
+PATH_TO_LOCALES: str = PATH_BASE + '/locales'
+PATH_TO_STORAGE: str = PATH_BASE + '/data/source/'
+NAME_PROJECT: str = 'disobedience'
+_SOURCE_SCHEMA_VERSION: int = 1
 
 
 def add():
     global _
-    language = gettext.translation(NAME_PROJECT, localedir=PATH_TO_LOCALES)
+    language: NullTranslations | GNUTranslations = gettext.translation(NAME_PROJECT, localedir=PATH_TO_LOCALES)
     language.install()
     _ = language.gettext
 
     print(_("Language"))
 
-    option_map = {
+    option_map: dict[str, tuple[str, str]] = {
         'callsign': ('-c', '--callsign'),
         'tags': ('-t', '--tags'),
         'invited_by': ('-i', '--invited_by'),
@@ -29,15 +32,15 @@ def add():
 
     }
 
-    callsign = ''
-    raw_tags = ''
-    invited_by = ''
+    callsign: str = ''
+    raw_tags: str = ''
+    invited_by: str = ''
 
-    creation_time = get_time()
-    modification_time = creation_time
-    id_value = generate_id()
+    creation_time: int = get_time()
+    modification_time: int = creation_time
+    id_value: str = generate_id()
 
-    source = {
+    source: dict[str | Any, int | str | object | float | Any] = {
         '_source_schema_version': SOURCE_SCHEMA_VERSION,
         'callsign':     callsign,
         'tags':         raw_tags,
@@ -56,7 +59,7 @@ def add():
         }
     }
 
-    opts = parse_input_options(sys.argv[3:])
+    opts: list[tuple[str, str]] = parse_input_options(sys.argv[3:])
     # print(type(opts), opts)
 
     for key, value in opts.items():
@@ -71,5 +74,5 @@ def add():
     for key, value in source.items():
         print(f'{key}: {value}')
 
-    filename = PATH_TO_STORAGE + id_value + EXTENSION
+    filename: str = PATH_TO_STORAGE + id_value + EXTENSION
     save_to_yaml(source, filename)

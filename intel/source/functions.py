@@ -5,10 +5,11 @@ import datetime         #
 import secrets          #
 import string           #
 import uuid             #
+from typing import List, Any
 
-AMOUNT_OF_INVITE = 2
-INVITE_LENGTH = 7
-EXCLUDED_CHARACTERS = 'B8CDO0QIJ1GS5'
+AMOUNT_OF_INVITE: int = 2
+INVITE_LENGTH: int = 7
+EXCLUDED_CHARACTERS: str = 'B8CDO0QIJ1GS5'
 
 
 def extract_tags(raw_tags):
@@ -21,7 +22,7 @@ def extract_tags(raw_tags):
     :return: each of tags as separated element of list.
     :rtype: list.
     """
-    tags = [item.strip() for item in raw_tags.split(',') if item.strip()]
+    tags: list[Any] = [item.strip() for item in raw_tags.split(',') if item.strip()]
     return tags
 
 
@@ -52,11 +53,11 @@ def generate_invite():
     :return: list of invites, each of invite being a string.
     :rtype: list.
     """
-    alphabet = string.ascii_uppercase + string.digits
-    characters = [c for c in alphabet if c not in EXCLUDED_CHARACTERS]
+    alphabet: str = string.ascii_uppercase + string.digits
+    characters: list[str] = [c for c in alphabet if c not in EXCLUDED_CHARACTERS]
     invite = []
     for _ in range(AMOUNT_OF_INVITE):
-        token_bytes = secrets.token_bytes(INVITE_LENGTH)
+        token_bytes: bytes = secrets.token_bytes(INVITE_LENGTH)
         invite.append(''.join(characters[b % len(characters)] for b in token_bytes))
     return invite
 
