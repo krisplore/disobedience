@@ -5,7 +5,7 @@ from source.add import add as source_add
 
 
 def main():
-    args_entity_action = getopt_entity_action(sys.argv[1:])
+    args_entity_action = getopt_entity_action()
     entity = args_entity_action[0]
     # action = args_entity_action[1]
 
