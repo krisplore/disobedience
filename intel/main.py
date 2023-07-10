@@ -22,7 +22,9 @@ def main():
 
     match entity:
         case 'source':
-            source_add()
+            match action:
+                case 'add':
+                    source_add()
         case _:
             print('no')
 
