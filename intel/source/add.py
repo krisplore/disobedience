@@ -45,7 +45,7 @@ def add():
             print('лox')
             exit(2)
 
-    # valid_data = validator(data_input)
+    status_input = validator(data_input)
 
     raw_tags = source['tags']
     source['tags'] = extract_tags(raw_tags)

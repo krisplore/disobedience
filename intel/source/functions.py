@@ -137,10 +137,19 @@ def validator(data_input):
 
     failure_result = {
         'status': False,
-        'errors':
-            {
-                'callsign': ['missing']
-            }
+        'errors': {}
     }
 
-    return None
+    for field in SOURCE_REQUIRED_FIELDS:
+        field_value = data_input.get(field)
+        if field_value is None:
+            failure_result['errors'][field] = ['empty']
+        elif field_value.strip() == '':
+            failure_result['errors'][field] = ['empty']
+        elif field not in data_input:
+            failure_result['errors'][field] = ['missing']
+
+    if failure_result['errors']:
+        return failure_result
+
+    return success_result
