@@ -22,7 +22,7 @@ def read_from_yaml(filename):
 
 def save_to_yaml(source, filename):
     """
-    Saves the 'source' dictionary to a YAML file.
+    Saves a dictionary to a YAML file.
 
     :param source: The dictionary to be saved.
     :type source: dict
