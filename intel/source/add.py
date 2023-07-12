@@ -41,14 +41,14 @@ def add():
         case 'options':
             data_input = parse_options(sys.argv[4:])
         case _:
-            print('лox')
-            exit(2)
+            print(_('Method does not exist'))
+            sys.exit(2)
 
     status_info = validator(data_input)
 
     if not status_info['status']:
-        print_source_information(status_info['errors'])
-        exit(2)
+        print_source_information(_(status_info['errors']))
+        sys.exit(2)
     else:
         print_source_information(status_info)
         source.update(data_input)
