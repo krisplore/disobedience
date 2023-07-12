@@ -22,7 +22,7 @@ def read_from_yaml(filename):
         read_data: dict = yaml.safe_load(file)
         parsed_file = {
             'callsign':     read_data.get('callsign'),
-            'invited_by':   read_data.get('invited_by'),
+            'invited by':   read_data.get('invited by'),
             'tags':         ', '.join(read_data.get('tags', []))
         }
 

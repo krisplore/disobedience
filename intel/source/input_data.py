@@ -24,7 +24,7 @@ def parse_options(argv):
     option_map: dict[str, tuple[str, str]] = {
         'callsign': ('-c', '--callsign'),
         'tags': ('-t', '--tags'),
-        'invited_by': ('-i', '--invited_by')
+        'invited by': ('-i', '--invited_by')
     }
 
     try:

@@ -96,7 +96,7 @@ def create_source_stub():
         '_source_schema_version': SOURCE_SCHEMA_VERSION,
         'callsign': '',
         'tags': '',
-        'invited_by': '',
+        'invited by': '',
         'id': id_value,
         'type': set_type(),
         'reliability': 4.98,
