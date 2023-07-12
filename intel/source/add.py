@@ -1,7 +1,7 @@
 """
 Responsible for managing the process of adding a new source.
-
 """
+
 import sys              #
 import gettext          # translate the strings
 from intel.source.input_data import parse_options, parse_filename
@@ -21,9 +21,9 @@ def add():
     """
     This function handles the process of adding a new data source.
     It prompts the user for required information, generates relevant data,
-    and saves it to a YAML file.
-
+    and saves it to a file.
     """
+
     global _
     language = gettext.translation(NAME_PROJECT, localedir=PATH_TO_LOCALES)
     language.install()

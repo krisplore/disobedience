@@ -32,5 +32,6 @@ def save_to_yaml(source, filename):
 
     :return: None
     """
+
     with open(filename, 'w', encoding='utf-8') as file:
         yaml.dump(source, file)

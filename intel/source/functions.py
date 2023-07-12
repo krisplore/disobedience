@@ -1,6 +1,7 @@
 """
 This module provides functions for determining characteristics of a source.
 """
+
 import datetime         #
 import secrets          #
 import string           #
@@ -24,6 +25,8 @@ def extract_tags(raw_tags):
     :return: each of tags as separated element of list.
     :rtype: list.
     """
+
+    raw_tags = str(raw_tags)
     tags: list[Any] = [item.strip() for item in raw_tags.split(',') if item.strip()]
     return tags
 
@@ -35,6 +38,7 @@ def generate_id():
     :return: identifier for source.
     :rtype: str.
     """
+
     return str(uuid.uuid4())
 
 
@@ -45,6 +49,7 @@ def set_type():
     :return: code for type of source.
     :rtype: int.
     """
+
     return 1
 
 
@@ -55,6 +60,7 @@ def generate_invite():
     :return: list of invites, each of invite being a string.
     :rtype: list.
     """
+
     alphabet: str = string.ascii_uppercase + string.digits
     characters: list[str] = [c for c in alphabet if c not in EXCLUDED_CHARACTERS]
     invite = []
@@ -71,6 +77,7 @@ def get_time():
     :return: time of creation source data.
     :rtype: int
     """
+
     return int(datetime.datetime.now().timestamp())
 
 
@@ -81,6 +88,7 @@ def create_source_dictionary():
     Returns:
         Dict[str, Any]: The created source dictionary.
     """
+
     creation_time = get_time()
     id_value = generate_id()
 
@@ -113,6 +121,7 @@ def print_source_information(source):
     Args:
         source (Dict[str, Any]): The source dictionary.
     """
+
     for key, value in source.items():
         print(f'{key}: {value}')
 
