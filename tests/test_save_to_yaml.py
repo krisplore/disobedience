@@ -10,7 +10,6 @@ Test cases:
 import os
 import unittest
 from intel.source.yaml_functions import save_to_yaml
-import os
 
 
 class MyTestSaveToYAML(unittest.TestCase):
