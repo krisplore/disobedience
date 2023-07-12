@@ -1,3 +1,11 @@
+"""
+This module provides functions for parsing command line arguments.
+
+The module includes the following functions:
+- parse_options: Parses command line arguments and returns a dictionary of the parsed options.
+- parse_filename: Extracts the filename from the command line arguments.
+- parse_input_method: Parses the input arguments and returns the data input method.
+"""
 import getopt
 import sys
 from intel.source.functions import extract_tags
