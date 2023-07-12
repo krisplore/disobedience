@@ -1,9 +1,28 @@
+"""
+Module containing test cases for the 'save_to_yaml' function.
+
+This module provides test cases to verify the behavior of the 'save_to_yaml'
+function in saving a dictionary to a YAML file.
+
+Test cases:
+- MyTestSaveToYAML: Test case for saving a dictionary to a YAML file.
+"""
 import unittest
 from intel.source.yaml_functions import save_to_yaml
 import os
 
 
 class MyTestSaveToYAML(unittest.TestCase):
+    """
+    Test case for saving a dictionary to a YAML file using the 'save_to_yaml' function.
+
+    This test case verifies that the 'save_to_yaml' function correctly saves a dictionary
+    to a YAML file. It checks that the file is created and exists.
+
+    Methods:
+        test_save_to_yaml: Test saving a dictionary to a YAML file.
+    """
+
     def test_save_to_yaml(self):
         """
         Test saving a dictionary to a YAML file.
