@@ -10,6 +10,14 @@ from source.add import add as source_add
 
 
 def process_request(entity, action):
+    """
+    Process the request based on the provided entity and action.
+
+    :param entity: str: The entity to perform the action on.
+    :param action: str: The action to be performed on the entity.
+    :return: The result of the action performed on the entity.
+    """
+
     entity_actions = {
         'source': {
             'add': source_add,
