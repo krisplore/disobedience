@@ -38,7 +38,6 @@ def add():
     match input_method:
         case 'file':
             data_input = read_from_yaml(parse_filename(sys.argv[4:]))
-            source.update(data_input)
         case 'options':
             data_input = parse_options(sys.argv[4:])
         case _:
