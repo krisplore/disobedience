@@ -1,6 +1,7 @@
-.idea
 .coverage
+.idea
 data/
 draft.txt
 locales/*/*/*.mo
+test_files
 venv/
