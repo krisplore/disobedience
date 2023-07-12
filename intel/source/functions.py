@@ -7,7 +7,7 @@ import secrets          #
 import string           #
 import uuid             #
 from typing import List, Any
-from intel.definitions import SOURCE_SCHEMA_VERSION
+from intel.definitions import SOURCE_SCHEMA_VERSION, SOURCE_REQUIRED_FIELDS
 
 
 AMOUNT_OF_INVITE: int = 2
