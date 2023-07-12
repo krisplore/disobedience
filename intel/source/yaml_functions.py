@@ -20,7 +20,13 @@ def read_from_yaml(filename):
 
     with open(filename, 'r', encoding='utf-8') as file:
         read_data: dict = yaml.safe_load(file)
-        return read_data
+        parsed_file = {
+            'callsign':     read_data.get('callsign'),
+            'invited_by':   read_data.get('invited_by'),
+            'tags':         ', '.join(read_data.get('tags', []))
+        }
+
+        return parsed_file
 
 
 def save_to_yaml(source, filename):
