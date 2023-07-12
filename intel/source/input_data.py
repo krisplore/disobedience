@@ -63,10 +63,11 @@ def parse_filename(argv):
         print("Invalid options or missing required arguments")
         sys.exit(2)
 
-    parsed_options = list((opt, arg) for opt, arg in opts)
-    filename = parsed_options[0][1]
-
-    return filename
+    if opts:
+        filename = opts[0][1]
+        return filename
+    print("No filename provided")  # if admin did not enter option at all
+    sys.exit(2)
 
 
 def parse_input_method():
