@@ -1,5 +1,6 @@
 import getopt
 import sys
+from intel.source.functions import extract_tags
 """
 This module provides functions for parsing command line arguments.
 
@@ -39,6 +40,9 @@ def parse_options(argv):
             if opt in value:
                 parsed_options[key] = arg
                 break
+
+    if parsed_options['tags']:
+        parsed_options['tags'] = extract_tags(parsed_options['tags'])
 
     return parsed_options
 
