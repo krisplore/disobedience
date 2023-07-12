@@ -4,19 +4,17 @@ Responsible for managing the process of adding a new source.
 """
 import sys              #
 import gettext          # translate the strings
-from typing import Dict, Tuple, Any, List
-from intel.source.getopt_input import parse_input_options
-from intel.source.functions import get_time, extract_tags, \
-    generate_id, generate_invite, set_type
-from intel.source.save_to_yaml import save_to_yaml
-from intel.definitions import PATH_BASE, SOURCE_SCHEMA_VERSION
+from intel.source.input_data import parse_options, parse_filename
+from intel.source.functions import extract_tags, create_source_stub, \
+    print_source_information, validator
+from intel.source.yaml_functions import save_to_yaml
+from intel.definitions import PATH_BASE, EXTENSION_YAML, NAME_PROJECT
+from intel.source.input_data import parse_input_method
+from intel.source.yaml_functions import read_from_yaml
 
 _: None = None
-EXTENSION: str = '.yaml'
 PATH_TO_LOCALES: str = PATH_BASE + '/locales'
 PATH_TO_STORAGE: str = PATH_BASE + '/data/source/'
-NAME_PROJECT: str = 'disobedience'
-_SOURCE_SCHEMA_VERSION: int = 1
 
 
 def add():
@@ -86,7 +84,5 @@ def add():
     raw_tags = source['tags']
     source['tags'] = extract_tags(raw_tags)
 
-    print_source_information(source)
-
-    filename: str = PATH_TO_STORAGE + id_value + EXTENSION
+    filename: str = PATH_TO_STORAGE + id_value + EXTENSION_YAML
     save_to_yaml(source, filename)
