@@ -31,24 +31,7 @@ def add():
 
     print(_("Language"))
 
-    option_map: dict[str, tuple[str, str]] = {
-        'callsign': ('-c', '--callsign'),
-        'tags': ('-t', '--tags'),
-        'invited_by': ('-i', '--invited_by'),
-        'file_name': ('-r', '--read_from_file')
-
-    }
-
-    callsign: str = ''
-    raw_tags: str = ''
-    invited_by: str = ''
-
-    source, id_value = create_source_dictionary()
-    print(source, id_value)
-
-    # creation_time: int = get_time()
-    # modification_time: int = creation_time
-    # id_value: str = generate_id()
+    source, id_value = create_source_stub()
 
     # source: dict[str | Any, int | str | object | float | Any] = {
     #     '_source_schema_version': SOURCE_SCHEMA_VERSION,
