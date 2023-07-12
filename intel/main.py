@@ -48,13 +48,7 @@ def main():
     entity: object = args_entity_action[0]
     action: object = args_entity_action[1]
 
-    match entity:
-        case 'source':
-            match action:
-                case 'add':
-                    source_add()
-        case _:
-            print('no')
+    process_request(entity, action)
 
 
 if __name__ == "__main__":
