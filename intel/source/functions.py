@@ -126,5 +126,22 @@ def print_source_information(source):
         print(f'{key}: {value}')
 
 
+def validator(data_input):
+    """
+    :return:
+    :rtype: dict
+    """
 
+    success_result = {
+        'status': True
+    }
 
+    failure_result = {
+        'status': False,
+        'errors':
+            {
+                'callsign': ['missing']
+            }
+    }
+
+    return None
