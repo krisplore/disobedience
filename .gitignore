@@ -1,6 +1,6 @@
 .idea
-/data/
-locales/*/*/*.mo
-venv
+.coverage
+data/
 draft.txt
-/.coverage
+locales/*/*/*.mo
+venv/
