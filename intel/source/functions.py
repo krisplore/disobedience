@@ -6,7 +6,7 @@ import datetime         #
 import secrets          #
 import string           #
 import uuid             #
-from typing import List, Any
+from typing import Any
 from intel.definitions import SOURCE_SCHEMA_VERSION, SOURCE_REQUIRED_FIELDS
 
 
