@@ -6,9 +6,9 @@ import sys              #
 import gettext          # translate the strings
 from intel.source.input_data import parse_options, parse_filename
 from intel.source.functions import extract_tags, create_source_stub, \
-    print_source_information, validator
+    print_source_information
 from intel.source.yaml_functions import save_to_yaml
-from intel.definitions import PATH_BASE, EXTENSION_YAML, NAME_PROJECT
+from intel.definitions import PATH_BASE, SOURCE_EXTENSION_YAML, NAME_PROJECT
 from intel.source.input_data import parse_input_method
 from intel.source.yaml_functions import read_from_yaml
 
