@@ -1,5 +1,5 @@
 import unittest
-from intel.source.getopt_input import *
+from intel.source.input_data import *
 
 
 class MyTestParseCommandLine(unittest.TestCase):
@@ -15,7 +15,7 @@ class MyTestParseCommandLine(unittest.TestCase):
             The length of the return list of the function is not less than the required options.
         """
         argv = ['-c', 'Johny', '-i', 'AER24MK', '-t', 'farmer, military']
-        result = parse_input_options(argv)
+        result = parse_options(argv)
         expected_result = {'-c': 'Johny', '-i': 'AER24MK', '-t': 'farmer, military'}
         self.assertEqual(result, expected_result, 'Parser should return dict')
         #  self.assertTrue(len(result) >= len(REQUIRED_OPTIONS_FULL), 'Missing required arguments')
