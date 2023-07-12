@@ -1,20 +1,23 @@
 """
-Provide correct work with yaml files as read, write
+This module provides functions for working with YAML files.
+
+The module includes the following functions:
+- read_from_yaml: Reads data from a YAML file and returns the parsed content.
+- save_to_yaml: Saves a dictionary to a YAML file.
 """
 import yaml
 
 
 def read_from_yaml(filename):
     """
-    Read data from a YAML file and return the parsed content.
-
+    Reads data from a YAML file and returns the parsed content.
 
     :param filename: The name of the YAML file to read.
-    :type filename: st
-
-    :return: The parsed data read from the YAML file
+    :type filename: str
+    :return: A dictionary representing the parsed content from the YAML file.
     :rtype: dict
     """
+
     with open(filename, 'r', encoding='utf-8') as file:
         read_data: dict = yaml.safe_load(file)
         return read_data
