@@ -127,7 +127,12 @@ def print_source_information(source):
 
 def validator(data_input):
     """
-    :return:
+    Check if all required fields are present in the data dictionary and have non-empty values.
+
+    :param data_input: A dictionary representing the questionnaire fields and values.
+    :type data_input: dict
+
+    :return: A dictionary with the result of the checks.
     :rtype: dict
     """
 
