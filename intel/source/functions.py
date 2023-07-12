@@ -26,7 +26,6 @@ def extract_tags(raw_tags):
     :rtype: list.
     """
 
-    raw_tags = str(raw_tags)
     tags: list[Any] = [item.strip() for item in raw_tags.split(',') if item.strip()]
     return tags
 
