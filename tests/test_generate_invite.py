@@ -9,7 +9,7 @@ Test cases:
 """
 
 import unittest
-from intel.source.functions import *
+from intel.source.functions import generate_invite, INVITE_LENGTH
 
 
 class MyTestGenerateInvite(unittest.TestCase):
