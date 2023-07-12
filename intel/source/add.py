@@ -45,11 +45,15 @@ def add():
             print('лox')
             exit(2)
 
-    status_input = validator(data_input)
+    status_info = validator(data_input)
 
-    raw_tags = source['tags']
-    source['tags'] = extract_tags(raw_tags)
+    if not status_info['status']:
+        print_source_information(status_info['errors'])
+        exit(2)
+    else:
+        print_source_information(status_info)
+        source.update(data_input)
 
-    filename: str = PATH_TO_STORAGE + id_value + SOURCE_EXTENSION_YAML
-    save_to_yaml(source, filename)
-    print_source_information(source)
+        filename: str = PATH_TO_STORAGE + id_value + SOURCE_EXTENSION_YAML
+        save_to_yaml(source, filename)
+        print_source_information(source)
