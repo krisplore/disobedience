@@ -1,9 +1,9 @@
-all: lint build test
-lint: pylint bandit
-build: locales
-test: unittest coverage
+.PHONY all: lint build test
+.PHONY lint: pylint bandit
+.PHONY build: locales
+.PHONY test: unittest coverage
 
-pylint:
+.PHONY pylint:
 	# Lint with pylint
 	PYTHONPATH=$(shell pwd) venv/bin/pylint --recursive=y src tests || true
 
@@ -15,7 +15,7 @@ scan-translation:
 	pygettext3 -d disobedience -o locales/en_US/LC_MESSAGES/disobedience.pot src/add.py
 	pygettext3 -d disobedience -o locales/ru_RU/LC_MESSAGES/disobedience.pot src/add.py
 
-locales: locales/en_US/LC_MESSAGES/disobedience.mo locales/ru_RU/LC_MESSAGES/disobedience.mo
+.PHONY locales: locales/en_US/LC_MESSAGES/disobedience.mo locales/ru_RU/LC_MESSAGES/disobedience.mo
 
 locales/en_US/LC_MESSAGES/disobedience.mo: locales/en_US/LC_MESSAGES/disobedience.pot
 	# Compiling translation
@@ -39,3 +39,8 @@ install-deps:
 
 collect-deps:
 	venv/bin/pip freeze > requirements.txt
+
+clean:
+	# nothing at this time
+
+.PHONY: all lint build test pylint bandit scan-translation locales unittest coverage setup install-deps collect-deps clean
