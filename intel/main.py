@@ -4,8 +4,36 @@ Serve as the main entry point for the service.
 Handle command-line arguments, retrieve the entity and action,
 and direct the program flow accordingly.
 """
+
 from getopt_router import getopt_entity_action
 from source.add import add as source_add
+
+
+def process_request(entity, action):
+    entity_actions = {
+        'source': {
+            'add': source_add,
+            'edit': 'pass',
+            'delete': 'pass',
+            'browse': 'pass'
+        },
+        'fact': {
+            'add': 'pass',
+            'edit': 'pass',
+            'delete': 'pass',
+            'browse': 'pass'
+        }
+    }
+
+    if entity in entity_actions:
+        if action in entity_actions[entity]:
+            return entity_actions[entity][action]()
+        else:
+            print('Unknown action for', entity)
+            exit(2)
+    else:
+        print('No match for entity')
+        exit(2)
 
 
 def main():
