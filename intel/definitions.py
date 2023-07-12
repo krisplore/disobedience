@@ -16,7 +16,7 @@ Note:
 
 from pathlib import Path
 
-PATH_BASE: str = str(Path(__file__).parent.parent)
-SOURCE_SCHEMA_VERSION = 1
-EXTENSION_YAML: str = '.yaml'
 NAME_PROJECT: str = 'disobedience'
+PATH_BASE: str = str(Path(__file__).parent.parent)
+SOURCE_EXTENSION_YAML: str = '.yaml'
+SOURCE_SCHEMA_VERSION: int = 1
