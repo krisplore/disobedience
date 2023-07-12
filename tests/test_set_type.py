@@ -1,5 +1,5 @@
 import unittest
-from src.lib.functions import set_type
+from intel.source.functions import set_type
 
 
 class SetTypeTestCase(unittest.TestCase):
