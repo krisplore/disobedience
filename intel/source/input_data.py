@@ -26,7 +26,7 @@ def parse_options(argv):
     :rtype: dict
     """
 
-    option_map: dict[str, tuple[str, str]] = {
+    map_options: dict[str, tuple[str, str]] = {
         'callsign': ('-c', '--callsign'),
         'tags': ('-t', '--tags'),
         'invited by': ('-i', '--invited-by')
@@ -40,7 +40,7 @@ def parse_options(argv):
 
     parsed_options = {}
     for opt, arg in opts:
-        for key, value in option_map.items():
+        for key, value in map_options.items():
             if opt in value:
                 parsed_options[key] = arg
                 break
