@@ -7,12 +7,10 @@ from intel.source.input_data import parse_options, parse_filename
 from intel.source.functions import create_source_stub, \
     print_source_information, validator
 from intel.source.yaml_functions import save_to_yaml
-from intel.definitions import PATH_BASE, SOURCE_EXTENSION_YAML
 from intel.source.input_data import parse_input_method
 from intel.source.yaml_functions import read_from_yaml
 from intel.translation import start_translating
 
-PATH_TO_LOCALES: str = PATH_BASE + '/locales'
 _ = start_translating()
 
 
