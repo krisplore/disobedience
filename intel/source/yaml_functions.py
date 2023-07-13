@@ -23,9 +23,9 @@ def read_from_yaml(filename):
     """
 
     with open(filename, 'r', encoding='utf-8') as file:
-        parsed_file: dict = yaml.safe_load(file)
+        file_parsed: dict = yaml.safe_load(file)
 
-        return parsed_file
+        return file_parsed
 
 
 def save_to_yaml(dictionary, filename):
