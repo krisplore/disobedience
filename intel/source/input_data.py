@@ -41,7 +41,7 @@ def parse_options(argv):
                 parsed_options[key] = arg
                 break
 
-    if parsed_options['tags']:
+    if 'tags' in parsed_options:
         parsed_options['tags'] = extract_tags(parsed_options['tags'])
 
     return parsed_options
