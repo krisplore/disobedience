@@ -6,13 +6,13 @@ import datetime         #
 import secrets          #
 import string           #
 import uuid             #
-from typing import List, Any
-from intel.definitions import SOURCE_SCHEMA_VERSION
+from typing import Any
+from intel.definitions import SOURCE_SCHEMA_VERSION, SOURCE_FIELDS_REQUIRED
 
 
 AMOUNT_OF_INVITE: int = 2
 INVITE_LENGTH: int = 7
-EXCLUDED_CHARACTERS: str = 'B8CDO0QIJ1GS5'
+CHARACTERS_FOR_EXCLUDE: str = 'B8CDO0QIJ1GS5'
 
 
 def extract_tags(raw_tags):
@@ -26,7 +26,6 @@ def extract_tags(raw_tags):
     :rtype: list.
     """
 
-    raw_tags = str(raw_tags)
     tags: list[Any] = [item.strip() for item in raw_tags.split(',') if item.strip()]
     return tags
 
@@ -62,7 +61,7 @@ def generate_invite():
     """
 
     alphabet: str = string.ascii_uppercase + string.digits
-    characters: list[str] = [c for c in alphabet if c not in EXCLUDED_CHARACTERS]
+    characters: list[str] = [c for c in alphabet if c not in CHARACTERS_FOR_EXCLUDE]
     invite = []
     for _ in range(AMOUNT_OF_INVITE):
         token_bytes: bytes = secrets.token_bytes(INVITE_LENGTH)
@@ -89,20 +88,19 @@ def create_source_stub():
         Dict[str, Any]: The created source dictionary.
     """
 
-    creation_time = get_time()
-    id_value = generate_id()
+    time_of_creation = get_time()
 
     source = {
         '_source_schema_version': SOURCE_SCHEMA_VERSION,
         'callsign': '',
         'tags': '',
-        'invited_by': '',
-        'id': id_value,
+        'invited by': '',
+        'id': generate_id(),
         'type': set_type(),
         'reliability': 4.98,
         'note': 'some new note',
-        'created': creation_time,
-        'modified': creation_time,
+        'created': time_of_creation,
+        'modified': time_of_creation,
         'invite': generate_invite(),
         'stats': {
             'total facts': 0,
@@ -111,37 +109,16 @@ def create_source_stub():
         }
     }
 
-    return source, id_value
+    return source
 
 
-def print_source_information(source):
+def print_dictionary(dictionary):
     """
-    Print the information contained in the source dictionary.
+    Print the information contained in the dictionary.
 
     Args:
-        source (Dict[str, Any]): The source dictionary.
+        dictionary (Dict[str, Any]): The source dictionary.
     """
 
-    for key, value in source.items():
+    for key, value in dictionary.items():
         print(f'{key}: {value}')
-
-
-def validator(data_input):
-    """
-    :return:
-    :rtype: dict
-    """
-
-    success_result = {
-        'status': True
-    }
-
-    failure_result = {
-        'status': False,
-        'errors':
-            {
-                'callsign': ['missing']
-            }
-    }
-
-    return None

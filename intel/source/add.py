@@ -2,19 +2,17 @@
 Responsible for managing the process of adding a new source.
 """
 
-import sys              #
-import gettext          # translate the strings
+import sys
 from intel.source.input_data import parse_options, parse_filename
-from intel.source.functions import extract_tags, create_source_stub, \
-    print_source_information
+from intel.source.functions import create_source_stub, \
+    print_dictionary
+from intel.source.source_validator import validate
 from intel.source.yaml_functions import save_to_yaml
-from intel.definitions import PATH_BASE, SOURCE_EXTENSION_YAML, NAME_PROJECT
-from intel.source.input_data import parse_input_method
+from intel.source.input_data import parse_method_input
 from intel.source.yaml_functions import read_from_yaml
+from intel.translation import start_translating
 
-_: None = None
-PATH_TO_LOCALES: str = PATH_BASE + '/locales'
-PATH_TO_STORAGE: str = PATH_BASE + '/data/source/'
+_ = start_translating()
 
 
 def add():
@@ -24,32 +22,29 @@ def add():
     and saves it to a file.
     """
 
-    global _
-    language = gettext.translation(NAME_PROJECT, localedir=PATH_TO_LOCALES)
-    language.install()
-    _ = language.gettext
-
     print(_("Language"))
 
-    source, id_value = create_source_stub()
+    source = create_source_stub()
 
-    input_method = parse_input_method()
+    method_input = parse_method_input()
 
-    match input_method:
+    match method_input:
         case 'file':
-            data_input = read_from_yaml(parse_filename(sys.argv[4:]))
-            source.update(data_input)
-        case 'options':
-            data_input = parse_options(sys.argv[4:])
+            raw_source = read_from_yaml(parse_filename(sys.argv[4:]))
+        case 'opt':
+            raw_source = parse_options(sys.argv[4:])
         case _:
-            print('лox')
-            exit(2)
+            print(_('Method does not exist'))
+            sys.exit(2)
 
-    # valid_data = validator(data_input)
+    success = validate(raw_source)
 
-    raw_tags = source['tags']
-    source['tags'] = extract_tags(raw_tags)
+    if not success['status']:
+        print_dictionary(success['errors'])
+        sys.exit(2)
+    else:
+        print_dictionary(success)
+        source.update(raw_source)
 
-    filename: str = PATH_TO_STORAGE + id_value + SOURCE_EXTENSION_YAML
-    save_to_yaml(source, filename)
-    print_source_information(source)
+        save_to_yaml(source, source['id'])
+        print_dictionary(source)
