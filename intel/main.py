@@ -21,7 +21,7 @@ def process_request(entity, action):
     :return: The result of the action performed on the entity.
     """
 
-    entity_actions = {
+    entities_actions = {
         'source': {
             'add': source_add,
             'edit': 'pass',
@@ -36,9 +36,9 @@ def process_request(entity, action):
         }
     }
 
-    if entity in entity_actions:
-        if action in entity_actions[entity]:
-            return entity_actions[entity][action]()
+    if entity in entities_actions:
+        if action in entities_actions[entity]:
+            return entities_actions[entity][action]()
         print(_(f'Unknown action for {entity}'))
         sys.exit(2)
     else:
