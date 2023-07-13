@@ -25,9 +25,9 @@ def add():
 
     source = create_source_stub()
 
-    input_method = parse_input_method()
+    method_input = parse_input_method()
 
-    match input_method:
+    match method_input:
         case 'file':
             raw_source = read_from_yaml(parse_filename(sys.argv[4:]))
         case 'opt':
