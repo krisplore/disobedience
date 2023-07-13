@@ -112,7 +112,7 @@ def create_source_stub():
     return source
 
 
-def print_source_information(source):
+def print_dictionary(source):
     """
     Print the information contained in the source dictionary.
 
