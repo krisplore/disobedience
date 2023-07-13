@@ -32,21 +32,21 @@ def add():
 
     match input_method:
         case 'file':
-            data_input = read_from_yaml(parse_filename(sys.argv[4:]))
+            raw_source = read_from_yaml(parse_filename(sys.argv[4:]))
         case 'opt':
-            data_input = parse_options(sys.argv[4:])
+            raw_source = parse_options(sys.argv[4:])
         case _:
             print(_('Method does not exist'))
             sys.exit(2)
 
-    success = validator(data_input)
+    success = validator(raw_source)
 
     if not success['status']:
         print_source_information(success['errors'])
         sys.exit(2)
     else:
         print_source_information(success)
-        source.update(data_input)
+        source.update(raw_source)
 
         save_to_yaml(source, PATH_TO_STORAGE + source['id'] + SOURCE_EXTENSION_YAML)
         print_source_information(source)
