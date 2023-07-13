@@ -112,15 +112,15 @@ def create_source_stub():
     return source
 
 
-def print_dictionary(source):
+def print_dictionary(dictionary):
     """
-    Print the information contained in the source dictionary.
+    Print the information contained in the dictionary.
 
     Args:
-        source (Dict[str, Any]): The source dictionary.
+        dictionary (Dict[str, Any]): The source dictionary.
     """
 
-    for key, value in source.items():
+    for key, value in dictionary.items():
         print(f'{key}: {value}')
 
 
