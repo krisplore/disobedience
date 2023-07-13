@@ -16,3 +16,24 @@ msgstr ""
 
 msgid "Language"
 msgstr "🇬🇧 System language is English"
+
+msgid "Invalid options or missing required arguments"
+msgstr "Please enter values for the options -c/--callsign and -i/--invited_by. You can put -t/--tags in quotation marks separated by a comma."
+
+msgid "Method does not exist"
+msgstr "This input method does not exist. Please enter 'file' to read data from a file, or 'opt' to read data from the command line."
+
+msgid "No filename provided"
+msgstr "Please enter a file name with a path from the project's root folder."
+
+msgid "Invalid option or missing required argument"
+msgstr "Please enter the -f or --filename option with a value equal to the name of your file."
+
+msgid "Unknown action for source"
+msgstr "Unknown action for entity source. Please enter from the following: browse, read, edit, add, delete."
+
+msgid "Unknown action for fact"
+msgstr "Unknown action for entity fact. Please enter from the following: browse, read, edit, add, delete."
+
+msgid "No match for entity"
+msgstr "Unknown entity. Please enter source or fact."
