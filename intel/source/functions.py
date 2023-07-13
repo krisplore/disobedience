@@ -12,7 +12,7 @@ from intel.definitions import SOURCE_SCHEMA_VERSION, SOURCE_FIELDS_REQUIRED
 
 AMOUNT_OF_INVITE: int = 2
 INVITE_LENGTH: int = 7
-EXCLUDED_CHARACTERS: str = 'B8CDO0QIJ1GS5'
+CHARACTERS_FOR_EXCLUDE: str = 'B8CDO0QIJ1GS5'
 
 
 def extract_tags(raw_tags):
@@ -61,7 +61,7 @@ def generate_invite():
     """
 
     alphabet: str = string.ascii_uppercase + string.digits
-    characters: list[str] = [c for c in alphabet if c not in EXCLUDED_CHARACTERS]
+    characters: list[str] = [c for c in alphabet if c not in CHARACTERS_FOR_EXCLUDE]
     invite = []
     for _ in range(AMOUNT_OF_INVITE):
         token_bytes: bytes = secrets.token_bytes(INVITE_LENGTH)
