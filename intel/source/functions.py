@@ -7,7 +7,7 @@ import secrets          #
 import string           #
 import uuid             #
 from typing import Any
-from intel.definitions import SOURCE_SCHEMA_VERSION, SOURCE_REQUIRED_FIELDS
+from intel.definitions import SOURCE_SCHEMA_VERSION, SOURCE_FIELDS_REQUIRED
 
 
 AMOUNT_OF_INVITE: int = 2
@@ -145,7 +145,7 @@ def validator(data_input):
         'errors': {}
     }
 
-    for field in SOURCE_REQUIRED_FIELDS:
+    for field in SOURCE_FIELDS_REQUIRED:
         field_value = data_input.get(field)
         if field_value is None:
             failure_result['errors'][field] = ['empty']
