@@ -7,7 +7,7 @@ from intel.source.input_data import parse_options, parse_filename
 from intel.source.functions import create_source_stub, \
     print_source_information, validator
 from intel.source.yaml_functions import save_to_yaml
-from intel.source.input_data import parse_input_method
+from intel.source.input_data import parse_method_input
 from intel.source.yaml_functions import read_from_yaml
 from intel.translation import start_translating
 
@@ -25,7 +25,7 @@ def add():
 
     source = create_source_stub()
 
-    method_input = parse_input_method()
+    method_input = parse_method_input()
 
     match method_input:
         case 'file':

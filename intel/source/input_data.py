@@ -74,7 +74,7 @@ def parse_filename(argv):
     sys.exit(2)
 
 
-def parse_input_method():
+def parse_method_input():
     """
     Parses the input arguments and returns the data input method.
 
