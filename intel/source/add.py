@@ -5,7 +5,7 @@ Responsible for managing the process of adding a new source.
 import sys
 from intel.source.input_data import parse_options, parse_filename
 from intel.source.functions import create_source_stub, \
-    print_dictionary, validator
+    print_dictionary, validate
 from intel.source.yaml_functions import save_to_yaml
 from intel.source.input_data import parse_method_input
 from intel.source.yaml_functions import read_from_yaml
@@ -36,7 +36,7 @@ def add():
             print(_('Method does not exist'))
             sys.exit(2)
 
-    success = validator(raw_source)
+    success = validate(raw_source)
 
     if not success['status']:
         print_dictionary(success['errors'])
