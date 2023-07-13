@@ -136,25 +136,22 @@ def validator(data_input):
     :rtype: dict
     """
 
-    success_result = {
-        'status': True
-    }
-
-    failure_result = {
-        'status': False,
+    result = {
+        'status': True,
         'errors': {}
     }
 
     for field in SOURCE_FIELDS_REQUIRED:
         field_value = data_input.get(field)
+        result['errors'][field] = []
         if field_value is None:
-            failure_result['errors'][field] = ['empty']
+            result['errors'][field].append('empty')
+            result['status'] = False
         elif field_value.strip() == '':
-            failure_result['errors'][field] = ['empty']
+            result['errors'][field] = ['empty']
+            result['status'] = False
         elif field not in data_input:
-            failure_result['errors'][field] = ['missing']
+            result['errors'][field] = ['missing']
+            result['status'] = False
 
-    if failure_result['errors']:
-        return failure_result
-
-    return success_result
+    return result
