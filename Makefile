@@ -5,15 +5,16 @@
 
 .PHONY pylint:
 	# Lint with pylint
-	PYTHONPATH=$(shell pwd) venv/bin/pylint --recursive=y src tests || true
+	PYTHONPATH=$(shell pwd) venv/bin/pylint --recursive=y intel tests || true
 
 bandit:
-	venv/bin/bandit -r src tests
+	venv/bin/bandit -r intel tests
 
 scan-translation:
 	# Scan source code for gettext calls
-	pygettext3 -d disobedience -o locales/en_US/LC_MESSAGES/disobedience.pot src/add.py
-	pygettext3 -d disobedience -o locales/ru_RU/LC_MESSAGES/disobedience.pot src/add.py
+	pygettext3 -d disobedience -o locales/en_US/LC_MESSAGES/disobedience.pot intel/source/add.py
+	pygettext3 -d disobedience -o locales/en_US/LC_MESSAGES/disobedience.pot intel/main.py
+	pygettext3 -d disobedience -o locales/ru_RU/LC_MESSAGES/disobedience.pot intel/source/add.py
 
 .PHONY locales: locales/en_US/LC_MESSAGES/disobedience.mo locales/ru_RU/LC_MESSAGES/disobedience.mo
 
