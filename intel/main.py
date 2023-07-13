@@ -6,7 +6,10 @@ and direct the program flow accordingly.
 """
 import sys
 from getopt_router import getopt_entity_action
+from translation import start_translating
 from source.add import add as source_add
+
+_ = start_translating()
 
 
 def process_request(entity, action):

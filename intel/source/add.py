@@ -3,7 +3,6 @@ Responsible for managing the process of adding a new source.
 """
 
 import sys              #
-import gettext          # translate the strings
 from intel.source.input_data import parse_options, parse_filename
 from intel.source.functions import create_source_stub, \
     print_source_information, validator
@@ -11,10 +10,11 @@ from intel.source.yaml_functions import save_to_yaml
 from intel.definitions import PATH_BASE, SOURCE_EXTENSION_YAML, NAME_PROJECT
 from intel.source.input_data import parse_input_method
 from intel.source.yaml_functions import read_from_yaml
+from intel.translation import start_translating
 
-_: None = None
 PATH_TO_LOCALES: str = PATH_BASE + '/locales'
 PATH_TO_STORAGE: str = PATH_BASE + '/data/source/'
+_ = start_translating()
 
 
 def add():
@@ -23,11 +23,6 @@ def add():
     It prompts the user for required information, generates relevant data,
     and saves it to a file.
     """
-
-    global _
-    language = gettext.translation(NAME_PROJECT, localedir=PATH_TO_LOCALES)
-    language.install()
-    _ = language.gettext
 
     print(_("Language"))
 

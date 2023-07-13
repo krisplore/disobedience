@@ -8,7 +8,10 @@ The module includes the following functions:
 """
 import getopt
 import sys
+from intel.translation import start_translating
 from intel.source.functions import extract_tags
+
+_ = start_translating()
 
 
 def parse_options(argv):
