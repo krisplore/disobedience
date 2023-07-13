@@ -53,6 +53,5 @@ def add():
         print_source_information(status_info)
         source.update(data_input)
 
-        filename: str = PATH_TO_STORAGE + id_value + SOURCE_EXTENSION_YAML
-        save_to_yaml(source, filename)
+        save_to_yaml(source, PATH_TO_STORAGE + source['id_value'] + SOURCE_EXTENSION_YAML)
         print_source_information(source)
