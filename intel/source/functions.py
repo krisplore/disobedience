@@ -88,7 +88,7 @@ def create_source_stub():
         Dict[str, Any]: The created source dictionary.
     """
 
-    creation_time = get_time()
+    time_of_creation = get_time()
 
     source = {
         '_source_schema_version': SOURCE_SCHEMA_VERSION,
@@ -99,8 +99,8 @@ def create_source_stub():
         'type': set_type(),
         'reliability': 4.98,
         'note': 'some new note',
-        'created': creation_time,
-        'modified': creation_time,
+        'created': time_of_creation,
+        'modified': time_of_creation,
         'invite': generate_invite(),
         'stats': {
             'total facts': 0,
