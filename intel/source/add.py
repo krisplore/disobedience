@@ -31,7 +31,7 @@ def add():
 
     print(_("Language"))
 
-    source, id_value = create_source_stub()
+    source = create_source_stub()
 
     input_method = parse_input_method()
 

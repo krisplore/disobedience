@@ -110,7 +110,7 @@ def create_source_stub():
         }
     }
 
-    return source, id_value
+    return source
 
 
 def print_source_information(source):
