@@ -60,7 +60,7 @@ def parse_filename(argv):
     try:
         opts, args = getopt.getopt(argv, "f:", ["filename="])
     except getopt.GetoptError:
-        print("Invalid options or missing required arguments")
+        print("Invalid option or missing required argument")
         sys.exit(2)
 
     if opts:
