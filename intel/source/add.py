@@ -7,13 +7,12 @@ from intel.source.input_data import parse_options, parse_filename
 from intel.source.functions import create_source_stub, \
     print_source_information, validator
 from intel.source.yaml_functions import save_to_yaml
-from intel.definitions import PATH_BASE, SOURCE_EXTENSION_YAML, NAME_PROJECT
+from intel.definitions import PATH_BASE, SOURCE_EXTENSION_YAML
 from intel.source.input_data import parse_input_method
 from intel.source.yaml_functions import read_from_yaml
 from intel.translation import start_translating
 
 PATH_TO_LOCALES: str = PATH_BASE + '/locales'
-PATH_TO_STORAGE: str = PATH_BASE + '/data/source/'
 _ = start_translating()
 
 
@@ -48,5 +47,5 @@ def add():
         print_source_information(success)
         source.update(raw_source)
 
-        save_to_yaml(source, PATH_TO_STORAGE + source['id'] + SOURCE_EXTENSION_YAML)
+        save_to_yaml(source, source['id'])
         print_source_information(source)

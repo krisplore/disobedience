@@ -7,6 +7,10 @@ The module includes the following functions:
 """
 import yaml
 
+from intel.definitions import SOURCE_EXTENSION_YAML, PATH_BASE
+
+PATH_TO_STORAGE: str = PATH_BASE + '/data/source/'
+
 
 def read_from_yaml(filename):
     """
@@ -31,11 +35,11 @@ def save_to_yaml(dictionary, filename):
     :param dictionary: The dictionary to be saved.
     :type dictionary: dict
 
-    :param filename: The path and name of the file to save.
+    :param filename: The name of the file to save.
     :type filename: str
 
     :return: None
     """
 
-    with open(filename, 'w', encoding='utf-8') as file:
+    with open(PATH_TO_STORAGE + filename + SOURCE_EXTENSION_YAML, 'w', encoding='utf-8') as file:
         yaml.dump(dictionary, file)
