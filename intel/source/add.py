@@ -39,13 +39,13 @@ def add():
             print(_('Method does not exist'))
             sys.exit(2)
 
-    status_info = validator(data_input)
+    success = validator(data_input)
 
-    if not status_info['status']:
-        print_source_information(status_info['errors'])
+    if not success['status']:
+        print_source_information(success['errors'])
         sys.exit(2)
     else:
-        print_source_information(status_info)
+        print_source_information(success)
         source.update(data_input)
 
         save_to_yaml(source, PATH_TO_STORAGE + source['id'] + SOURCE_EXTENSION_YAML)
