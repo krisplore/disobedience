@@ -38,17 +38,17 @@ def parse_options(argv):
         print(_("Invalid options or missing required arguments"))
         sys.exit(2)
 
-    parsed_options = {}
+    options_parsed = {}
     for opt, arg in opts:
         for key, value in map_options.items():
             if opt in value:
-                parsed_options[key] = arg
+                options_parsed[key] = arg
                 break
 
-    if 'tags' in parsed_options:
-        parsed_options['tags'] = extract_tags(parsed_options['tags'])
+    if 'tags' in options_parsed:
+        options_parsed['tags'] = extract_tags(options_parsed['tags'])
 
-    return parsed_options
+    return options_parsed
 
 
 def parse_filename(argv):
