@@ -25,11 +25,11 @@ def parse_options(argv):
     option_map: dict[str, tuple[str, str]] = {
         'callsign': ('-c', '--callsign'),
         'tags': ('-t', '--tags'),
-        'invited by': ('-i', '--invited_by')
+        'invited by': ('-i', '--invited-by')
     }
 
     try:
-        opts, args = getopt.getopt(argv, "c:i:t:", ["callsign=", "invited_by=", "tags="])
+        opts, args = getopt.getopt(argv, "c:i:t:", ["callsign=", "invited-by=", "tags="])
     except getopt.GetoptError:  # invalid options - not c, i, t / if --option without argument
         print("Invalid options or missing required arguments")
         sys.exit(2)
