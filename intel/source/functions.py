@@ -124,7 +124,7 @@ def print_dictionary(dictionary):
         print(f'{key}: {value}')
 
 
-def validator(raw_source: dict) -> dict:
+def validate(raw_source: dict) -> dict:
     """
     Check if all required fields are present in the data dictionary and have non-empty values.
 
