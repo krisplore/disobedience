@@ -31,7 +31,7 @@ def parse_options(argv):
     try:
         opts, args = getopt.getopt(argv, "c:i:t:", ["callsign=", "invited-by=", "tags="])
     except getopt.GetoptError:  # invalid options - not c, i, t / if --option without argument
-        print("Invalid options or missing required arguments")
+        print(_("Invalid options or missing required arguments"))
         sys.exit(2)
 
     parsed_options = {}
@@ -60,13 +60,13 @@ def parse_filename(argv):
     try:
         opts, args = getopt.getopt(argv, "f:", ["filename="])
     except getopt.GetoptError:
-        print("Invalid option or missing required argument")
+        print(_("Invalid option or missing required argument"))
         sys.exit(2)
 
     if opts:
         filename = opts[0][1]
         return filename
-    print("No filename provided")  # if admin did not enter option at all
+    print(_("No filename provided"))  # if admin did not enter option at all
     sys.exit(2)
 
 

@@ -47,7 +47,7 @@ def add():
     status_info = validator(data_input)
 
     if not status_info['status']:
-        print_source_information(_(status_info['errors']))
+        print_source_information(status_info['errors'])
         sys.exit(2)
     else:
         print_source_information(status_info)

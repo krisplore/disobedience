@@ -36,10 +36,10 @@ def process_request(entity, action):
     if entity in entity_actions:
         if action in entity_actions[entity]:
             return entity_actions[entity][action]()
-        print('Unknown action for', entity)
+        print(_(f'Unknown action for {entity}'))
         sys.exit(2)
     else:
-        print('No match for entity')
+        print(_('No match for entity'))
         sys.exit(2)
 
 
