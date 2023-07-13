@@ -89,14 +89,13 @@ def create_source_stub():
     """
 
     creation_time = get_time()
-    id_value = generate_id()
 
     source = {
         '_source_schema_version': SOURCE_SCHEMA_VERSION,
         'callsign': '',
         'tags': '',
         'invited by': '',
-        'id': id_value,
+        'id': generate_id(),
         'type': set_type(),
         'reliability': 4.98,
         'note': 'some new note',
