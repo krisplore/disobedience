@@ -6,6 +6,7 @@ The module includes the following functions:
 - parse_filename: Extracts the filename from the command line arguments.
 - parse_input_method: Parses the input arguments and returns the data input method.
 """
+
 import getopt
 import sys
 from intel.translation import start_translating
@@ -23,8 +24,8 @@ def parse_options(argv):
 
     :return: A dictionary representing the parsed options.
     :rtype: dict
-
     """
+
     option_map: dict[str, tuple[str, str]] = {
         'callsign': ('-c', '--callsign'),
         'tags': ('-t', '--tags'),
