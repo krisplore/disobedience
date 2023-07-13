@@ -24,12 +24,12 @@ def read_from_yaml(filename):
         return parsed_file
 
 
-def save_to_yaml(source, filename):
+def save_to_yaml(dictionary, filename):
     """
     Saves a dictionary to a YAML file.
 
-    :param source: The dictionary to be saved.
-    :type source: dict
+    :param dictionary: The dictionary to be saved.
+    :type dictionary: dict
 
     :param filename: The path and name of the file to save.
     :type filename: str
@@ -38,4 +38,4 @@ def save_to_yaml(source, filename):
     """
 
     with open(filename, 'w', encoding='utf-8') as file:
-        yaml.dump(source, file)
+        yaml.dump(dictionary, file)
