@@ -2,7 +2,7 @@
 Responsible for managing the process of adding a new source.
 """
 
-import sys              #
+import sys
 from intel.source.input_data import parse_options, parse_filename
 from intel.source.functions import create_source_stub, \
     print_source_information, validator
