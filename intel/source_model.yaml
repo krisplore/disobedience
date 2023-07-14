@@ -1,0 +1,9 @@
+callsign:
+  length:
+    max: 16
+    min: 2
+  required: true
+invited by:
+  required: true
+tags:
+  required: false
