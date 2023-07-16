@@ -29,7 +29,7 @@ unittest:
 	venv/bin/coverage run -m unittest discover tests/
 
 coverage:
-	venv/bin/coverage report
+	venv/bin/coverage html --directory=reports/coverage
 
 setup:
 	python -m venv venv
