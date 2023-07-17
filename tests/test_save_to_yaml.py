@@ -7,6 +7,7 @@ function in saving a dictionary to a YAML file.
 Test cases:
 - MyTestSaveToYAML: Test case for saving a dictionary to a YAML file.
 """
+
 import os
 import unittest
 from intel.source.yaml_functions import save_to_yaml

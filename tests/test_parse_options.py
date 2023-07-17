@@ -22,6 +22,7 @@ class TestCaseParseOptions(unittest.TestCase):
     Methods:
         test_parse_options: Test if function parses command line arguments correctly.
     """
+
     def test_parse_options(self):
         """
         The function parse_options should take a list of command line arguments and return a dict
@@ -33,6 +34,7 @@ class TestCaseParseOptions(unittest.TestCase):
             The function should correctly parse the command line arguments and return the expected dict.
             The length of the return list of the function is not less than the required options.
         """
+
         argv = ['-c', 'Johny', '-i', 'AER24MK', '-t', 'farmer, military']
         result = parse_options(argv)
         expected_result = {'callsign': 'Johny', 'invited by': 'AER24MK', 'tags': ['farmer', 'military']}
