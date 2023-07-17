@@ -10,7 +10,9 @@ Test cases:
 
 import os
 import unittest
-from intel.source.yaml_functions import save_to_yaml
+
+from intel.definitions import SOURCE_EXTENSION_YAML
+from intel.source.yaml_functions import save_to_yaml, PATH_TO_STORAGE
 
 
 class TestCaseSaveToYAML(unittest.TestCase):
@@ -32,18 +34,19 @@ class TestCaseSaveToYAML(unittest.TestCase):
 
         :return: None
         """
+
         source = {
             'test_key1': 'value1',
             'test_key2': 'value2',
             'test_key3': 'value3'
         }
-        filename = 'test_file.yaml'
+        filename = 'test_file'
 
         save_to_yaml(source, filename)
 
-        self.assertTrue(os.path.exists(filename))
+        self.assertTrue(os.path.exists(PATH_TO_STORAGE + filename + SOURCE_EXTENSION_YAML))
 
-        os.remove(filename)
+        os.remove(PATH_TO_STORAGE + filename + SOURCE_EXTENSION_YAML)
 
 
 if __name__ == '__main__':
