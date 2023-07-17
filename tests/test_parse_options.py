@@ -12,7 +12,7 @@ import unittest
 from intel.source.input_options import parse_options
 
 
-class MyTestParseOptions(unittest.TestCase):
+class TestCaseParseOptions(unittest.TestCase):
     """
     Test case for parsing command line arguments using the 'parse_options' function.
 
