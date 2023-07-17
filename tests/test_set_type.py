@@ -12,7 +12,7 @@ import unittest
 from intel.source.functions import set_type
 
 
-class SetTypeTestCase(unittest.TestCase):
+class TestCaseSetType(unittest.TestCase):
     """
     Test case for setting the type of source using the 'set_type' function.
 
