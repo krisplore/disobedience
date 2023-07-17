@@ -23,7 +23,7 @@ class TestCaseGenerateID(unittest.TestCase):
         test_unique_id: Checks if function generates unique strings as IDs.
     """
 
-    def test_unique_id(self):
+    def test_generate_id(self):
         """
         Checks if function generates unique strings as IDs.
 
