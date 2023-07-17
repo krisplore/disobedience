@@ -13,7 +13,7 @@ import unittest
 from intel.source.functions import get_time
 
 
-class TestGetTime(unittest.TestCase):
+class TestCaseGetTime(unittest.TestCase):
     """
     Test case for retrieving the current time using the 'get_time' function.
 
