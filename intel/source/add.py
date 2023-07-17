@@ -3,7 +3,10 @@ Responsible for managing the process of adding a new source.
 """
 
 import sys
-from intel.source.input_data import parse_options, parse_filename
+
+from intel.source.input_file import parse_filename
+from intel.source.input_method import parse_input_method
+from intel.source.input_options import parse_options
 from intel.source.functions import create_source_stub, \
     print_dictionary
 from intel.source.source_validator import validate
@@ -26,7 +29,7 @@ def add():
 
     source = create_source_stub()
 
-    method_input = parse_method_input()
+    method_input = parse_input_method()
 
     match method_input:
         case 'file':
