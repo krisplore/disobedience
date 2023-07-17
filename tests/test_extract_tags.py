@@ -12,7 +12,7 @@ import unittest
 from intel.source.functions import extract_tags
 
 
-class TestExtractTags(unittest.TestCase):
+class TestCaseExtractTags(unittest.TestCase):
     """
     Test case for extracting tags from a string using the 'extract_tags' function.
 
