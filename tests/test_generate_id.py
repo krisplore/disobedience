@@ -12,7 +12,7 @@ import unittest
 from intel.source.functions import generate_id
 
 
-class TestGenerateID(unittest.TestCase):
+class TestCaseGenerateID(unittest.TestCase):
     """
     Test case for the generate_id function.
 
