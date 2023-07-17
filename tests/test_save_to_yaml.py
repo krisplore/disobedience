@@ -12,7 +12,7 @@ import unittest
 from intel.source.yaml_functions import save_to_yaml
 
 
-class MyTestSaveToYAML(unittest.TestCase):
+class TestCaseSaveToYAML(unittest.TestCase):
     """
     Test case for saving a dictionary to a YAML file using the 'save_to_yaml' function.
 
