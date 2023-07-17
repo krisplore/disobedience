@@ -12,7 +12,7 @@ import unittest
 from intel.source.functions import generate_invite, INVITE_LENGTH
 
 
-class MyTestGenerateInvite(unittest.TestCase):
+class TestCaseGenerateInvite(unittest.TestCase):
     """
     Test case for generating unique invites using the 'generate_invite' function.
 
