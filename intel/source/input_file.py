@@ -5,7 +5,9 @@ This module provides a function for extracting the filename from command line ar
 import getopt
 import sys
 
-from intel.translation import _
+from intel.translation import start_translating
+
+_ = start_translating()
 
 
 def parse_filename(argv):
