@@ -19,5 +19,4 @@ from pathlib import Path
 NAME_PROJECT: str = 'disobedience'
 PATH_BASE: str = str(Path(__file__).parent.parent)
 SOURCE_EXTENSION_YAML: str = '.yaml'
-SOURCE_FIELDS_REQUIRED = ['callsign', 'invited by']
 SOURCE_SCHEMA_VERSION: int = 1
