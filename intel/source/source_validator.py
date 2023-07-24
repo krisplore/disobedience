@@ -35,6 +35,11 @@ def validate(raw_source: dict, model) -> dict:
 
         if key in raw_source:
             value = raw_source[key]
+
+            if key != 'tags' and (value is None or not value.strip()):
+                result['status'] = False
+                result['errors'].append(f'{key} cannot be empty or whitespace')
+
             if 'min length' in rules and len(value) < rules['min length']:
                 result['status'] = False
                 result['errors'].append(f'The length of the {key} must be between 2 and 16 characters')
