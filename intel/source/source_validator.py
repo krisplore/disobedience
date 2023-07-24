@@ -43,6 +43,7 @@ def validate(raw_source: dict, model) -> dict:
             if 'min length' in rules and len(value) < rules['min length']:
                 result['status'] = False
                 result['errors'].append(f'The length of the {key} must be between 2 and 16 characters')
+
             if 'max length' in rules and len(value) > rules['max length']:
                 result['status'] = False
                 result['errors'].append(f'The length of the {key} must be between 2 and 16 characters')
