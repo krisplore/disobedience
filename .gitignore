@@ -5,3 +5,4 @@ draft.txt
 locales/*/*/*.mo
 test_files
 venv/
+/intel/source/files
