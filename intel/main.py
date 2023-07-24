@@ -4,6 +4,7 @@ Serve as the main entry point for the service.
 Handle command-line arguments, retrieve the entity and action,
 and direct the program flow accordingly.
 """
+
 import sys
 from getopt_router import getopt_entity_action
 from translation import start_translating
