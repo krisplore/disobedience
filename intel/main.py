@@ -5,8 +5,12 @@ Handle command-line arguments, retrieve the entity and action,
 and direct the program flow accordingly.
 """
 
+import sys
 from getopt_router import getopt_entity_action
+from translation import start_translating
 from source.add import add as source_add
+
+_ = start_translating()
 
 
 def process_request(entity, action):
@@ -18,30 +22,29 @@ def process_request(entity, action):
     :return: The result of the action performed on the entity.
     """
 
-    entity_actions = {
+    entities_actions = {
         'source': {
             'add': source_add,
-            'edit': 'pass',
-            'delete': 'pass',
-            'browse': 'pass'
+            'edit': '',
+            'delete': '',
+            'browse': ''
         },
         'fact': {
-            'add': 'pass',
-            'edit': 'pass',
-            'delete': 'pass',
-            'browse': 'pass'
+            'add': '',
+            'edit': '',
+            'delete': '',
+            'browse': ''
         }
     }
 
-    if entity in entity_actions:
-        if action in entity_actions[entity]:
-            return entity_actions[entity][action]()
-        else:
-            print('Unknown action for', entity)
-            exit(2)
+    if entity in entities_actions:
+        if action in entities_actions[entity]:
+            return entities_actions[entity][action]()
+        print(_(f'Unknown action for {entity}'))
+        sys.exit(2)
     else:
-        print('No match for entity')
-        exit(2)
+        print(_('No match for entity'))
+        sys.exit(2)
 
 
 def main():
@@ -50,8 +53,8 @@ def main():
 
     This function retrieves the entity and action from command-line arguments
     and directs the program flow based on the provided entity and action.
-
     """
+
     args_entity_action: list = getopt_entity_action()
     entity: object = args_entity_action[0]
     action: object = args_entity_action[1]

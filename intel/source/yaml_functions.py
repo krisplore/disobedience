@@ -5,7 +5,12 @@ The module includes the following functions:
 - read_from_yaml: Reads data from a YAML file and returns the parsed content.
 - save_to_yaml: Saves a dictionary to a YAML file.
 """
+
 import yaml
+
+from intel.definitions import SOURCE_EXTENSION_YAML, PATH_BASE
+
+PATH_TO_STORAGE: str = PATH_BASE + '/data/source/'
 
 
 def read_from_yaml(filename):
@@ -14,33 +19,29 @@ def read_from_yaml(filename):
 
     :param filename: The name of the YAML file to read.
     :type filename: str
+
     :return: A dictionary representing the parsed content from the YAML file.
     :rtype: dict
     """
 
     with open(filename, 'r', encoding='utf-8') as file:
-        read_data: dict = yaml.safe_load(file)
-        parsed_file = {
-            'callsign':     read_data.get('callsign'),
-            'invited_by':   read_data.get('invited_by'),
-            'tags':         ', '.join(read_data.get('tags', []))
-        }
+        file_parsed: dict = yaml.safe_load(file)
 
-        return parsed_file
+        return file_parsed
 
 
-def save_to_yaml(source, filename):
+def save_to_yaml(dictionary, filename):
     """
     Saves a dictionary to a YAML file.
 
-    :param source: The dictionary to be saved.
-    :type source: dict
+    :param dictionary: The dictionary to be saved.
+    :type dictionary: dict
 
-    :param filename: The path and name of the file to save.
+    :param filename: The name of the file to save.
     :type filename: str
 
     :return: None
     """
 
-    with open(filename, 'w', encoding='utf-8') as file:
-        yaml.dump(source, file)
+    with open(PATH_TO_STORAGE + filename + SOURCE_EXTENSION_YAML, 'w', encoding='utf-8') as file:
+        yaml.dump(dictionary, file)
