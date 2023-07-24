@@ -2,11 +2,11 @@
 This module provides functions for determining characteristics of a source.
 """
 
-import datetime         #
-import secrets          #
-import string           #
-import uuid             #
 from typing import Any
+import datetime
+import secrets
+import string
+import uuid
 from intel.definitions import SOURCE_SCHEMA_VERSION
 
 
@@ -19,10 +19,10 @@ def extract_tags(raw_tags):
     """
     Split a string by comma, remove spaces in the beginning and at the end of string.
 
-    Arg:
-       raw_tags (str): contain users tags separated by commas.
+    :param raw_tags: Contain users tags separated by commas.
+    :type: str.
 
-    :return: each of tags as separated element of list.
+    :return: Each of tags as separated element of list.
     :rtype: list.
     """
 
