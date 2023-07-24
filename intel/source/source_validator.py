@@ -28,17 +28,18 @@ def validate(raw_source: dict, model) -> dict:
         'errors': []
     }
 
-    for field in SOURCE_FIELDS_REQUIRED:
-        field_value = raw_source.get(field)
-        result['errors'][field] = []
-        if field_value is None:
-            result['errors'][field].append('empty')
+    for key, rules in model.items():
+        if rules.get('required', False) and key not in raw_source:
             result['status'] = False
-        elif field_value.strip() == '':
-            result['errors'][field] = ['empty']
-            result['status'] = False
-        elif field not in raw_source:
-            result['errors'][field] = ['missing']
-            result['status'] = False
+            result['errors'].append(f'Missing argument {key}')
+
+        if key in raw_source:
+            value = raw_source[key]
+            if 'min length' in rules and len(value) < rules['min length']:
+                result['status'] = False
+                result['errors'].append(f'The length of the {key} must be between 2 and 16 characters')
+            if 'max length' in rules and len(value) > rules['max length']:
+                result['status'] = False
+                result['errors'].append(f'The length of the {key} must be between 2 and 16 characters')
 
     return result

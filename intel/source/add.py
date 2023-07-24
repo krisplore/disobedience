@@ -40,10 +40,12 @@ def add():
             print(_('Method does not exist'))
             sys.exit(2)
 
-    success = validate(raw_source)
+    print(raw_source)
+
+    success = validate(raw_source, read_from_yaml(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML))
 
     if not success['status']:
-        print_dictionary(success['errors'])
+        print_dictionary(success)
         sys.exit(2)
     else:
         print_dictionary(success)
