@@ -25,15 +25,15 @@ def process_request(entity, action):
     entities_actions = {
         'source': {
             'add': source_add,
-            'edit': 'pass',
-            'delete': 'pass',
-            'browse': 'pass'
+            'edit': '',
+            'delete': '',
+            'browse': ''
         },
         'fact': {
-            'add': 'pass',
-            'edit': 'pass',
-            'delete': 'pass',
-            'browse': 'pass'
+            'add': '',
+            'edit': '',
+            'delete': '',
+            'browse': ''
         }
     }
 
