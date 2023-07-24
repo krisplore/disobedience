@@ -5,6 +5,7 @@ The module includes the following functions:
 - read_from_yaml: Reads data from a YAML file and returns the parsed content.
 - save_to_yaml: Saves a dictionary to a YAML file.
 """
+
 import yaml
 
 from intel.definitions import SOURCE_EXTENSION_YAML, PATH_BASE
@@ -18,6 +19,7 @@ def read_from_yaml(filename):
 
     :param filename: The name of the YAML file to read.
     :type filename: str
+
     :return: A dictionary representing the parsed content from the YAML file.
     :rtype: dict
     """
