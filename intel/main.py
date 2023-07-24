@@ -53,8 +53,8 @@ def main():
 
     This function retrieves the entity and action from command-line arguments
     and directs the program flow based on the provided entity and action.
-
     """
+
     args_entity_action: list = getopt_entity_action()
     entity: object = args_entity_action[0]
     action: object = args_entity_action[1]
