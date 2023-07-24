@@ -5,7 +5,7 @@ Module provides a function for parsing input argument and retrieving the data in
 import sys
 
 
-def parse_input_method():
+def parse_method_input():
     """
     Parses the input arguments and returns the data input method.
 

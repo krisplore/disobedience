@@ -7,7 +7,7 @@ import sys
 from intel.definitions import SOURCE_EXTENSION_YAML, PATH_TO_SOURCE_MODEL
 from intel.source.functions import create_source_stub, print_dictionary
 from intel.source.input_file import parse_filename
-from intel.source.input_method import parse_input_method
+from intel.source.input_method import parse_method_input
 from intel.source.input_options import parse_options
 from intel.source.source_validator import validate
 from intel.source.yaml_functions import read_from_yaml
@@ -28,7 +28,7 @@ def add():
 
     source = create_source_stub()
 
-    method_input = parse_input_method()
+    method_input = parse_method_input()
 
     match method_input:
         case 'file':
