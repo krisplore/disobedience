@@ -4,6 +4,7 @@ Responsible for managing the process of adding a new source.
 
 import sys
 
+from intel.definitions import SOURCE_EXTENSION_YAML, PATH_TO_SOURCE_MODEL
 from intel.source.input_file import parse_filename
 from intel.source.input_method import parse_input_method
 from intel.source.input_options import parse_options
