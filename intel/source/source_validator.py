@@ -25,7 +25,7 @@ def validate(raw_source: dict, model) -> dict:
 
     result = {
         'status': True,
-        'errors': {}
+        'errors': []
     }
 
     for field in SOURCE_FIELDS_REQUIRED:
