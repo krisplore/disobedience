@@ -4,9 +4,10 @@ The 'required' module provides utility function for data validation.
 This module contains the following function:
     - validate_required: Check if all required fields are present in the data dictionary.
 """
+from intel.source.validate.empty_string import validate_emptiness
 
 
-def validate_required(raw_source: dict, model, result):
+def validate_required(raw_source: dict, model: dict, result: dict):
     """
     Check if all required fields are present in the data dictionary.
 

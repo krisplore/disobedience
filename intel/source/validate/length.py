@@ -31,9 +31,6 @@ def validate_length(raw_source: dict, model: dict, result: dict):
     for key, rules in model.items():
         if key in raw_source:
             value = raw_source[key]
-            if not validate_emptiness(value):
-                result['status'] = False
-                result['errors'].append(f"The value for '{key}' must not be None, empty, or contain only whitespace")
 
             if 'length' in rules and 'min' in rules['length'] and len(value) < rules['length']['min']:
                 result['status'] = False
