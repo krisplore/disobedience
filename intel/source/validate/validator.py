@@ -31,6 +31,9 @@ def validate(raw_source: dict, model) -> dict:
     }
 
     result = validate_required(raw_source, model, result)
-    result = validate_length(raw_source, model, result)
+
+    for key, rules in model.items():
+        if 'length' in rules:
+            result = validate_length(raw_source, model, result)
 
     return result

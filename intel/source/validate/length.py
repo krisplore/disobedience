@@ -8,7 +8,7 @@ Note: This module is designed for use with Python 3.x.
 """
 
 
-def validate_length(raw_source, model, result):
+def validate_length(raw_source: dict, model: dict, result: dict):
     """
     Check if the length of specified fields in the data dictionary meets the validation rules.
 
@@ -31,14 +31,14 @@ def validate_length(raw_source, model, result):
         if key in raw_source:
             value = raw_source[key]
 
-            if 'min length' in rules and len(value) < rules['min length']:
+            if 'length' in rules and 'min' in rules['length'] and len(value) < rules['length']['min']:
                 result['status'] = False
-                result['errors'].append(f'The length of the {key} must be between {rules["min length"]} '
-                                        f'and {rules["max length"]} characters')
+                result['errors'].append(f'The length of the {key} must be between {rules["length"]["min"]} '
+                                        f'and {rules["length"]["max"]} characters')
 
-            if 'max length' in rules and len(value) > rules['max length']:
+            if 'length' in rules and 'max' in rules['length'] and len(value) > rules['length']['max']:
                 result['status'] = False
-                result['errors'].append(f'The length of the {key} must be between {rules["min length"]}'
-                                        f' and {rules["max length"]} characters')
+                result['errors'].append(f'The length of the {key} must be between {rules["length"]["min"]}'
+                                        f' and {rules["length"]["max"]} characters')
 
     return result
