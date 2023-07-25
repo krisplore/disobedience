@@ -30,24 +30,7 @@ def validate(raw_source: dict, model) -> dict:
         'errors': []
     }
 
-    for key, rules in model.items():
-        if rules.get('required', False) and key not in raw_source:
-            result['status'] = False
-            result['errors'].append(f'Missing argument {key}')
-
-        if key in raw_source:
-            value = raw_source[key]
-
-            if key != 'tags' and (value is None or not value.strip()):
-                result['status'] = False
-                result['errors'].append(f'{key} cannot be empty or whitespace')
-
-            if 'min length' in rules and len(value) < rules['min length']:
-                result['status'] = False
-                result['errors'].append(f'The length of the {key} must be between 2 and 16 characters')
-
-            if 'max length' in rules and len(value) > rules['max length']:
-                result['status'] = False
-                result['errors'].append(f'The length of the {key} must be between 2 and 16 characters')
+    result = validate_required(raw_source, model, result)
+    result = validate_length(raw_source, model, result)
 
     return result
