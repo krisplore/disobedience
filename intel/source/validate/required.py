@@ -6,7 +6,7 @@ This module contains the following function:
 """
 
 
-def validate_required(raw_source, model, result):
+def validate_required(raw_source: dict, model, result):
     """
     Check if all required fields are present in the data dictionary.
 

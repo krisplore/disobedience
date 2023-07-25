@@ -8,7 +8,7 @@ from intel.source.validate.length import validate_length
 from intel.source.validate.required import validate_required
 
 
-def validate(raw_source: dict, model) -> dict:
+def validate(raw_source: dict, model: dict) -> dict:
     """
     Check if all required fields are present in the data dictionary and have non-empty values.
 
