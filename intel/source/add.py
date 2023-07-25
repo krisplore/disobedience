@@ -9,7 +9,7 @@ from intel.source.functions import create_source_stub, print_dictionary
 from intel.source.input_file import parse_filename
 from intel.source.input_method import parse_method_input
 from intel.source.input_options import parse_options
-from intel.source.validate.source_validator import validate
+from intel.source.validate.validator import validate
 from intel.source.yaml_functions import read_from_yaml
 from intel.source.yaml_functions import save_to_yaml
 from intel.translation import start_translating
