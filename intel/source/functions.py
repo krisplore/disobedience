@@ -13,6 +13,7 @@ from intel.definitions import SOURCE_SCHEMA_VERSION
 AMOUNT_OF_INVITE: int = 2
 INVITE_LENGTH: int = 7
 CHARACTERS_FOR_EXCLUDE: str = 'B8CDO0QIJ1GS5'
+date_keys = ['created', 'modified']
 
 
 def extract_tags(raw_tags):
@@ -84,8 +85,8 @@ def create_stub():
     """
     Create an empty source dictionary with default values.
 
-    Returns:
-        Dict[str, Any]: The created source dictionary.
+    :return: The created source dictionary.
+    :rtype: Dict[str, Any]
     """
 
     time_of_creation = get_time()
@@ -118,9 +119,25 @@ def print_dictionary(dictionary):
     """
     Print the information contained in the dictionary.
 
-    Args:
-        dictionary (Dict[str, Any]): The source dictionary.
+    :param: dictionary (Dict[str, Any]): The dictionary.
     """
 
     for key, value in dictionary.items():
+        if key in date_keys:
+            value = format_date(value)
         print(f'{key}: {value}')
+
+
+def format_date(value):
+    """
+    Helper function to format date values in the desired format.
+
+    :param: The value to be formatted.
+
+    :return: The formatted value as a string.
+    :rtype: str.
+    """
+
+    if isinstance(value, int):
+        return datetime.datetime.fromtimestamp(value).strftime('%Y-%m-%d %H:%M:%S')
+    return str(value)
