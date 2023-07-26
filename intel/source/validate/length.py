@@ -6,7 +6,6 @@ This module contains the following function:
 
 Note: This module is designed for use with Python 3.x.
 """
-from intel.source.validate.empty_string import validate_emptiness
 
 
 def validate_length(raw_source: dict, model: dict, result: dict):
