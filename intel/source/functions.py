@@ -11,8 +11,8 @@ from intel.definitions import SOURCE_SCHEMA_VERSION
 
 
 AMOUNT_OF_INVITE: int = 2
-INVITE_LENGTH: int = 7
 CHARACTERS_FOR_EXCLUDE: str = 'B8CDO0QIJ1GS5'
+INVITE_LENGTH: int = 7
 date_keys = ['created', 'modified']
 
 
