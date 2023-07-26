@@ -12,7 +12,7 @@ Test case:
 import unittest
 from unittest.mock import patch
 
-from intel.source.load.input_method import parse_method_input
+from intel.source.load.method import parse_method_input
 
 
 class TestCaseParseMethodInput(unittest.TestCase):
