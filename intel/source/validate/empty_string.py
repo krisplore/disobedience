@@ -9,7 +9,8 @@ This module contains the following function:
 
 def validate_emptiness(raw_source: dict, model: dict, result: dict):
     """
-    Check if the values in the data dictionary are not None, not empty strings, and not containing only whitespace.
+    Check if the values in the data dictionary are not None,
+    not empty strings, and not containing only whitespace.
 
     If a required field value is None, empty, or contains only whitespace,
     the function updates the 'status' key in the 'result' dictionary to False
@@ -23,7 +24,8 @@ def validate_emptiness(raw_source: dict, model: dict, result: dict):
 
     :param result: A dictionary containing the validation result.
                     It should have 'status' key with a boolean value (True initially),
-                   and 'errors' key with an empty list to store error messages if any validation rules are violated.
+                   and 'errors' key with an empty list to store error messages
+                   if any validation rules are violated.
     :type result: dict
 
     :return: The modified 'result' dictionary after checking for missing or empty values.
@@ -37,6 +39,7 @@ def validate_emptiness(raw_source: dict, model: dict, result: dict):
             if rules.get('required', True):
                 if value is None or value.strip() == "":
                     result['status'] = False
-                    result['errors'].append(f"The value for '{key}' must not be None, empty, or contain only whitespace")
+                    result['errors'].append(f"The value for '{key}' must not be None, "
+                                            f"empty, or contain only whitespace")
 
     return result
