@@ -103,9 +103,11 @@ def create_source_stub():
         'modified': time_of_creation,
         'invite': generate_invite(),
         'stats': {
-            'total facts': 0,
-            'confirmed facts': 0,
-            'refuted facts': 0
+            'facts': {
+                'total': 0,
+                'confirmed': 0,
+                'refuted': 0
+            }
         }
     }
 
