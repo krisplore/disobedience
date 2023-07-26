@@ -34,7 +34,7 @@ def validate(raw_source: dict, model: dict) -> dict:
     result = validate_required(raw_source, model, result)
     result = validate_emptiness(raw_source, model, result)
 
-    for key, rules in model.items():
+    for rules in model.items():
         if 'length' in rules:
             result = validate_length(raw_source, model, result)
 
