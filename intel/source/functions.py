@@ -122,7 +122,9 @@ def print_dictionary(dictionary):
     :param: dictionary (Dict[str, Any]): The dictionary.
     """
 
-    for key, value in dictionary.items():
+    sorted_items = sorted(dictionary.items())
+
+    for key, value in sorted_items:
         if key in date_keys:
             value = format_date(value)
         print(f'{key}: {value}')
