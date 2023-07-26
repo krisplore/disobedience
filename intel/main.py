@@ -13,6 +13,21 @@ from intel.source.add import add as source_add
 _ = start_translating()
 
 
+def main():
+    """
+    Main function of the service.
+
+    This function retrieves the entity and action from command-line arguments
+    and directs the program flow based on the provided entity and action.
+    """
+
+    args_entity_action: list = getopt_entity_action()
+    entity: object = args_entity_action[0]
+    action: object = args_entity_action[1]
+
+    route_request(entity, action)
+
+
 def route_request(entity, action):
     """
     Process the request based on the provided entity and action.
@@ -45,21 +60,6 @@ def route_request(entity, action):
     else:
         print(_('No match for entity'))
         sys.exit(2)
-
-
-def main():
-    """
-    Main function of the service.
-
-    This function retrieves the entity and action from command-line arguments
-    and directs the program flow based on the provided entity and action.
-    """
-
-    args_entity_action: list = getopt_entity_action()
-    entity: object = args_entity_action[0]
-    action: object = args_entity_action[1]
-
-    route_request(entity, action)
 
 
 if __name__ == "__main__":
