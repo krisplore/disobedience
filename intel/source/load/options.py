@@ -5,8 +5,8 @@ and returns a dictionary of the parsed options.
 
 import getopt
 import sys
-from intel.translation import start_translating
 from intel.source.functions import extract_tags
+from intel.translation import start_translating
 
 _ = start_translating()
 
