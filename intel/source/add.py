@@ -6,7 +6,7 @@ import sys
 
 from intel.definitions import SOURCE_EXTENSION_YAML, PATH_TO_SOURCE_MODEL
 from intel.source.functions import create_stub, print_dictionary
-from intel.source.load.input_file import parse_filename
+from intel.source.load.file import parse_filename
 from intel.source.load.input_method import parse_method_input
 from intel.source.load.input_options import parse_options
 from intel.source.validate.validator import validate

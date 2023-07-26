@@ -11,7 +11,7 @@ Test case:
 
 import unittest
 
-from intel.source.load.input_file import parse_filename
+from intel.source.load.file import parse_filename
 
 
 class TestCaseParseFilename(unittest.TestCase):
