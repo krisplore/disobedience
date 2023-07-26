@@ -13,7 +13,7 @@ from intel.definitions import SOURCE_EXTENSION_YAML, PATH_BASE
 PATH_TO_STORAGE: str = PATH_BASE + '/data/source/'
 
 
-def read_from_yaml(filename):
+def read(filename):
     """
     Reads data from a YAML file and returns the parsed content.
 

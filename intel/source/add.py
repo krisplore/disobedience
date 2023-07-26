@@ -10,7 +10,7 @@ from intel.source.load.file import parse_filename
 from intel.source.load.method import parse_method_input
 from intel.source.load.options import parse_options
 from intel.source.validate.validator import validate
-from intel.source.yaml import read_from_yaml
+from intel.source.yaml import read
 from intel.source.yaml import write
 from intel.translation import start_translating
 
@@ -32,14 +32,14 @@ def add():
 
     match method_input:
         case 'file':
-            raw_source = read_from_yaml(parse_filename(sys.argv[4:]))
+            raw_source = read(parse_filename(sys.argv[4:]))
         case 'opt':
             raw_source = parse_options(sys.argv[4:])
         case _:
             print(_('Method does not exist'))
             sys.exit(2)
 
-    success = validate(raw_source, read_from_yaml(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML))
+    success = validate(raw_source, read(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML))
 
     if not success['status']:
         print_dictionary(success)
