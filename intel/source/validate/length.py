@@ -20,8 +20,8 @@ def validate_length(raw_source: dict, model: dict, result: dict):
     :type model: dict
 
     :param result: A dictionary containing the validation result.
-                   The function will update the 'status' key to False and add error messages to 'errors' list
-                   if any validation rules are violated.
+                   The function will update the 'status' key to False and
+                   add error messages to 'errors' list if any validation rules are violated.
     :type result: dict
 
     :return: The modified 'result' dictionary after checking the length of specified fields.
@@ -34,12 +34,14 @@ def validate_length(raw_source: dict, model: dict, result: dict):
 
             if 'length' in rules and 'min' in rules['length'] and len(value) < rules['length']['min']:
                 result['status'] = False
-                result['errors'].append(f'The length of the {key} must be between {rules["length"]["min"]} '
-                                        f'and {rules["length"]["max"]} characters')
+                result['errors'].append(f'The length of the {key} must be between '
+                                        f'{rules["length"]["min"]} and '
+                                        f'{rules["length"]["max"]} characters')
 
             if 'length' in rules and 'max' in rules['length'] and len(value) > rules['length']['max']:
                 result['status'] = False
-                result['errors'].append(f'The length of the {key} must be between {rules["length"]["min"]}'
-                                        f' and {rules["length"]["max"]} characters')
+                result['errors'].append(f'The length of the {key} must be between '
+                                        f'{rules["length"]["min"]} and '
+                                        f'{rules["length"]["max"]} characters')
 
     return result
