@@ -10,8 +10,8 @@ from intel.source.load.file import parse_filename
 from intel.source.load.method import parse_method_input
 from intel.source.load.options import parse_options
 from intel.source.validate.validator import validate
-from intel.source.yaml_functions import read_from_yaml
-from intel.source.yaml_functions import save_to_yaml
+from intel.source.yaml import read_from_yaml
+from intel.source.yaml import save_to_yaml
 from intel.translation import start_translating
 
 _ = start_translating()
