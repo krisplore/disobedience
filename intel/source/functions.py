@@ -127,6 +127,8 @@ def print_dictionary(dictionary):
     for key, value in sorted_items:
         if key in date_keys:
             value = format_date(value)
+        if key == 'tags' and not value:
+            value = 'the field is empty'
         print(f'{key}: {value}')
 
 
