@@ -2,10 +2,10 @@
 This module provides functions for determining characteristics of a source.
 """
 
-import datetime         #
-import secrets          #
-import string           #
-import uuid             #
+import datetime
+import secrets
+import string
+import uuid
 from typing import Any
 from intel.definitions import SOURCE_SCHEMA_VERSION
 
