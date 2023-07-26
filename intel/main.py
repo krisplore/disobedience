@@ -13,7 +13,7 @@ from intel.source.add import add as source_add
 _ = start_translating()
 
 
-def process_request(entity, action):
+def route_request(entity, action):
     """
     Process the request based on the provided entity and action.
 
@@ -59,7 +59,7 @@ def main():
     entity: object = args_entity_action[0]
     action: object = args_entity_action[1]
 
-    process_request(entity, action)
+    route_request(entity, action)
 
 
 if __name__ == "__main__":
