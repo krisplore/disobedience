@@ -2,12 +2,11 @@
 This module provides functions for working with YAML files.
 
 The module includes the following functions:
-- read_from_yaml: Reads data from a YAML file and returns the parsed content.
-- save_to_yaml: Saves a dictionary to a YAML file.
+- read: Reads data from a YAML file and returns the parsed content.
+- write: Saves a dictionary to a YAML file.
 """
 
 import yaml
-
 from intel.definitions import SOURCE_EXTENSION_YAML, PATH_BASE
 
 PATH_TO_STORAGE: str = PATH_BASE + '/data/source/'
