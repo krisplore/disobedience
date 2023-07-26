@@ -2,7 +2,8 @@
 The 'length' module provides utility functions for data validation.
 
 This module contains the following function:
-    - validate_length: Check if the length of specified fields in the data dictionary meets the validation rules.
+    - validate_length: Check if the length of specified fields in the data dictionary
+    meets the validation rules.
 
 Note: This module is designed for use with Python 3.x.
 """
