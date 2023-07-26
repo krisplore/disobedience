@@ -12,7 +12,7 @@ import os
 import unittest
 
 from intel.definitions import SOURCE_EXTENSION_YAML
-from intel.source.yaml import save_to_yaml, PATH_TO_STORAGE
+from intel.source.yaml import write, PATH_TO_STORAGE
 
 
 class TestCaseSaveToYAML(unittest.TestCase):
@@ -42,7 +42,7 @@ class TestCaseSaveToYAML(unittest.TestCase):
         }
         filename = 'test_file'
 
-        save_to_yaml(source, filename)
+        write(source, filename)
 
         self.assertTrue(os.path.exists(PATH_TO_STORAGE + filename + SOURCE_EXTENSION_YAML))
 

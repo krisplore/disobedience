@@ -30,7 +30,7 @@ def read_from_yaml(filename):
         return file_parsed
 
 
-def save_to_yaml(dictionary, filename):
+def write(dictionary, filename):
     """
     Saves a dictionary to a YAML file.
 

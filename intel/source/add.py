@@ -11,7 +11,7 @@ from intel.source.load.method import parse_method_input
 from intel.source.load.options import parse_options
 from intel.source.validate.validator import validate
 from intel.source.yaml import read_from_yaml
-from intel.source.yaml import save_to_yaml
+from intel.source.yaml import write
 from intel.translation import start_translating
 
 _ = start_translating()
@@ -48,5 +48,5 @@ def add():
         print_dictionary(success)
         source.update(raw_source)
 
-        save_to_yaml(source, source['id'])
+        write(source, source['id'])
         print_dictionary(source)
