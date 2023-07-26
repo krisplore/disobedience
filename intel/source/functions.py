@@ -80,7 +80,7 @@ def get_time():
     return int(datetime.datetime.now().timestamp())
 
 
-def create_source_stub():
+def create_stub():
     """
     Create an empty source dictionary with default values.
 

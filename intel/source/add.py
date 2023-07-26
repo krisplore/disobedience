@@ -5,7 +5,7 @@ Responsible for managing the process of adding a new source.
 import sys
 
 from intel.definitions import SOURCE_EXTENSION_YAML, PATH_TO_SOURCE_MODEL
-from intel.source.functions import create_source_stub, print_dictionary
+from intel.source.functions import create_stub, print_dictionary
 from intel.source.input_file import parse_filename
 from intel.source.input_method import parse_method_input
 from intel.source.input_options import parse_options
@@ -26,7 +26,7 @@ def add():
 
     print(_("Language"))
 
-    source = create_source_stub()
+    source = create_stub()
 
     method_input = parse_method_input()
 
