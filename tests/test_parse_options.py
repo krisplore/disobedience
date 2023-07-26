@@ -9,7 +9,7 @@ Test cases:
 - MyTestParseOptions: Test case for parsing command line arguments.
 """
 import unittest
-from intel.source.load.input_options import parse_options
+from intel.source.load.options import parse_options
 
 
 class TestCaseParseOptions(unittest.TestCase):
