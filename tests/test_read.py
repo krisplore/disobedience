@@ -3,13 +3,13 @@ Module: test_read_function.py
 
 This module contains unit test for the 'read' function in the 'intel.source.yaml' module.
 """
-
+import os
 import unittest
 
 from intel.source.yaml import read
 
 
-class TestReadFunction(unittest.TestCase):
+class TestRead(unittest.TestCase):
     """
     Test suite for the 'read' function.
 
@@ -17,7 +17,7 @@ class TestReadFunction(unittest.TestCase):
     and returns the parsed content as a Python dictionary.
     """
 
-    def test_read_valid_file(self):
+    def test_read(self):
         """
         Test reading data from a valid YAML file.
 
@@ -25,8 +25,12 @@ class TestReadFunction(unittest.TestCase):
         and parse it into a Python dictionary. It compares the result with the expected content of the file.
         """
 
-        filename = 'test_files/test.yaml'  # Replace with the path to a valid YAML file
-        expected_data = {'callsign': 'Jack', 'invited by': 'WEQ24UA', 'tags': ['tag1', 'tag2', 'tag3', 'tag4']}
+        filename = os.path.join(os.path.dirname(__file__), 'test_files', 'test.yaml')
+        expected_data = {
+            'callsign': 'Jack',
+            'invited by': 'WEQ24UA',
+            'tags': ['tag1', 'tag2', 'tag3', 'tag4']
+        }
 
         result = read(filename)
 
