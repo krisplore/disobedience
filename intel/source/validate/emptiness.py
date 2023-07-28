@@ -7,7 +7,7 @@ This module contains the following function:
 """
 
 
-def validate_emptiness(raw_source: dict, model: dict, result: dict):
+def validate_empty_string(raw_source: dict, model: dict, result: dict):
     """
     Check if the values in the data dictionary are not None,
     not empty strings, and not containing only whitespace.
