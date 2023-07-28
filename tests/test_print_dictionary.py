@@ -9,6 +9,8 @@ of a given dictionary in a specific format.
 import sys
 import unittest
 import io
+from io import StringIO
+
 from intel.source.functions import print_dictionary
 
 
@@ -20,6 +22,7 @@ class TestCasePrintDictionary(unittest.TestCase):
     Test methods within this class include 'test_print_dictionary',
     which executes the test for the 'print_dictionary' function.
     """
+    captured_output: StringIO
 
     def test_print_dictionary(self):
         """Test case for the 'print_dictionary' function.
