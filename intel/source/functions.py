@@ -15,7 +15,7 @@ from intel.definitions import SOURCE_SCHEMA_VERSION
 AMOUNT_OF_INVITE: int = 2
 CHARACTERS_FOR_EXCLUDE: str = 'B8CDO0QIJ1GS5'
 INVITE_LENGTH: int = 7
-date_keys = ['created', 'modified']
+DATE_KEYS = ['created', 'modified']
 
 
 def extract_tags(raw_tags):
@@ -160,7 +160,7 @@ def print_dictionary(dictionary):
     sorted_items = sorted(dictionary.items())
 
     for key, value in sorted_items:
-        if key in date_keys:
+        if key in DATE_KEYS:
             value = convert_date(value, get_system_locale())
         if key == 'tags' and not value:
             value = 'the field is empty'
