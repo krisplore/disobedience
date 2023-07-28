@@ -7,6 +7,8 @@ import secrets
 import string
 import uuid
 from typing import Any
+from babel import default_locale, UnknownLocaleError
+from babel.dates import format_datetime
 from intel.definitions import SOURCE_SCHEMA_VERSION
 
 
@@ -115,6 +117,39 @@ def create_stub():
     return source
 
 
+def get_system_locale():
+    """
+    Get the system locale of the user.
+
+    :return: system locale of the user as a string in the format 'language_region'.
+    :rtype:str
+    """
+    user_locale: str = default_locale()
+
+    return user_locale or 'en_US'
+
+
+def convert_date(value, user_locale):
+    """
+    Helper function to format date values in the desired format.
+
+    :param: The value to be formatted.
+
+    :return: The formatted value as a string.
+    :rtype: str.
+    """
+
+    if isinstance(value, int):
+        try:
+            d_t = datetime.datetime.fromtimestamp(value)
+            formatted_date = format_datetime(d_t, format='short', locale=user_locale)
+            return formatted_date
+        except UnknownLocaleError as error:
+            print(f"Error formatting date: {error}")
+
+    return str(value)
+
+
 def print_dictionary(dictionary):
     """
     Print the information contained in the dictionary.
@@ -126,22 +161,7 @@ def print_dictionary(dictionary):
 
     for key, value in sorted_items:
         if key in date_keys:
-            value = format_date(value)
+            value = convert_date(value, get_system_locale())
         if key == 'tags' and not value:
             value = 'the field is empty'
         print(f'{key}: {value}')
-
-
-def format_date(value):
-    """
-    Helper function to format date values in the desired format.
-
-    :param: The value to be formatted.
-
-    :return: The formatted value as a string.
-    :rtype: str.
-    """
-
-    if isinstance(value, int):
-        return datetime.datetime.fromtimestamp(value).strftime('%Y-%m-%d %H:%M:%S')
-    return str(value)
