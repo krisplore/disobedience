@@ -9,7 +9,10 @@ Test cases:
 """
 
 import unittest
-from intel.source.functions import generate_invite, INVITE_LENGTH
+
+from intel.definitions import PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML
+from intel.source.functions import generate_invite
+from intel.source.yaml import read
 
 
 class TestCaseGenerateInvite(unittest.TestCase):
@@ -32,10 +35,12 @@ class TestCaseGenerateInvite(unittest.TestCase):
             The generated invites should not contain whitespace characters.
             The length of each invite should be equal to INVITE_LENGTH.
         """
-        invite = generate_invite()
+        model = read(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML)
+        invite = generate_invite(model)
+        invite_length = model['invite']['item']['length']
         for token in invite:
             self.assertFalse(token.isspace(), 'Invite should not be a whitespace character')
-            self.assertEqual(INVITE_LENGTH, len(token), f'The length of the invite must be = {INVITE_LENGTH}')
+            self.assertEqual(invite_length, len(token), f'The length of the invite must be = {invite_length}')
         self.assertEqual(len(invite), len(set(invite)), 'Invites are not unique')
 
 
