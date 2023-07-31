@@ -33,10 +33,10 @@ def validate_required(raw_source: dict, model: dict, result: dict):
         if key in raw_source:
             value = raw_source[key]
 
-            if rules.get('required', True):
-                if value is None or value.strip() == "":
-                    result['status'] = False
-                    result['errors'].append(f"The value for '{key}' must not be None, "
-                                            f"empty, or contain only whitespace")
+            if rules.get('required', True) and rules.get('type') == 'string':
+                    if value is None or value.strip() == "":
+                        result['status'] = False
+                        result['errors'].append(f"The value for '{key}' must not be None, "
+                                                f"empty, or contain only whitespace")
 
     return result

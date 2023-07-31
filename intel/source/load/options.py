@@ -43,5 +43,7 @@ def parse_options(argv):
 
     if 'tags' in options_parsed:
         options_parsed['tags'] = extract_tags(options_parsed['tags'])
+    if 'invited by' in options_parsed:
+        options_parsed['invited by'] = extract_tags((options_parsed['invited by']))
 
     return options_parsed
