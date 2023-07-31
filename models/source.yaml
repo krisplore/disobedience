@@ -7,14 +7,15 @@ callsign:
 invited by:
   type: 'list'
   required: true
+  length:
+    min: 1
 tags:
   type: 'list'
   required: false
 invite:
   type: 'list'
-  length:
-    min: 1
+  length: 2
   item:
     length: 7
-  ignored_charset: 'B8CDO0QIJ1GS5'
+  ignored charset: 'B8CDO0QIJ1GS5'
 

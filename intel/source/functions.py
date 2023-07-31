@@ -9,12 +9,12 @@ import uuid
 from typing import Any
 from babel import default_locale, UnknownLocaleError
 from babel.dates import format_datetime
-from intel.definitions import SOURCE_SCHEMA_VERSION
+from intel.definitions import SOURCE_SCHEMA_VERSION, PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML
+from intel.source.yaml import read
 
-
-AMOUNT_OF_INVITE: int = 2
-CHARACTERS_FOR_EXCLUDE: str = 'B8CDO0QIJ1GS5'
-INVITE_LENGTH: int = 7
+# AMOUNT_OF_INVITE: int = 2
+# CHARACTERS_FOR_EXCLUDE: str = 'B8CDO0QIJ1GS5'
+# INVITE_LENGTH: int = 7
 DATE_KEYS = ['created', 'modified']
 
 
@@ -55,19 +55,23 @@ def set_type():
     return 1
 
 
-def generate_invite():
+def generate_invite(model):
     """
     Generate a list of unique invites.
 
     :return: list of invites, each of invite being a string.
     :rtype: list.
     """
-
+    amount_of_invite = model['invite']['length']
+    characters_for_exclude = model['invite']['ignored charset']
     alphabet: str = string.ascii_uppercase + string.digits
-    characters: list[str] = [c for c in alphabet if c not in CHARACTERS_FOR_EXCLUDE]
+    invite_length = model['invite']['item']['length']
     invite = []
-    for _ in range(AMOUNT_OF_INVITE):
-        token_bytes: bytes = secrets.token_bytes(INVITE_LENGTH)
+
+    characters: list[str] = [c for c in alphabet if c not in characters_for_exclude]
+
+    for _ in range(amount_of_invite):
+        token_bytes: bytes = secrets.token_bytes(invite_length)
         invite.append(''.join(characters[b % len(characters)] for b in token_bytes))
     return invite
 
@@ -104,7 +108,7 @@ def create_stub():
         'note': 'some new note',
         'created': time_of_creation,
         'modified': time_of_creation,
-        'invite': generate_invite(),
+        'invite': generate_invite(read(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML)),
         'stats': {
             'facts': {
                 'total': 0,
