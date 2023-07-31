@@ -1,9 +1,20 @@
 callsign:
+  type: 'string'
   length:
     max: 16
     min: 2
   required: true
 invited by:
+  type: 'array'
   required: true
 tags:
+  type: 'array'
   required: false
+invite:
+  type: 'array'
+  length:
+    min: 1
+  item:
+    length: 7
+  ignored_charset: 'B8CDO0QIJ1GS5'
+
