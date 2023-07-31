@@ -4,7 +4,7 @@ The 'source_validator' module provides utility function for data validation and 
 This module contains the following function:
     - validate: Check if all required fields are present in the data dictionary and have non-empty values.
 """
-from intel.source.validate.empty_string import validate_emptiness
+
 from intel.source.validate.length import validate_length
 from intel.source.validate.required import validate_required
 
@@ -32,10 +32,6 @@ def validate(raw_source: dict, model: dict) -> dict:
     }
 
     result = validate_required(raw_source, model, result)
-    result = validate_emptiness(raw_source, model, result)
-
-    for rules in model.items():
-        if 'length' in rules:
-            result = validate_length(raw_source, model, result)
+    result = validate_length(raw_source, model, result)
 
     return result
