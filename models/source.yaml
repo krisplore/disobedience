@@ -5,13 +5,13 @@ callsign:
     min: 2
   required: true
 invited by:
-  type: 'array'
+  type: 'list'
   required: true
 tags:
-  type: 'array'
+  type: 'list'
   required: false
 invite:
-  type: 'array'
+  type: 'list'
   length:
     min: 1
   item:
