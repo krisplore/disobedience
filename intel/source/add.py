@@ -41,11 +41,11 @@ def add():
     result = validate(raw_source, read(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML))
 
     if not result['status']:
-        print_dictionary(result)
+        print(result)
         sys.exit(2)
     else:
-        print_dictionary(result)
+        print_dictionary(result, read(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML))
         source.update(raw_source)
 
         write(source, source['id'])
-        print_dictionary(source)
+        print_dictionary(source, read(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML))
