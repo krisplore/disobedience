@@ -12,11 +12,6 @@ from babel.dates import format_datetime
 from intel.definitions import SOURCE_SCHEMA_VERSION, PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML
 from intel.source.yaml import read
 
-# AMOUNT_OF_INVITE: int = 2
-# CHARACTERS_FOR_EXCLUDE: str = 'B8CDO0QIJ1GS5'
-# INVITE_LENGTH: int = 7
-DATE_KEYS = ['created', 'modified']
-
 
 def extract_tags(raw_tags):
     """
@@ -154,7 +149,7 @@ def convert_date(value, user_locale):
     return str(value)
 
 
-def print_dictionary(dictionary):
+def print_dictionary(dictionary, model):
     """
     Print the information contained in the dictionary.
 
@@ -162,10 +157,9 @@ def print_dictionary(dictionary):
     """
 
     sorted_items = sorted(dictionary.items())
-
     for key, value in sorted_items:
-        if key in DATE_KEYS:
+        if key in model and model[key].get('type') == 'date':
             value = convert_date(value, get_system_locale())
-        if key == 'tags' and not value:
+        if not value:
             value = 'the field is empty'
         print(f'{key}: {value}')
