@@ -17,7 +17,8 @@ invite:
   length: 2
   item:
     length: 7
-  ignored_charset: "B8CDO0QIJ1GS5"
+  charset:
+    blacklist: "B8CDO0QIJ1GS5"
 created:
   type: "date"
 modified:
