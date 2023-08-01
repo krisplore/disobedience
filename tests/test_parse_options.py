@@ -37,7 +37,7 @@ class TestCaseParseOptions(unittest.TestCase):
 
         argv = ['-c', 'Johny', '-i', 'AER24MK', '-t', 'farmer, military']
         result = parse_options(argv)
-        expected_result = {'callsign': 'Johny', 'invited by': ['AER24MK'], 'tags': ['farmer', 'military']}
+        expected_result = {'callsign': 'Johny', 'invited_by': ['AER24MK'], 'tags': ['farmer', 'military']}
         self.assertEqual(result, expected_result, 'Parser should return dict')
         #  self.assertTrue(len(result) >= len(REQUIRED_OPTIONS_FULL), 'Missing required arguments')
 
