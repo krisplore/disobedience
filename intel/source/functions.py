@@ -57,11 +57,11 @@ def generate_invite(model):
     :return: list of invites, each of invite being a string.
     :rtype: list.
     """
-    invite_length = model['invite']['length']
-    charset_blacklist = model['invite']['charset']['blacklist']
     alphabet: str = string.ascii_uppercase + string.digits
-    invite_item_length = model['invite']['item']['length']
     invite = []
+    charset_blacklist = model.get('invite', {}).get('charset', {}).get('blacklist', ['B8CDO0QIJ1GS5'])
+    invite_item_length = model.get('invite', {}).get('item', {}).get('length', 7)
+    invite_length = model.get('invite', {}).get('length', 2)
 
     characters: list[str] = [c for c in alphabet if c not in charset_blacklist]
 
@@ -96,7 +96,7 @@ def create_stub():
         '_source_schema_version': SOURCE_SCHEMA_VERSION,
         'callsign': '',
         'tags': '',
-        'invited by': '',
+        'invited_by': '',
         'id': generate_id(),
         'type': set_type(),
         'reliability': 4.98,
