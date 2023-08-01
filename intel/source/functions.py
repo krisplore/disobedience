@@ -63,7 +63,7 @@ def generate_invite(model):
     invite_item_length = model['invite']['item']['length']
     invite = []
 
-    characters: list[str] = [c for c in alphabet if c not in characters_for_exclude]
+    characters: list[str] = [c for c in alphabet if c not in charset_blacklist]
 
     for _ in range(amount_of_invite):
         token_bytes: bytes = secrets.token_bytes(invite_length)
