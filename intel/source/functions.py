@@ -60,7 +60,7 @@ def generate_invite(model):
     invite_length = model['invite']['length']
     charset_blacklist = model['invite']['charset']['blacklist']
     alphabet: str = string.ascii_uppercase + string.digits
-    invite_length = model['invite']['item']['length']
+    invite_item_length = model['invite']['item']['length']
     invite = []
 
     characters: list[str] = [c for c in alphabet if c not in characters_for_exclude]
