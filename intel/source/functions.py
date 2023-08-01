@@ -57,8 +57,8 @@ def generate_invite(model):
     :return: list of invites, each of invite being a string.
     :rtype: list.
     """
-    amount_of_invite = model['invite']['length']
-    characters_for_exclude = model['invite']['ignored charset']
+    invite_length = model['invite']['length']
+    charset_blacklist = model['invite']['charset']['blacklist']
     alphabet: str = string.ascii_uppercase + string.digits
     invite_length = model['invite']['item']['length']
     invite = []
