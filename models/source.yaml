@@ -4,7 +4,7 @@ callsign:
     max: 16
     min: 2
   required: true
-invited by:
+invited_by:
   type: 'list'
   required: true
   length:
@@ -17,7 +17,7 @@ invite:
   length: 2
   item:
     length: 7
-  ignored charset: 'B8CDO0QIJ1GS5'
+  ignored_charset: 'B8CDO0QIJ1GS5'
 created:
   type: 'date'
 modified:
