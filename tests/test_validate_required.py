@@ -25,7 +25,7 @@ class TestValidateRequired(unittest.TestCase):
 
         raw_source = {
             "callsign": "John Doe",
-            "invited by": 'WE2PY4F',
+            "invited_by": 'WE2PY4F',
             "tags": "important information"
         }
 
@@ -49,7 +49,7 @@ class TestValidateRequired(unittest.TestCase):
         """
 
         raw_source = {
-            "invited by": 'WE2PY4F',
+            "invited_by": 'WE2PY4F',
             "tags": "important information"
         }
 
