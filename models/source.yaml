@@ -1,24 +1,24 @@
 callsign:
-  type: 'string'
+  type: "string"
   length:
     max: 16
     min: 2
   required: true
 invited_by:
-  type: 'list'
+  type: "list"
   required: true
   length:
     min: 1
 tags:
-  type: 'list'
+  type: "list"
   required: false
 invite:
-  type: 'list'
+  type: "list"
   length: 2
   item:
     length: 7
-  ignored_charset: 'B8CDO0QIJ1GS5'
+  ignored_charset: "B8CDO0QIJ1GS5"
 created:
-  type: 'date'
+  type: "date"
 modified:
-  type: 'date'
+  type: "date"
