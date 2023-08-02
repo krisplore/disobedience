@@ -13,7 +13,7 @@ from intel.definitions import SOURCE_SCHEMA_VERSION, PATH_TO_SOURCE_MODEL, SOURC
 from intel.source.my_yaml import read
 
 
-def extract_tags(raw_tags):
+def extract_items_from_list(raw_list):
     """
     Split a string by comma, remove spaces in the beginning and at the end of string.
 
