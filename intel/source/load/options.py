@@ -5,7 +5,7 @@ and returns a dictionary of the parsed options.
 
 import getopt
 import sys
-from intel.source.functions import extract_tags
+from intel.source.functions import extract_items_from_list
 from intel.translation import start_translating
 
 _ = start_translating()
@@ -42,8 +42,8 @@ def parse_options(argv):
                 break
 
     if 'tags' in options_parsed:
-        options_parsed['tags'] = extract_tags(options_parsed['tags'])
+        options_parsed['tags'] = extract_items_from_list(options_parsed['tags'])
     if 'invited_by' in options_parsed:
-        options_parsed['invited_by'] = extract_tags((options_parsed['invited_by']))
+        options_parsed['invited_by'] = extract_items_from_list((options_parsed['invited_by']))
 
     return options_parsed
