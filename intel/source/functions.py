@@ -24,8 +24,8 @@ def extract_items_from_list(raw_list):
     :rtype: list.
     """
 
-    tags: list[Any] = [item.strip() for item in raw_tags.split(',') if item.strip()]
-    return tags
+    parsed_list: list[Any] = [item.strip() for item in raw_list.split(',') if item.strip()]
+    return parsed_list
 
 
 def generate_id():
