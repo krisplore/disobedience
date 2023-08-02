@@ -10,6 +10,10 @@ invited_by:
   length:
     min: 1
 tags:
+  options:
+    short: '-t'
+    long: '--tags'
+  can_be_edited: true
   type: "list"
   required: false
 invite:
@@ -23,3 +27,8 @@ created:
   type: "date"
 modified:
   type: "date"
+id:
+  can_be_searched: true
+  options:
+    short: '-i'
+    long: '--id'
