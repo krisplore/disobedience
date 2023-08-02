@@ -6,7 +6,7 @@ This module contains unit test for the 'read' function in the 'intel.source.yaml
 import os
 import unittest
 
-from intel.source.yaml import read
+from intel.source.my_yaml import read
 
 
 class TestRead(unittest.TestCase):
