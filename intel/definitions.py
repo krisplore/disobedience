@@ -21,3 +21,4 @@ PATH_BASE: str = str(Path(__file__).parent.parent)
 PATH_TO_SOURCE_MODEL = "models/source"
 SOURCE_EXTENSION_YAML: str = '.yaml'
 SOURCE_SCHEMA_VERSION: int = 1
+PATH_TO_STORAGE: str = PATH_BASE + '/data/source/'
