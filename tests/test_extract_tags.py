@@ -9,7 +9,7 @@ Test cases:
 """
 
 import unittest
-from intel.source.functions import extract_tags
+from intel.source.functions import extract_items_from_list
 
 
 class TestCaseExtractTags(unittest.TestCase):
@@ -33,7 +33,7 @@ class TestCaseExtractTags(unittest.TestCase):
         """
         tags_string = 'tag1 , tag2 , tag3 '
         expected_tags = ['tag1', 'tag2', 'tag3']
-        self.assertEqual(extract_tags(tags_string), expected_tags)
+        self.assertEqual(extract_items_from_list(tags_string), expected_tags)
 
 
 if __name__ == '__main__':
