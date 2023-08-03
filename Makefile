@@ -26,6 +26,9 @@ locales/ru_RU/LC_MESSAGES/disobedience.mo: locales/ru_RU/LC_MESSAGES/disobedienc
 	# Compiling ru translation
 	msgfmt --check --strict -v -o $@ $<
 
+smoke-test:
+	intel/main.py source add opt -c Jack -i '36UKB2D, 9PH3XW4'
+
 unittest:
 	venv/bin/coverage run -m unittest discover tests/
 
