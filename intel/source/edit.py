@@ -1,6 +1,7 @@
-#!/usr/bin/env python3
-
-import getopt
+"""
+The module provides work with edit functions. Responsible for overwriting files with new values from the administrator
+or user. Validates values in progress. Writes the file back to the storage.
+"""
 import sys
 
 from intel.definitions import PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML, PATH_TO_STORAGE
@@ -11,14 +12,11 @@ from intel.source.validate.validator import validate
 
 
 def edit():
-    user_id = ''
-    raw_tags = ''
-
-    try:
-        opts, args = getopt.getopt(sys.argv[1:], '', ['where.id=', 'new.tags='])
-    except getopt.GetoptError as err:
-        print(str(err))
-        sys.exit(2)
+    """
+    The function receives the parsed data, merges two dictionaries: old and new data, validates the received dictionary
+    and overwrites the file.
+    :return: None
+    """
 
     arguments = parse_edit_options(sys.argv[3:])
 
