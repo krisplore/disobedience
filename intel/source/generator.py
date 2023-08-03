@@ -34,6 +34,3 @@ def generate_options(model):
                 editable_options[field] = (option['short'], option['long'])
 
     return searchable_options, editable_options
-
-
-
