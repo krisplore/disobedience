@@ -28,6 +28,7 @@ locales/ru_RU/LC_MESSAGES/disobedience.mo: locales/ru_RU/LC_MESSAGES/disobedienc
 
 smoke-test:
 	intel/main.py source add opt -c Jack -i '36UKB2D, 9PH3XW4'
+	intel/main.py source edit --where.id ac03eeee-b7df-451d-8bda-12ab2f1f6a21 --new.tags 'X, Y, Z'
 
 unittest:
 	venv/bin/coverage run -m unittest discover tests/
