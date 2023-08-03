@@ -9,6 +9,7 @@ import sys
 from intel.getopt_router import getopt_entity_action
 from intel.source.add import add as source_add
 from intel.translation import start_translating
+from intel.source.edit import edit as source_edit
 
 _ = start_translating()
 
@@ -40,7 +41,7 @@ def route_request(entity, action):
     entities_actions = {
         'source': {
             'add': source_add,
-            'edit': '',
+            'edit': source_edit,
             'delete': '',
             'browse': ''
         },
