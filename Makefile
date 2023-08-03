@@ -1,7 +1,7 @@
 .PHONY all: lint build test
 .PHONY lint: pylint bandit
 .PHONY build: locales
-.PHONY test: unittest coverage
+.PHONY test: smoke-test unittest coverage
 
 .PHONY pylint:
 	# Lint with pylint
