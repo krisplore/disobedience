@@ -28,10 +28,10 @@ def parse_edit_options(argv):
 
     new_values = {}
     for opt, arg in opts:
-        if opt[:7] == '--where':
+        if '--where' in opt:
             key = opt[8:]
             new_values[key] = arg
-        elif opt[:5] == '--new':
+        elif '--new' in opt:
             key = opt[6:]
             new_values[key] = arg
 
