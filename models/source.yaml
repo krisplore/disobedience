@@ -4,18 +4,22 @@ callsign:
     max: 16
     min: 2
   required: true
+  can_be_edited: true
+  option: "callsign"
 invited_by:
-  type: "list"
+  type: "list string separator comma"
   required: true
   length:
     min: 1
-tags:
-  options:
-    short: '-t'
-    long: '--tags'
+  can_be_extracted: true
   can_be_edited: true
-  type: "list"
+  option: "invited-by"
+tags:
+  type: "list string separator comma"
   required: false
+  can_be_extracted: true
+  option: "tags"
+  can_be_edited: true
 invite:
   type: "list"
   length: 2
@@ -23,12 +27,21 @@ invite:
     length: 7
   charset:
     blacklist: "B8CDO0QIJ1GS5"
+  can_be_edited: true
+  option: "invite"
 created:
   type: "date"
 modified:
   type: "date"
 id:
   can_be_searched: true
-  options:
-    short: '-i'
-    long: '--id'
+  option: "id"
+type:
+  can_be_edited: true
+  option: "type"
+reliability:
+  can_be_edited: true
+  option: "reliability"
+note:
+  can_be_edited: true
+  option: "note"
