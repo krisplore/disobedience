@@ -35,7 +35,7 @@ def parse_edit_options(argv):
             key = opt[6:]
             new_values[key] = arg
 
-    if new_values['tags']:
+    if new_values == 'tags':
         new_values['tags'] = extract_items_from_list(new_values['tags'])
 
     return new_values
