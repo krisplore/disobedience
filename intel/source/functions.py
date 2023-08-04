@@ -163,3 +163,13 @@ def print_dictionary(dictionary, model):
         if not value:
             value = 'the field is empty'
         print(f'{key}: {value}')
+
+
+def replace_hyphen_with_underscore(input_string):
+    """
+    Replace hyphens with underscores in the input string.
+
+    :param input_string: The input string where hyphens need to be replaced.
+    :return: The modified string with hyphens replaced by underscores.
+    """
+    return input_string.replace('-', '_')
