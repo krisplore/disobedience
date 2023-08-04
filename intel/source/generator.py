@@ -24,13 +24,15 @@ def generate_options(model):
 
     for field, properties in model.items():
         if 'can_be_searched' in properties and properties['can_be_searched']:
-            option = properties.get('options', {})
-            if 'short' in option and 'long' in option:
-                searchable_options[field] = (option['short'], option['long'])
+            option = properties.get('option', {})
+            searchable_options[field] = 'where.' + option + '='
 
         if 'can_be_edited' in properties and properties['can_be_edited']:
-            option = properties.get('options', {})
-            if 'short' in option and 'long' in option:
-                editable_options[field] = (option['short'], option['long'])
+            option = properties.get('option', {})
+            editable_options[field] = 'new.' + option + '='
 
-    return searchable_options, editable_options
+    options = searchable_options.copy()
+    options.update(editable_options)
+    options = list(options.values())
+
+    return options
