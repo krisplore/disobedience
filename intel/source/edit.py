@@ -6,7 +6,7 @@ import sys
 
 from intel.definitions import PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML, PATH_TO_STORAGE
 from intel.source.edit_parser import parse_edit_options
-from intel.source.functions import print_dictionary
+from intel.source.functions import print_dictionary, get_time
 from intel.source.my_yaml import read, write
 from intel.source.validate.validator import validate
 
@@ -24,6 +24,7 @@ def edit():
 
     source = read(PATH_TO_STORAGE + filename + SOURCE_EXTENSION_YAML)
 
+    source['modified'] = get_time()
     source.update(arguments)
 
     model = read(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML)
