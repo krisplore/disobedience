@@ -29,10 +29,10 @@ def parse_edit_options(argv):
     new_values = {}
     for opt, arg in opts:
         if '--where' in opt:
-            key = opt[8:]
+            key = opt.split('.')[-1]
             new_values[key] = arg
         elif '--new' in opt:
-            key = opt[6:]
+            key = opt.split('.')[-1]
             new_values[key] = arg
 
     if new_values == 'tags':
