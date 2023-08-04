@@ -13,19 +13,19 @@ from intel.definitions import SOURCE_SCHEMA_VERSION, PATH_TO_SOURCE_MODEL, SOURC
 from intel.source.my_yaml import read
 
 
-def extract_items_from_list(raw_list):
+def extract_items_from_list(new_values, model):
     """
-    Split a string by comma, remove spaces in the beginning and at the end of string.
+    Process the new_values dictionary and handle fields with type "list string separator comma".
 
-    Arg:
-       raw_tags (str): contain users tags separated by commas.
-
-    :return: each of tags as separated element of list.
-    :rtype: list.
+    :param new_values: A dictionary containing field names and their values.
+    :param model: The dictionary representing the model containing field properties and options.
+    :return: None
     """
-
-    parsed_list: list[Any] = [item.strip() for item in raw_list.split(',') if item.strip()]
-    return parsed_list
+    for field, value in new_values.items():
+        field_type = model.get(field, {}).get('type', '')
+        if 'list string separator comma' in field_type:
+            extracted_items = [item.strip() for item in value.split(',') if item.strip()]
+            new_values[field] = extracted_items
 
 
 def generate_id():
