@@ -21,7 +21,7 @@ def parse_edit_options(argv):
     options = ['where.id=', 'new.tags=', 'new.note=']
 
     try:
-        opts, args = getopt.getopt(argv, '', options)
+        opts = getopt.getopt(argv, '', options)[0]
     except getopt.GetoptError as err:
         print(str(err))
         sys.exit(2)
