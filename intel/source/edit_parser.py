@@ -18,24 +18,24 @@ def parse_edit_options(argv):
     :rtype: dict
     """
 
-    user_id = ''
-    raw_tags = ''
+    options = ['where.id=', 'new.tags=', 'new.note=']
 
     try:
-        opts, args = getopt.getopt(argv, '', ['where.id=', 'new.tags='])
+        opts, args = getopt.getopt(argv, '', options)
     except getopt.GetoptError as err:
         print(str(err))
         sys.exit(2)
 
+    new_values = {}
     for opt, arg in opts:
-        if opt == '--where.id':
-            user_id = arg
-        elif opt == '--new.tags':
-            raw_tags = arg
+        if opt[:7] == '--where':
+            key = opt[8:]
+            new_values[key] = arg
+        elif opt[:5] == '--new':
+            key = opt[6:]
+            new_values[key] = arg
 
-    parse_arguments = {
-        'id': user_id,
-        'tags': extract_items_from_list(raw_tags),
-    }
+    if new_values['tags']:
+        new_values['tags'] = extract_items_from_list(new_values['tags'])
 
-    return parse_arguments
+    return new_values
