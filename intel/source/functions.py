@@ -100,7 +100,7 @@ def create_stub():
         'id': generate_id(),
         'type': set_type(),
         'reliability': 4.98,
-        'note': 'some new note',
+        'note': '',
         'created': time_of_creation,
         'modified': time_of_creation,
         'invite': generate_invite(read(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML)),
