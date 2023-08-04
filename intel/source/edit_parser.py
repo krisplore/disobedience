@@ -41,5 +41,4 @@ def parse_edit_options(argv):
 
     extract_items_from_list(new_values, model)
 
-
     return new_values
