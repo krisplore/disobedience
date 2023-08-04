@@ -45,3 +45,15 @@ reliability:
 note:
   can_be_edited: true
   option: "note"
+stats:
+  facts:
+    total:
+      can_be_edited: true
+      option: ""
+    confirmed:
+      can_be_edited: true
+      option: ""
+    refuted:
+      can_be_edited: true
+      option: ""
+
