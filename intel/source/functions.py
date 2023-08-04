@@ -6,7 +6,6 @@ import datetime
 import secrets
 import string
 import uuid
-from typing import Any
 from babel import default_locale, UnknownLocaleError
 from babel.dates import format_datetime
 from intel.definitions import SOURCE_SCHEMA_VERSION, PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML
