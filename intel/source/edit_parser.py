@@ -5,7 +5,10 @@ The module is responsible for the function that retrieves the values for the opt
 import getopt
 import sys
 
+from intel.definitions import PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML
 from intel.source.functions import extract_items_from_list
+from intel.source.generator import generate_options
+from intel.source.my_yaml import read
 
 
 def parse_edit_options(argv):
@@ -17,8 +20,7 @@ def parse_edit_options(argv):
     :return: a dictionary from command line values
     :rtype: dict
     """
-
-    options = ['where.id=', 'new.tags=', 'new.note=']
+    options = generate_options(read(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML))
 
     try:
         opts = getopt.getopt(argv, '', options)[0]
