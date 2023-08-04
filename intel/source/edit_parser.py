@@ -20,7 +20,8 @@ def parse_edit_options(argv):
     :return: a dictionary from command line values
     :rtype: dict
     """
-    options = generate_options(read(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML))
+    model = read(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML)
+    options = generate_options(model)
 
     try:
         opts = getopt.getopt(argv, '', options)[0]
