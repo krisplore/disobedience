@@ -5,7 +5,10 @@ and returns a dictionary of the parsed options.
 
 import getopt
 import sys
+
+from intel.definitions import PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML
 from intel.source.functions import extract_items_from_list
+from intel.source.my_yaml import read
 from intel.translation import start_translating
 
 _ = start_translating()
@@ -41,9 +44,6 @@ def parse_options(argv):
                 options_parsed[key] = arg
                 break
 
-    if 'tags' in options_parsed:
-        options_parsed['tags'] = extract_items_from_list(options_parsed['tags'])
-    if 'invited_by' in options_parsed:
-        options_parsed['invited_by'] = extract_items_from_list((options_parsed['invited_by']))
+    extract_items_from_list(options_parsed, read(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML))
 
     return options_parsed
