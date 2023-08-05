@@ -2,6 +2,7 @@
 The module provides work with edit functions. Responsible for overwriting files with new values from the administrator
 or user. Validates values in progress. Writes the file back to the storage.
 """
+import logging
 import sys
 
 from intel.definitions import PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML, PATH_TO_STORAGE
