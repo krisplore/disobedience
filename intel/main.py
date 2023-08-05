@@ -22,7 +22,6 @@ py_formatter = logging.Formatter("%(name)s %(asctime)s %(levelname)s %(message)s
 py_handler.setFormatter(py_formatter)
 py_logger.addHandler(py_handler)
 
-py_logger.info(f"Testing the custom logger for module {__name__}...")
 
 def main():
     """
