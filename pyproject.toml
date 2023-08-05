@@ -343,11 +343,11 @@ known-third-party = ["enchant"]
 # preferred-modules =
 
 [tool.pylint.logging]
-# The type of string formatting that logging methods do. `old` means using %
+# The type of string formatting that logs methods do. `old` means using %
 # formatting, `new` is for `{}` formatting.
 logging-format-style = "old"
 
-# Logging modules to check that the string format arguments are in logging
+# Logging modules to check that the string format arguments are in logs
 # function parameter format.
 logging-modules = ["logging"]
 
