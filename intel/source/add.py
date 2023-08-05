@@ -15,14 +15,14 @@ from intel.translation import start_translating
 
 _ = start_translating()
 
-py_logger = logging.getLogger(__name__)
-py_logger.setLevel(logging.INFO)
+py_logger2 = logging.getLogger(__name__)
+py_logger2.setLevel(logging.INFO)
 
 py_handler = logging.FileHandler(f"logs/{__name__}.log", mode='w')
 py_formatter = logging.Formatter("%(name)s %(asctime)s %(levelname)s %(message)s")
 
 py_handler.setFormatter(py_formatter)
-py_logger.addHandler(py_handler)
+py_logger2.addHandler(py_handler)
 
 
 def add():
@@ -31,44 +31,44 @@ def add():
     It prompts the user for required information, generates relevant data,
     and saves it to a file.
     """
-    py_logger.info("Add function started")
+    py_logger2.info("Add function started")
     print(_("Language"))
 
     source = create_stub()
-    py_logger.info("The stub for the source was created")
+    py_logger2.info("The stub for the source was created")
 
     method_input = parse_method_input()
-    py_logger.info("Input method defined")
+    py_logger2.info("Input method defined")
 
     match method_input:
         case 'file':
-            py_logger.info("Case input method - file defined")
+            py_logger2.info("Case input method - file defined")
             raw_source = read(parse_filename(sys.argv[4:]))
         case 'opt':
-            py_logger.info("Case input method - options defined")
+            py_logger2.info("Case input method - options defined")
             raw_source = parse_options(sys.argv[4:])
         case _:
-            py_logger.error("Case input method not defined")
+            py_logger2.error("Case input method not defined")
             print(_('Method does not exist'))
             sys.exit(2)
 
     result = validate(raw_source, read(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML))
 
     if not result['status']:
-        py_logger.error("File validation failed")
+        py_logger2.error("File validation failed")
         print(result)
         sys.exit(2)
     else:
-        py_logger.info("File validation completed successfully")
+        py_logger2.info("File validation completed successfully")
 
         print_dictionary(result, read(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML))
-        py_logger.info("The result was printed")
+        py_logger2.info("The result was printed")
 
         source.update(raw_source)
-        py_logger.info("The raw source was merged into the stub source")
+        py_logger2.info("The raw source was merged into the stub source")
 
         write(source, source['id'])
-        py_logger.info("The source was written to a file")
+        py_logger2.info("The source was written to a file")
 
         print_dictionary(source, read(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML))
-        py_logger.info("The source was printed")
+        py_logger2.info("The source was printed")
