@@ -4,9 +4,19 @@ The 'source_validator' module provides utility function for data validation and 
 This module contains the following function:
     - validate: Check if all required fields are present in the data dictionary and have non-empty values.
 """
+import logging
 
 from intel.source.validate.length import validate_length
 from intel.source.validate.required import validate_required
+
+py_logger6 = logging.getLogger(__name__)
+py_logger6.setLevel(logging.INFO)
+
+py_handler = logging.FileHandler(f"logs/{__name__}.log", mode='w')
+py_formatter = logging.Formatter("%(name)s %(asctime)s %(levelname)s %(message)s")
+
+py_handler.setFormatter(py_formatter)
+py_logger6.addHandler(py_handler)
 
 
 def validate(raw_source: dict, model: dict) -> dict:
@@ -25,6 +35,7 @@ def validate(raw_source: dict, model: dict) -> dict:
              If no errors are found, the 'errors' list will be empty.
     :rtype: dict
     """
+    py_logger6.info("validate function was called")
 
     result = {
         'status': True,
@@ -32,6 +43,8 @@ def validate(raw_source: dict, model: dict) -> dict:
     }
 
     result = validate_required(raw_source, model, result)
+    py_logger6.info("Result after validate_required received")
     result = validate_length(raw_source, model, result)
+    py_logger6.info("Result after validate_length received")
 
     return result
