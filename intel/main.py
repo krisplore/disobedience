@@ -17,7 +17,7 @@ _ = start_translating()
 py_logger = logging.getLogger(__name__)
 py_logger.setLevel(logging.INFO)
 
-py_handler = logging.FileHandler(f"logging/{__name__}.log", mode='w')
+py_handler = logging.FileHandler(f"logs/{__name__}.log", mode='w')
 py_formatter = logging.Formatter("%(name)s %(asctime)s %(levelname)s %(message)s")
 
 py_handler.setFormatter(py_formatter)
