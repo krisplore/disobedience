@@ -13,7 +13,16 @@ from intel.translation import start_translating
 from intel.source.edit import edit as source_edit
 
 _ = start_translating()
+py_logger = logging.getLogger(__name__)
+py_logger.setLevel(logging.INFO)
 
+py_handler = logging.FileHandler(f"{__name__}.log", mode='w')
+py_formatter = logging.Formatter("%(name)s %(asctime)s %(levelname)s %(message)s")
+
+py_handler.setFormatter(py_formatter)
+py_logger.addHandler(py_handler)
+
+py_logger.info(f"Testing the custom logger for module {__name__}...")
 
 def main():
     """
@@ -26,7 +35,7 @@ def main():
     args_entity_action: list = getopt_entity_action()
     entity: object = args_entity_action[0]
     action: object = args_entity_action[1]
-
+    py_logger.info("Entity and action parsed")
     route_request(entity, action)
 
 
@@ -56,10 +65,13 @@ def route_request(entity, action):
 
     if entity in entities_actions:
         if action in entities_actions[entity]:
+            py_logger.info("Entity and action defined")
             return entities_actions[entity][action]()
+        py_logger.error("Action not defined")
         print(_(f'Unknown action for {entity}'))
         sys.exit(2)
     else:
+        py_logger.error("Entity not defined")
         print(_('No match for entity'))
         sys.exit(2)
 
