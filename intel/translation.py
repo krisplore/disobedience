@@ -9,9 +9,21 @@ to translate strings into the user's preferred language.
 """
 
 import gettext
+import logging
+
 from intel.definitions import NAME_PROJECT, PATH_BASE
 
 PATH_TO_LOCALES: str = PATH_BASE + '/locales'
+
+
+py_logger9 = logging.getLogger(__name__)
+py_logger9.setLevel(logging.INFO)
+
+py_handler = logging.FileHandler(f"logs/{__name__}.log", mode='w')
+py_formatter = logging.Formatter("%(name)s %(asctime)s %(levelname)s %(message)s")
+
+py_handler.setFormatter(py_formatter)
+py_logger9.addHandler(py_handler)
 
 
 def start_translating():
@@ -21,9 +33,15 @@ def start_translating():
     :return: A function that can be used to translate strings into the user's preferred language.
     :rtype: function
     """
+    py_logger9.info("start_translating function was called")
 
     language = gettext.translation(NAME_PROJECT, localedir=PATH_TO_LOCALES)
-    language.install()
+
+    try:
+        language.install()
+        py_logger9.info("Translation language installed successfully.")
+    except FileNotFoundError as err:
+        py_logger9.error("Failed to install translation language: %s", err)
     translate = language.gettext
 
     return translate
