@@ -6,3 +6,5 @@ locales/*/*/*.mo
 venv/
 /reports
 /xgettext.txt
+logs/*
+!logs/app.log
