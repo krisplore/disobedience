@@ -9,6 +9,9 @@ from intel.definitions import PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML
 from intel.source.functions import extract_items_from_list, replace_hyphen_with_underscore
 from intel.source.generator import generate_options
 from intel.source.my_yaml import read
+from intel.translation import start_translating
+
+_ = start_translating()
 
 
 def parse_edit_options(argv):
