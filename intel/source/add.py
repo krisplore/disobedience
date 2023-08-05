@@ -1,7 +1,7 @@
 """
 Responsible for managing the process of adding a new source.
 """
-
+import logging
 import sys
 
 from intel.definitions import SOURCE_EXTENSION_YAML, PATH_TO_SOURCE_MODEL
