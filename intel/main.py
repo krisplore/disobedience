@@ -6,6 +6,7 @@ and direct the program flow accordingly.
 """
 
 import sys
+import logging
 from intel.getopt_router import getopt_entity_action
 from intel.source.add import add as source_add
 from intel.translation import start_translating
