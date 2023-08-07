@@ -77,13 +77,13 @@ def generate_invite(model):
     invite_length = model.get('invite', {}).get('length', {}).get('min', 2)
     logger.info("List length was written from the model")
 
-    invite_item_length = model.get('invite', {}).get('item', {}).get('length', 7)
+    invite_item_max_length = model.get('invite', {}).get('item', {}).get('length', {}).get('max', 7)
     logger.info("Length of invite was written from the model")
 
     characters: list[str] = [c for c in alphabet if c not in charset_blacklist]
 
     for _ in range(invite_length):
-        token_bytes: bytes = secrets.token_bytes(invite_item_length)
+        token_bytes: bytes = secrets.token_bytes(invite_item_max_length)
         invite.append(''.join(characters[b % len(characters)] for b in token_bytes))
     return invite
 
