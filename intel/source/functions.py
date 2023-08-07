@@ -126,7 +126,7 @@ def create_stub():
         'invited_by': '',
         'id': generate_id(),
         'type': set_type(),
-        'reliability': 4.98,
+        'reliability': '',
         'note': '',
         'created': time_of_creation,
         'modified': time_of_creation,
