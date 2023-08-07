@@ -7,6 +7,8 @@ and direct the program flow accordingly.
 
 import sys
 import logging
+
+from intel.definitions import ERR_BAD_OPTS
 from intel.getopt_router import getopt_entity_action
 from intel.source.add import add as source_add
 from intel.translation import start_translating
@@ -69,11 +71,11 @@ def route_request(entity, action):
             return entities_actions[entity][action]()
         py_logger.error("Action not defined")
         print(_(f'Unknown action for {entity}'))
-        sys.exit(2)
+        sys.exit(ERR_BAD_OPTS)
     else:
         py_logger.error("Entity not defined")
         print(_('No match for entity'))
-        sys.exit(2)
+        sys.exit(ERR_BAD_OPTS)
 
 
 if __name__ == "__main__":
