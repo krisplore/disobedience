@@ -12,7 +12,7 @@ import unittest
 
 from intel.definitions import PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML
 from intel.source.functions import generate_invite
-from intel.source.my_yaml import read
+from intel.source.yaml import read
 
 
 class TestCaseGenerateInvite(unittest.TestCase):

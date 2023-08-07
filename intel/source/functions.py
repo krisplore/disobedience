@@ -10,7 +10,7 @@ from babel import default_locale, UnknownLocaleError
 from babel.dates import format_datetime
 from intel.definitions import SOURCE_SCHEMA_VERSION, PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML
 from intel.log import setup_logger
-from intel.source.my_yaml import read
+from intel.source.yaml import read
 
 logger = setup_logger()
 

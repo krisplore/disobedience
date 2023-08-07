@@ -9,7 +9,7 @@ from intel.definitions import PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML, PATH_
 from intel.log import setup_logger
 from intel.source.edit_parser import parse_edit_options
 from intel.source.functions import print_dictionary, get_time
-from intel.source.my_yaml import read, write
+from intel.source.yaml import read, write
 from intel.source.validate.validator import validate
 
 

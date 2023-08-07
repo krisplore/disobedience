@@ -11,7 +11,7 @@ from intel.source.load.file import parse_filename
 from intel.source.load.method import parse_method_input
 from intel.source.load.options import parse_options
 from intel.source.validate.validator import validate
-from intel.source.my_yaml import read, write
+from intel.source.yaml import read, write
 from intel.translation import start_translating
 
 _ = start_translating()
