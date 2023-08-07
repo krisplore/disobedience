@@ -4,16 +4,10 @@ The 'required' module provides utility function for data validation.
 This module contains the following function:
     - validate_required: Check if all required fields are present in the data dictionary.
 """
-import logging
 
-py_logger7 = logging.getLogger(__name__)
-py_logger7.setLevel(logging.INFO)
+from intel.log import setup_logger
 
-py_handler = logging.FileHandler(f"logs/{__name__}.log", mode='w')
-py_formatter = logging.Formatter("%(name)s %(asctime)s %(levelname)s %(message)s")
-
-py_handler.setFormatter(py_formatter)
-py_logger7.addHandler(py_handler)
+logger = setup_logger()
 
 
 def validate_required(raw_source: dict, model: dict, result: dict):
@@ -34,11 +28,11 @@ def validate_required(raw_source: dict, model: dict, result: dict):
     :return: The modified 'result' dictionary after checking for missing required fields.
     :rtype: dict
     """
-    py_logger7.info("validate_required function was called")
+    logger.info("validate_required function was called")
 
     for key, rules in model.items():
         if rules.get('required', False) and key not in raw_source:
-            py_logger7.warning("Missing argument: %s", key)
+            logger.warning("Missing argument: %s", key)
             result['status'] = False
             result['errors'].append(f'Missing argument {key}')
 
@@ -47,7 +41,7 @@ def validate_required(raw_source: dict, model: dict, result: dict):
 
             if rules.get('required', True) and rules.get('type') == 'string':
                 if value is None or value.strip() == "":
-                    py_logger7.warning("Invalid value for '%s'. It must not be None, empty, "
+                    logger.warning("Invalid value for '%s'. It must not be None, empty, "
                                        "or contain only whitespace.", key)
                     result['status'] = False
                     result['errors'].append(f"The value for '{key}' must not be None, "

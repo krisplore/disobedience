@@ -4,24 +4,17 @@ and returns a dictionary of the parsed options.
 """
 
 import getopt
-import logging
 import sys
 
 from intel.definitions import PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML, ERR_DEFAULT
+from intel.log import setup_logger
 from intel.source.functions import extract_items_from_list
 from intel.source.my_yaml import read
 from intel.translation import start_translating
 
 _ = start_translating()
 
-py_logger11 = logging.getLogger(__name__)
-py_logger11.setLevel(logging.INFO)
-
-py_handler = logging.FileHandler(f"logs/{__name__}.log", mode='w')
-py_formatter = logging.Formatter("%(name)s %(asctime)s %(levelname)s %(message)s")
-
-py_handler.setFormatter(py_formatter)
-py_logger11.addHandler(py_handler)
+logger = setup_logger()
 
 
 def parse_options(argv):
@@ -34,7 +27,7 @@ def parse_options(argv):
     :return: A dictionary representing the parsed options.
     :rtype: dict
     """
-    py_logger11.info("parse_options function was called")
+    logger.info("parse_options function was called")
 
     map_options: dict[str, tuple[str, str]] = {
         'callsign': ('-c', '--callsign'),
@@ -45,7 +38,7 @@ def parse_options(argv):
     try:
         opts = getopt.getopt(argv, "c:i:t:", ["callsign=", "invited-by=", "tags="])[0]
     except getopt.GetoptError:  # invalid options - not c, i, t / if option without argument
-        py_logger11.error("Error parsing command-line options: %s", e)
+        logger.error("Error parsing command-line options: %s", e)
         print(_("Invalid options or missing required arguments"))
         sys.exit(ERR_DEFAULT)
 
@@ -54,10 +47,10 @@ def parse_options(argv):
         for key, value in map_options.items():
             if opt in value:
                 options_parsed[key] = arg
-                py_logger11.info(f'Defined option {key} and value {arg} in dictionary')
+                logger.info(f'Defined option {key} and value {arg} in dictionary')
                 break
 
     extract_items_from_list(options_parsed, read(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML))
-    py_logger11.info(f'Data type "list string separator comma" was extracted')
+    logger.info(f'Data type "list string separator comma" was extracted')
 
     return options_parsed

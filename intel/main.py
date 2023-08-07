@@ -6,24 +6,17 @@ and direct the program flow accordingly.
 """
 
 import sys
-import logging
 
 from intel.definitions import ERR_DEFAULT
 from intel.getopt_router import getopt_entity_action
+from intel.log import setup_logger
 from intel.source.add import add as source_add
 from intel.translation import start_translating
 from intel.source.edit import edit as source_edit
 
 _ = start_translating()
 
-py_logger = logging.getLogger(__name__)
-py_logger.setLevel(logging.INFO)
-
-py_handler = logging.FileHandler(f"logs/{__name__}.log", mode='w')
-py_formatter = logging.Formatter("%(name)s %(asctime)s %(levelname)s %(message)s")
-
-py_handler.setFormatter(py_formatter)
-py_logger.addHandler(py_handler)
+logger = setup_logger()
 
 
 def main():
@@ -37,7 +30,7 @@ def main():
     args_entity_action: list = getopt_entity_action()
     entity: object = args_entity_action[0]
     action: object = args_entity_action[1]
-    py_logger.info("Entity and action parsed")
+    logger.info("Entity and action parsed")
     route_request(entity, action)
 
 
@@ -67,13 +60,13 @@ def route_request(entity, action):
 
     if entity in entities_actions:
         if action in entities_actions[entity]:
-            py_logger.info("Entity and action defined")
+            logger.info("Entity and action defined")
             return entities_actions[entity][action]()
-        py_logger.error("Action not defined")
+        logger.error("Action not defined")
         print(_(f'Unknown action for {entity}'))
         sys.exit(ERR_DEFAULT)
     else:
-        py_logger.error("Entity not defined")
+        logger.error("Entity not defined")
         print(_('No match for entity'))
         sys.exit(ERR_DEFAULT)
 

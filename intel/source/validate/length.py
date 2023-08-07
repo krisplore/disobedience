@@ -7,16 +7,10 @@ This module contains the following function:
 
 Note: This module is designed for use with Python 3.x.
 """
-import logging
 
-py_logger8 = logging.getLogger(__name__)
-py_logger8.setLevel(logging.INFO)
+from intel.log import setup_logger
 
-py_handler = logging.FileHandler(f"logs/{__name__}.log", mode='w')
-py_formatter = logging.Formatter("%(name)s %(asctime)s %(levelname)s %(message)s")
-
-py_handler.setFormatter(py_formatter)
-py_logger8.addHandler(py_handler)
+logger = setup_logger()
 
 
 def validate_length(raw_source: dict, model: dict, result: dict):
@@ -37,7 +31,7 @@ def validate_length(raw_source: dict, model: dict, result: dict):
     :return: The modified 'result' dictionary after checking the length of specified fields.
     :rtype: dict
     """
-    py_logger8.info("validate_length function was called")
+    logger.info("validate_length function was called")
 
     for field, properties in model.items():
         if properties.get('type') == 'list string separator comma':
@@ -48,7 +42,7 @@ def validate_length(raw_source: dict, model: dict, result: dict):
                     result['status'] = False
                     result['errors'].append(f"Invalid value for field '%s'. Expected a string or a list.", field)
 
-                    py_logger8.warning(f"Invalid value for field '{field}'. Expected a string or a list.")
+                    logger.warning(f"Invalid value for field '{field}'. Expected a string or a list.")
 
                 elif isinstance(value, list):
                     min_length = properties.get('length', {}).get('min')
@@ -56,10 +50,10 @@ def validate_length(raw_source: dict, model: dict, result: dict):
                         result['status'] = False
                         result['errors'].append(f"Field '{field}' must have at least {min_length} items.")
 
-                        py_logger8.warning(f"Field '%s' must have at least {min_length} items.", field)
+                        logger.warning(f"Field '%s' must have at least {min_length} items.", field)
 
                     item_length = properties.get('item', {}).get('length')
-                    py_logger8.info(f"Item length for field '%s' is %s", field, item_length)
+                    logger.info(f"Item length for field '%s' is %s", field, item_length)
                     if item_length is not None:
                         for item in value:
                             if not isinstance(item, str):
@@ -67,13 +61,13 @@ def validate_length(raw_source: dict, model: dict, result: dict):
                                 result['errors'].append(f"Invalid value for field '{field}'."
                                                         f"Expected a string or a list.")
 
-                                py_logger8.warning(f"Invalid value for field '%s'. Expected a string or a list.", field)
+                                logger.warning(f"Invalid value for field '%s'. Expected a string or a list.", field)
 
                             elif len(item) != item_length:
                                 result['status'] = False
                                 result['errors'].append(f"Each item in field '{field}' must have length {item_length}.")
 
-                                py_logger8.warning(f"Each item in field '%s' must have length {item_length}.", field)
+                                logger.warning(f"Each item in field '%s' must have length {item_length}.", field)
 
         if 'length' in properties:
             if field in raw_source:
@@ -85,7 +79,7 @@ def validate_length(raw_source: dict, model: dict, result: dict):
                                                 f'{properties["length"]["min"]} and '
                                                 f'{properties["length"]["max"]} characters')
 
-                        py_logger8.warning("Invalid length for '%s'. Length must be between %s and %s "
+                        logger.warning("Invalid length for '%s'. Length must be between %s and %s "
                                            "characters.", field, properties["length"]["min"], properties["length"]["max"])
 
 
@@ -95,8 +89,8 @@ def validate_length(raw_source: dict, model: dict, result: dict):
                                                 f'{properties["length"]["min"]} and '
                                                 f'{properties["length"]["max"]} characters')
 
-                        py_logger8.warning("Invalid length for '%s'. Length must be between %s and %s "
+                        logger.warning("Invalid length for '%s'. Length must be between %s and %s "
                                            "characters.", field, properties["length"]["min"],
-                                           properties["length"]["max"])
+                                       properties["length"]["max"])
 
     return result

@@ -3,10 +3,10 @@ The module is responsible for the function that retrieves the values for the opt
 """
 
 import getopt
-import logging
 import sys
 
 from intel.definitions import PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML, ERR_DEFAULT
+from intel.log import setup_logger
 from intel.source.functions import extract_items_from_list, synch_name
 from intel.source.generator import generate_options
 from intel.source.my_yaml import read
@@ -14,14 +14,7 @@ from intel.translation import start_translating
 
 _ = start_translating()
 
-py_logger4 = logging.getLogger(__name__)
-py_logger4.setLevel(logging.INFO)
-
-py_handler = logging.FileHandler(f"logs/{__name__}.log", mode='w')
-py_formatter = logging.Formatter("%(name)s %(asctime)s %(levelname)s %(message)s")
-
-py_handler.setFormatter(py_formatter)
-py_logger4.addHandler(py_handler)
+logger = setup_logger()
 
 
 def parse_edit_options(argv):
@@ -33,15 +26,15 @@ def parse_edit_options(argv):
     :return: a dictionary from command line values
     :rtype: dict
     """
-    py_logger4.info('Parse_edit_options function started')
+    logger.info('Parse_edit_options function started')
     model = read(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML)
     options = generate_options(model)
 
     try:
         opts = getopt.getopt(argv, '', options)[0]
-        py_logger4.info('Command line options processed successfully')
+        logger.info('Command line options processed successfully')
     except getopt.GetoptError as err:
-        py_logger4.error(f"Error raised while parsing options: {str(err)}")
+        logger.error(f"Error raised while parsing options: {str(err)}")
         print(str(err))
         sys.exit(ERR_DEFAULT)
 
@@ -50,15 +43,15 @@ def parse_edit_options(argv):
         if '--where' in opt:
             key = opt.split('.')[-1]
             new_values[key] = arg
-            py_logger4.info(f'Defined option {key} and value {arg} in dictionary')
+            logger.info(f'Defined option {key} and value {arg} in dictionary')
 
         elif '--new' in opt:
             key = opt.split('.')[-1]
             key = synch_name(key)
             new_values[key] = arg
-            py_logger4.info(f'Defined option {key} and value {arg} in dictionary')
+            logger.info(f'Defined option {key} and value {arg} in dictionary')
 
     extract_items_from_list(new_values, model)
-    py_logger4.info(f'Data type "list string separator comma" was extracted')
+    logger.info(f'Data type "list string separator comma" was extracted')
 
     return new_values
