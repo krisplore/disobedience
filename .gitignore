@@ -1,6 +1,7 @@
 .coverage
 .idea
 data/
+!data/source/smoke_test.yaml
 draft.txt
 locales/*/*/*.mo
 venv/
