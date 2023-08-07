@@ -39,12 +39,12 @@ def read(filename):
             file_parsed: dict = yaml.safe_load(file)
             py_logger10.info("File '%s' successfully read.", filename)
             return file_parsed
-    except FileNotFoundError as e:
+    except FileNotFoundError as error:
         py_logger10.error("File not found: %s", filename)
-        raise e
-    except yaml.YAMLError as e:
-        py_logger10.error("Error parsing the YAML file '%s': %s", filename, e)
-        raise e
+        raise error
+    except yaml.YAMLError as error:
+        py_logger10.error("Error parsing the YAML file '%s': %s", filename, error)
+        raise error
 
 
 def write(dictionary, filename):
@@ -65,6 +65,6 @@ def write(dictionary, filename):
         with open(PATH_TO_STORAGE + filename + SOURCE_EXTENSION_YAML, 'w', encoding='utf-8') as file:
             yaml.dump(dictionary, file)
         py_logger10.info("Dictionary successfully written to file '%s'.", filename + SOURCE_EXTENSION_YAML)
-    except Exception as e:
-        py_logger10.error("Error writing dictionary to file '%s': %s", filename + SOURCE_EXTENSION_YAML, e)
-        raise e
+    except Exception as error:
+        py_logger10.error("Error writing dictionary to file '%s': %s", filename + SOURCE_EXTENSION_YAML, error)
+        raise error
