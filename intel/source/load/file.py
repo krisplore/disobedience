@@ -6,7 +6,7 @@ import getopt
 import logging
 import sys
 
-from intel.definitions import ERR_BAD_OPTS
+from intel.definitions import ERR_DEFAULT
 from intel.translation import start_translating
 
 _ = start_translating()
@@ -37,7 +37,7 @@ def parse_filename(argv):
     except getopt.GetoptError:
         py_logger12.error("Error parsing filename option: %s", e)
         print(_("Invalid option or missing required argument"))
-        sys.exit(ERR_BAD_OPTS)
+        sys.exit(ERR_DEFAULT)
 
     if opts:
         py_logger12.info("Filename provided")
@@ -46,4 +46,4 @@ def parse_filename(argv):
 
     py_logger12.warning("No filename provided")
     print(_("No filename provided"))  # if admin did not enter option at all
-    sys.exit(ERR_BAD_OPTS)
+    sys.exit(ERR_DEFAULT)

@@ -4,7 +4,7 @@ Responsible for managing the process of adding a new source.
 import logging
 import sys
 
-from intel.definitions import SOURCE_EXTENSION_YAML, PATH_TO_SOURCE_MODEL, ERR_BAD_OPTS
+from intel.definitions import SOURCE_EXTENSION_YAML, PATH_TO_SOURCE_MODEL, ERR_DEFAULT
 from intel.source.functions import create_stub, print_dictionary
 from intel.source.load.file import parse_filename
 from intel.source.load.method import parse_method_input
@@ -50,7 +50,7 @@ def add():
         case _:
             py_logger2.error("Case input method not defined")
             print(_('Method does not exist'))
-            sys.exit(ERR_BAD_OPTS)
+            sys.exit(ERR_DEFAULT)
 
     result = validate(raw_source, read(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML))
 

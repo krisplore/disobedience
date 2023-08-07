@@ -6,7 +6,7 @@ import getopt
 import logging
 import sys
 
-from intel.definitions import PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML, ERR_BAD_OPTS
+from intel.definitions import PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML, ERR_DEFAULT
 from intel.source.functions import extract_items_from_list, replace_hyphen_with_underscore
 from intel.source.generator import generate_options
 from intel.source.my_yaml import read
@@ -43,7 +43,7 @@ def parse_edit_options(argv):
     except getopt.GetoptError as err:
         py_logger4.error(f"Error raised while parsing options: {str(err)}")
         print(str(err))
-        sys.exit(ERR_BAD_OPTS)
+        sys.exit(ERR_DEFAULT)
 
     new_values = {}
     for opt, arg in opts:

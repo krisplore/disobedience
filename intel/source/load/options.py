@@ -7,7 +7,7 @@ import getopt
 import logging
 import sys
 
-from intel.definitions import PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML, ERR_BAD_OPTS
+from intel.definitions import PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML, ERR_DEFAULT
 from intel.source.functions import extract_items_from_list
 from intel.source.my_yaml import read
 from intel.translation import start_translating
@@ -47,7 +47,7 @@ def parse_options(argv):
     except getopt.GetoptError:  # invalid options - not c, i, t / if option without argument
         py_logger11.error("Error parsing command-line options: %s", e)
         print(_("Invalid options or missing required arguments"))
-        sys.exit(ERR_BAD_OPTS)
+        sys.exit(ERR_DEFAULT)
 
     options_parsed = {}
     for opt, arg in opts:

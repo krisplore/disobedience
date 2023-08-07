@@ -22,4 +22,4 @@ PATH_TO_SOURCE_MODEL = "models/source"
 SOURCE_EXTENSION_YAML: str = '.yaml'
 SOURCE_SCHEMA_VERSION: int = 1
 PATH_TO_STORAGE: str = PATH_BASE + '/data/source/'
-ERR_BAD_OPTS = 1
+ERR_DEFAULT = 1
