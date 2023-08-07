@@ -7,7 +7,7 @@ import logging
 import sys
 
 from intel.definitions import PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML, ERR_DEFAULT
-from intel.source.functions import extract_items_from_list, replace_hyphen_with_underscore
+from intel.source.functions import extract_items_from_list, synch_name
 from intel.source.generator import generate_options
 from intel.source.my_yaml import read
 from intel.translation import start_translating
@@ -54,7 +54,7 @@ def parse_edit_options(argv):
 
         elif '--new' in opt:
             key = opt.split('.')[-1]
-            key = replace_hyphen_with_underscore(key)
+            key = synch_name(key)
             new_values[key] = arg
             py_logger4.info(f'Defined option {key} and value {arg} in dictionary')
 

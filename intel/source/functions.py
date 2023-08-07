@@ -201,13 +201,13 @@ def print_dictionary(dictionary, model):
         print(f'{key}: {value}')
 
 
-def replace_hyphen_with_underscore(input_string):
+def synch_name(input_string):
     """
     Replace hyphens with underscores in the input string.
 
     :param input_string: The input string where hyphens need to be replaced.
     :return: The modified string with hyphens replaced by underscores.
     """
-    py_logger5.info("replace_hyphen_with_underscore function was called")
+    py_logger5.info("synch_name function was called")
 
     return input_string.replace('-', '_')

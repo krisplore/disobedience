@@ -3,7 +3,7 @@ The module provides a test case to test the function replace_hyphen_with_undersc
 """
 import unittest
 
-from intel.source.functions import replace_hyphen_with_underscore
+from intel.source.functions import synch_name
 
 
 class TestCaseSwitchFunction(unittest.TestCase):
@@ -19,7 +19,7 @@ class TestCaseSwitchFunction(unittest.TestCase):
 
         test_data = 'invited-by-John'
         expected_result = 'invited_by_John'
-        result = replace_hyphen_with_underscore(test_data)
+        result = synch_name(test_data)
         self.assertEqual(result, expected_result, 'The function should return the expected result.')
 
 
