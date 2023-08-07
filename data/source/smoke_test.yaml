@@ -1,0 +1,21 @@
+_source_schema_version: 1
+callsign: Jack
+created: 1691120264
+id: smoke_test
+invite:
+- 9ZUMHY3
+- 49AF3VN
+invited_by:
+- 36UKB2D
+- 9PH3XW4
+modified: 1691402337
+note: some new note
+reliability: 4.98
+stats:
+  facts:
+    confirmed: 0
+    refuted: 0
+    total: 0
+tags:
+- GREEN
+type: 1
