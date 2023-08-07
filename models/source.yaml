@@ -7,7 +7,7 @@ callsign:
   can_be_edited: true
   option: "callsign"
 invited_by:
-  type: "list string separator comma"
+  type: "list_as_string"
   required: true
   length:
     min: 1
@@ -19,13 +19,13 @@ invited_by:
   can_be_edited: true
   option: "invited-by"
 tags:
-  type: "list string separator comma"
+  type: "list_as_string"
   required: false
   can_be_extracted: true
   option: "tags"
   can_be_edited: true
 invite:
-  type: "list"
+  type: "list_as_string"
   length:
     min: 2
   item:
