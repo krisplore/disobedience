@@ -13,7 +13,7 @@ Constants:
 Note:
     - Modifying the values of these constants is not recommended.
 """
-
+import logging
 from pathlib import Path
 
 NAME_PROJECT: str = 'disobedience'
@@ -23,3 +23,4 @@ SOURCE_EXTENSION_YAML: str = '.yaml'
 SOURCE_SCHEMA_VERSION: int = 1
 PATH_TO_STORAGE: str = PATH_BASE + '/data/source/'
 ERR_DEFAULT = 1
+LOG_LEVEL = logging.INFO

@@ -16,7 +16,7 @@ def setup_logger():
     handler.setFormatter(formatter)
 
     logger = logging.getLogger('disobedience')
-    logger.setLevel(logging.INFO)
+    logger.setLevel(LOG_LEVEL)
     logger.addHandler(handler)
 
     return logger
