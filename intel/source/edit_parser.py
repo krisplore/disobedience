@@ -34,7 +34,7 @@ def parse_edit_options(argv):
         opts = getopt.getopt(argv, '', options)[0]
         logger.info('Command line options processed successfully')
     except getopt.GetoptError as err:
-        logger.error(f"Error raised while parsing options: {str(err)}")
+        logger.error("Error raised while parsing options: %s", str(err))
         print(str(err))
         sys.exit(ERR_DEFAULT)
 
@@ -43,15 +43,15 @@ def parse_edit_options(argv):
         if '--where' in opt:
             key = opt.split('.')[-1]
             new_values[key] = arg
-            logger.info(f'Defined option {key} and value {arg} in dictionary')
+            logger.info('Defined option %s and value %s in dictionary', key, arg)
 
         elif '--new' in opt:
             key = opt.split('.')[-1]
             key = synch_name(key)
             new_values[key] = arg
-            logger.info(f'Defined option {key} and value {arg} in dictionary')
+            logger.info('Defined option %s and value %s in dictionary', key, arg)
 
     extract_items_from_list(new_values, model)
-    logger.info(f'Data type "list string separator comma" was extracted')
+    logger.info('Data type "list string separator comma" was extracted')
 
     return new_values

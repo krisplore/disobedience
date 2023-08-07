@@ -37,8 +37,8 @@ def parse_options(argv):
 
     try:
         opts = getopt.getopt(argv, "c:i:t:", ["callsign=", "invited-by=", "tags="])[0]
-    except getopt.GetoptError:  # invalid options - not c, i, t / if option without argument
-        logger.error("Error parsing command-line options: %s", e)
+    except getopt.GetoptError as error:  # invalid options - not c, i, t / if option without argument
+        logger.error("Error parsing command-line options: %s", error)
         print(_("Invalid options or missing required arguments"))
         sys.exit(ERR_DEFAULT)
 
@@ -47,10 +47,10 @@ def parse_options(argv):
         for key, value in map_options.items():
             if opt in value:
                 options_parsed[key] = arg
-                logger.info(f'Defined option {key} and value {arg} in dictionary')
+                logger.info('Defined option %s and value %s in dictionary', key, arg)
                 break
 
     extract_items_from_list(options_parsed, read(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML))
-    logger.info(f'Data type "list string separator comma" was extracted')
+    logger.info('Data type "list string separator comma" was extracted')
 
     return options_parsed

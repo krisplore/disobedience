@@ -28,7 +28,7 @@ def extract_items_from_list(new_values, model):
     for field, value in new_values.items():
         field_type = model.get(field, {}).get('type', '')
         if 'list string separator comma' in field_type:
-            logger.info(f"type 'list string separator comma' in {field_type}")
+            logger.info("type 'list string separator comma' in %s", field_type)
             extracted_items = [item.strip() for item in value.split(',') if item.strip()]
             new_values[field] = extracted_items
             logger.info("items were extract")
@@ -165,11 +165,11 @@ def convert_date(value, user_locale):
         try:
             d_t = datetime.datetime.fromtimestamp(value)
             formatted_date = format_datetime(d_t, format='short', locale=user_locale)
-            logger.info(f"Date {value} formatted using locale {user_locale}")
+            logger.info("Date %s formatted using locale %s", value, user_locale)
             return formatted_date
         except UnknownLocaleError as error:
-            logger.error(f"Error formatting date: {error}")
-            print(f"Error formatting date: {error}")
+            logger.error("Error formatting date: %s", error)
+            print("Error formatting date: %s", error)
 
     return str(value)
 
@@ -185,10 +185,10 @@ def print_dictionary(dictionary, model):
     sorted_items = sorted(dictionary.items())
     for key, value in sorted_items:
         if key in model and model[key].get('type') == 'date':
-            logger.info(f"Converting date value for key '{key}' to human-readable format.")
+            logger.info("Converting date value for key '%s' to human-readable format.", key)
             value = convert_date(value, get_system_locale())
         if not value:
-            logger.warning(f"The value for key '{key}' is empty.")
+            logger.warning("The value for key '%s' is empty.", key)
             value = 'the field is empty'
 
         print(f'{key}: {value}')
