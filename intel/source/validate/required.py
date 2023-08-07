@@ -30,21 +30,21 @@ def validate_required(raw_source: dict, model: dict, result: dict):
     """
     logger.info("validate_required function was called")
 
-    for key, rules in model.items():
-        if rules.get('required', False) and key not in raw_source:
-            logger.warning("Missing argument: %s", key)
+    for field, properties in model.items():
+        if properties.get('required', False) and field not in raw_source:
+            logger.warning("Missing argument: %s", field)
             result['status'] = False
-            result['errors'].append(f'Missing argument {key}')
+            result['errors'].append(f'Missing argument {field}')
 
-        if key in raw_source:
-            value = raw_source[key]
+        if field in raw_source:
+            value = raw_source[field]
 
-            if rules.get('required', True) and rules.get('type') == 'string':
+            if properties.get('required', True) and properties.get('type') == 'string':
                 if value is None or value.strip() == "":
                     logger.warning("Invalid value for '%s'. It must not be None, empty, "
-                                       "or contain only whitespace.", key)
+                                   "or contain only whitespace.", field)
                     result['status'] = False
-                    result['errors'].append(f"The value for '{key}' must not be None, "
+                    result['errors'].append(f"The value for '{field}' must not be None, "
                                             f"empty, or contain only whitespace")
 
     return result
