@@ -27,8 +27,8 @@ def parse_filename(argv):
 
     try:
         opts = getopt.getopt(argv, "f:", ["filename="])[0]
-    except getopt.GetoptError:
-        logger.error("Error parsing filename option: %s", e)
+    except getopt.GetoptError as error:
+        logger.error("Error parsing filename option: %s", error)
         print(_("Invalid option or missing required argument"))
         sys.exit(ERR_DEFAULT)
 
