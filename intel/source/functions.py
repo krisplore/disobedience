@@ -81,11 +81,11 @@ def generate_invite(model):
     charset_blacklist = model.get('invite', {}).get('charset', {}).get('blacklist', ['B8CDO0QIJ1GS5'])
     py_logger5.info("Blacklist was written from the model")
 
+    invite_length = model.get('invite', {}).get('length', {}).get('min', 2)
+    py_logger5.info("List length was written from the model")
+
     invite_item_length = model.get('invite', {}).get('item', {}).get('length', 7)
     py_logger5.info("Length of invite was written from the model")
-
-    invite_length = model.get('invite', {}).get('length', 2)
-    py_logger5.info("List length was written from the model")
 
     characters: list[str] = [c for c in alphabet if c not in charset_blacklist]
 

@@ -11,6 +11,8 @@ invited_by:
   required: true
   length:
     min: 1
+  item:
+    length: 7
   can_be_extracted: true
   can_be_edited: true
   option: "invited-by"
@@ -22,7 +24,8 @@ tags:
   can_be_edited: true
 invite:
   type: "list"
-  length: 2
+  length:
+    min: 2
   item:
     length: 7
   charset:
