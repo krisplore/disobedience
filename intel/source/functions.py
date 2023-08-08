@@ -194,7 +194,7 @@ def print_dictionary(dictionary, model):
         print(f'{key}: {value}')
 
 
-def synch_name(input_string):
+def sync_name(input_string):
     """
     Replace hyphens with underscores in the input string.
 
