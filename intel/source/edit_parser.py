@@ -11,6 +11,7 @@ from intel.source.functions import sync_name
 from intel.source.generator import generate_options
 from intel.source.yaml import load
 from intel.translation import start_translating
+from intel.types.process import las_read
 
 _ = start_translating()
 
@@ -51,7 +52,7 @@ def parse_edit_options(argv):
             new_values[key] = arg
             logger.info('Defined option %s and value %s in dictionary', key, arg)
 
-    extract_items_from_list(new_values, model)
+    las_read(new_values, model)
     logger.info('Data type "list string separator comma" was extracted')
 
     return new_values
