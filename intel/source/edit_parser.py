@@ -7,7 +7,7 @@ import sys
 
 from intel.definitions import PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML, ERR_DEFAULT
 from intel.log import setup_logger
-from intel.source.functions import extract_items_from_list, synch_name
+from intel.source.functions import sync_name
 from intel.source.generator import generate_options
 from intel.source.yaml import load
 from intel.translation import start_translating
