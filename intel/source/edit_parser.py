@@ -27,7 +27,7 @@ def parse_edit_options(argv):
     :rtype: dict
     """
     logger.info('Parse_edit_options function started')
-    model = read(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML)
+    model = load(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML)
     options = generate_options(model)
 
     try:
