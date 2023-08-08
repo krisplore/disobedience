@@ -61,7 +61,7 @@ def add():
         source.update(raw_source)
         logger.info("The raw source was merged into the stub source")
 
-        write(source, source['id'])
+        save(source, source['id'])
         logger.info("The source was written to a file")
 
         print_dictionary(source, load(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML))
