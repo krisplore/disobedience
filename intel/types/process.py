@@ -20,6 +20,6 @@ def write(data, model):
         separator = properties.get('separator', ',')
         match field_type:
             case 'list_as_string':
-                data[field] = write1(value, separator)
+                data[field] = las_write(value, separator)
 
     return data
