@@ -50,7 +50,7 @@ def parse_options(argv):
                 logger.info('Defined option %s and value %s in dictionary', key, arg)
                 break
 
-    extract_items_from_list(options_parsed, read(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML))
+    extract_items_from_list(options_parsed, load(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML))
     logger.info('Data type "list string separator comma" was extracted')
 
     return options_parsed
