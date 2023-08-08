@@ -123,7 +123,7 @@ def create_stub():
         'note': '',
         'created': time_of_creation,
         'modified': time_of_creation,
-        'invite': generate_invite(read(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML)),
+        'invite': generate_invite(load(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML)),
         'stats': {
             'facts': {
                 'total': 0,

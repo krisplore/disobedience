@@ -47,7 +47,7 @@ class TestCasePrintDictionary(unittest.TestCase):
         self.captured_output = io.StringIO()
         sys.stdout = self.captured_output
 
-        print_dictionary(test_dictionary, read(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML))
+        print_dictionary(test_dictionary, load(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML))
 
         output = self.captured_output.getvalue()
 

@@ -35,7 +35,7 @@ class TestCaseGenerateInvite(unittest.TestCase):
             The generated invites should not contain whitespace characters.
             The length of each invite should be equal to INVITE_LENGTH.
         """
-        model = read(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML)
+        model = load(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML)
         invite = generate_invite(model)
         invite_length = model['invite']['item']['length']
         for token in invite:
