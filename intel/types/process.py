@@ -1,4 +1,4 @@
-from intel.types.list_as_string import read1, write1
+from intel.types.list_as_string import las_read, las_write
 
 
 def read(data, model):
@@ -8,7 +8,7 @@ def read(data, model):
         separator = properties.get('separator', ',')
         match field_type:
             case 'list_as_string':
-                data[field] = read1(value, separator)
+                data[field] = las_read(value, separator)
 
     return data
 
