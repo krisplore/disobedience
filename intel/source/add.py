@@ -37,7 +37,7 @@ def add():
     match method_input:
         case 'file':
             logger.info("Case input method - file defined")
-            raw_source = read(parse_filename(sys.argv[4:]))
+            raw_source = load(parse_filename(sys.argv[4:]))
         case 'opt':
             logger.info("Case input method - options defined")
             raw_source = parse_options(sys.argv[4:])
@@ -46,7 +46,7 @@ def add():
             print(_('Method does not exist'))
             sys.exit(ERR_DEFAULT)
 
-    result = validate(raw_source, read(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML))
+    result = validate(raw_source, load(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML))
 
     if not result['status']:
         logger.error("File validation failed")
@@ -55,7 +55,7 @@ def add():
     else:
         logger.info("File validation completed successfully")
 
-        print_dictionary(result, read(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML))
+        print_dictionary(result, load(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML))
         logger.info("The result was printed")
 
         source.update(raw_source)
@@ -64,5 +64,5 @@ def add():
         write(source, source['id'])
         logger.info("The source was written to a file")
 
-        print_dictionary(source, read(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML))
+        print_dictionary(source, load(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML))
         logger.info("The source was printed")

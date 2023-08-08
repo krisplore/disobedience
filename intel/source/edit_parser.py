@@ -9,7 +9,7 @@ from intel.definitions import PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML, ERR_D
 from intel.log import setup_logger
 from intel.source.functions import extract_items_from_list, synch_name
 from intel.source.generator import generate_options
-from intel.source.yaml import read
+from intel.source.yaml import load
 from intel.translation import start_translating
 
 _ = start_translating()

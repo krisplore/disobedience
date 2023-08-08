@@ -29,7 +29,7 @@ def edit():
 
     filename = arguments['id']
 
-    source = read(PATH_TO_STORAGE + filename + SOURCE_EXTENSION_YAML)
+    source = load(PATH_TO_STORAGE + filename + SOURCE_EXTENSION_YAML)
     logger.info('Dictionary source was read')
 
     source['modified'] = get_time()
@@ -38,7 +38,7 @@ def edit():
     source.update(arguments)
     logger.info('The original dictionary merged with the new data')
 
-    model = read(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML)
+    model = load(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML)
     logger.info('Model source was read')
 
     result = validate(source, model)

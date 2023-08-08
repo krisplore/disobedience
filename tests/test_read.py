@@ -32,7 +32,7 @@ class TestRead(unittest.TestCase):
             'tags': ['tag1', 'tag2', 'tag3', 'tag4']
         }
 
-        result = read(filename)
+        result = load(filename)
 
         self.assertEqual(result, expected_data, "Parsed content doesn't match expected data.")
 

@@ -15,7 +15,7 @@ PATH_TO_STORAGE: str = PATH_BASE + '/data/source/'
 logger = setup_logger()
 
 
-def read(filename):
+def load(filename):
     """
     Reads data from a YAML file and returns the parsed content.
 
