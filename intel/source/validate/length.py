@@ -34,63 +34,30 @@ def validate_length(raw_source: dict, model: dict, result: dict):
     logger.info("validate_length function was called")
 
     for field, properties in model.items():
-        if properties.get('type') == 'list string separator comma':
-            value = raw_source.get(field)
-
-            if value is not None:
-                if not isinstance(value, (str, list)):
-                    result['status'] = False
-                    result['errors'].append(f"Invalid value for field '%s'. Expected a string or a list.", field)
-
-                    logger.warning(f"Invalid value for field '{field}'. Expected a string or a list.")
-
-                elif isinstance(value, list):
-                    min_length = properties.get('length', {}).get('min')
-                    if min_length is not None and len(value) < min_length:
-                        result['status'] = False
-                        result['errors'].append(f"Field '{field}' must have at least {min_length} items.")
-
-                        logger.warning(f"Field '%s' must have at least {min_length} items.", field)
-
-                    item_length = properties.get('item', {}).get('length')
-                    logger.info(f"Item length for field '%s' is %s", field, item_length)
-                    if item_length is not None:
-                        for item in value:
-                            if not isinstance(item, str):
-                                result['status'] = False
-                                result['errors'].append(f"Invalid value for field '{field}'."
-                                                        f"Expected a string or a list.")
-
-                                logger.warning(f"Invalid value for field '%s'. Expected a string or a list.", field)
-
-                            elif len(item) != item_length:
-                                result['status'] = False
-                                result['errors'].append(f"Each item in field '{field}' must have length {item_length}.")
-
-                                logger.warning(f"Each item in field '%s' must have length {item_length}.", field)
-
         if 'length' in properties:
             if field in raw_source:
                 value = raw_source[field]
                 if not isinstance(value, (str, list)):
-                    if 'length' in properties and 'min' in properties['length'] and len(value) < properties['length']['min']:
+                    if ('length' in properties and 'min' in properties['length']
+                            and len(value) < properties['length']['min']):
                         result['status'] = False
                         result['errors'].append(f'The length of the {field} must be between '
                                                 f'{properties["length"]["min"]} and '
                                                 f'{properties["length"]["max"]} characters')
 
                         logger.warning("Invalid length for '%s'. Length must be between %s and %s "
-                                           "characters.", field, properties["length"]["min"], properties["length"]["max"])
+                                       "characters.", field, properties["length"]["min"],
+                                       properties["length"]["max"])
 
-
-                    if 'length' in properties and 'max' in properties['length'] and len(value) > properties['length']['max']:
+                    if ('length' in properties and 'max' in properties['length']
+                            and len(value) > properties['length']['max']):
                         result['status'] = False
                         result['errors'].append(f'The length of the {field} must be between '
                                                 f'{properties["length"]["min"]} and '
                                                 f'{properties["length"]["max"]} characters')
 
                         logger.warning("Invalid length for '%s'. Length must be between %s and %s "
-                                           "characters.", field, properties["length"]["min"],
+                                       "characters.", field, properties["length"]["min"],
                                        properties["length"]["max"])
 
     return result
