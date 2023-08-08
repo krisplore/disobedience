@@ -50,7 +50,7 @@ def edit():
 
     else:
         logger.info("File validation completed successfully")
-        write(source, filename)
+        save(source, filename)
         logger.info("The updated file was written")
 
         print_dictionary(result, model)
