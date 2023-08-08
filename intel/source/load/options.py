@@ -8,9 +8,9 @@ import sys
 
 from intel.definitions import PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML, ERR_DEFAULT
 from intel.log import setup_logger
-from intel.source.functions import extract_items_from_list
 from intel.source.yaml import load
 from intel.translation import start_translating
+from intel.types.process import read
 
 _ = start_translating()
 
@@ -50,7 +50,7 @@ def parse_options(argv):
                 logger.info('Defined option %s and value %s in dictionary', key, arg)
                 break
 
-    extract_items_from_list(options_parsed, load(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML))
+    read(options_parsed, load(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML))
     logger.info('Data type "list string separator comma" was extracted')
 
     return options_parsed

@@ -37,7 +37,7 @@ def validate_length(raw_source: dict, model: dict, result: dict):
         if 'length' in properties:
             if field in raw_source:
                 value = raw_source[field]
-                if not isinstance(value, (str, list)):
+                if isinstance(value, (str, list)):
                     if ('length' in properties and 'min' in properties['length']
                             and len(value) < properties['length']['min']):
                         result['status'] = False
