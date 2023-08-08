@@ -15,27 +15,6 @@ from intel.source.yaml import load
 logger = setup_logger()
 
 
-def extract_items_from_list(new_values, model):
-    """
-    Process the new_values dictionary and handle fields with type "list string separator comma".
-
-    :param new_values: A dictionary containing field names and their values.
-    :param model: The dictionary representing the model containing field properties and options.
-    :return: None
-    """
-    logger.info("extract_items_from_list function was called")
-
-    for field, value in new_values.items():
-        field_type = model.get(field, {}).get('type', '')
-        if 'list_as_string' in field_type:
-            logger.info("type 'list_as_string' in %s", field_type)
-            extracted_items = [item.strip() for item in value.split(',') if item.strip()]
-            new_values[field] = extracted_items
-            logger.info("items were extract")
-
-    return new_values
-
-
 def generate_id():
     """
     Generate unique string based on uuid4.
