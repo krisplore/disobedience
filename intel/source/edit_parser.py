@@ -47,7 +47,7 @@ def parse_edit_options(argv):
 
         elif '--new' in opt:
             key = opt.split('.')[-1]
-            key = synch_name(key)
+            key = sync_name(key)
             new_values[key] = arg
             logger.info('Defined option %s and value %s in dictionary', key, arg)
 
