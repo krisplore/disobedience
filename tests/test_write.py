@@ -42,7 +42,7 @@ class TestCaseSaveToYAML(unittest.TestCase):
         }
         filename = 'test_file'
 
-        write(source, filename)
+        save(source, filename)
 
         self.assertTrue(os.path.exists(PATH_TO_STORAGE + filename + SOURCE_EXTENSION_YAML))
 

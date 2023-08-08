@@ -40,7 +40,7 @@ def read(filename):
         raise error
 
 
-def write(dictionary, filename):
+def save(dictionary, filename):
     """
     Saves a dictionary to a YAML file.
 
