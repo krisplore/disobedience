@@ -27,8 +27,8 @@ def extract_items_from_list(new_values, model):
 
     for field, value in new_values.items():
         field_type = model.get(field, {}).get('type', '')
-        if 'list string separator comma' in field_type:
-            logger.info("type 'list string separator comma' in %s", field_type)
+        if 'list_as_string' in field_type:
+            logger.info("type 'list_as_string' in %s", field_type)
             extracted_items = [item.strip() for item in value.split(',') if item.strip()]
             new_values[field] = extracted_items
             logger.info("items were extract")
