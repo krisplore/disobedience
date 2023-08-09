@@ -5,7 +5,7 @@ or user. Validates values in progress. Writes the file back to the storage.
 
 import sys
 
-from intel.definitions import PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML, PATH_TO_STORAGE
+from intel.definitions import PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML, PATH_TO_STORAGE, ERR_DEFAULT
 from intel.log import setup_logger
 from intel.source.edit_parser import parse_edit_options
 from intel.source.functions import print_dictionary, get_time
@@ -46,7 +46,7 @@ def edit():
     if not result['status']:
         logger.error("File validation failed")
         print(result)
-        sys.exit(2)
+        sys.exit(ERR_DEFAULT)
 
     else:
         logger.info("File validation completed successfully")
