@@ -6,9 +6,9 @@ This module contains the following function:
 """
 
 from intel.log import setup_logger
-from intel.source.validate.length import validate_length
 from intel.source.validate.list import validate_list_as_string
 from intel.source.validate.required import validate_required
+from intel.source.validate.string import validate_length_string
 
 logger = setup_logger()
 
@@ -38,8 +38,8 @@ def validate(raw_source: dict, model: dict) -> dict:
 
     result = validate_required(raw_source, model, result)
     logger.info("Result after validate_required received")
-    result = validate_length(raw_source, model, result)
-    logger.info("Result after validate_length received")
     result = validate_list_as_string(raw_source, model, result)
+    result = validate_length_string(raw_source, model, result)
+    logger.info("Result after validate_length received")
 
     return result
