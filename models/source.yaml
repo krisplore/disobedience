@@ -8,6 +8,7 @@ callsign:
   option: "callsign"
 invited_by:
   type: "list_as_string"
+  separator: ","
   required: true
   length:
     min: 1
@@ -20,12 +21,14 @@ invited_by:
   option: "invited-by"
 tags:
   type: "list_as_string"
+  separator: ","
   required: false
   can_be_extracted: true
   option: "tags"
   can_be_edited: true
 invite:
   type: "list_as_string"
+  separator: ","
   length:
     min: 2
   item:
@@ -50,6 +53,8 @@ reliability:
   can_be_edited: true
   option: "reliability"
 note:
+  type: "list_as_string"
+  separator: "."
   can_be_edited: true
   option: "note"
 stats:
