@@ -17,7 +17,7 @@ def validate_length_string(raw_source: dict, model: dict, result: dict):
     for the dictionary.
 
     :param raw_source: dictionary with data to be checked
-    :param model: set of rules
+    :param model: dict of rules
     :param result: dictionary with the results of the check
     :return: dictionary with the results of the check
     """
