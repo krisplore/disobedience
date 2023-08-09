@@ -10,7 +10,7 @@ Test cases:
 
 import unittest
 
-from intel.definitions import PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML
+from intel.definitions import PATH_TO_MODEL_SOURCE, SOURCE_EXTENSION_YAML
 from intel.source.functions import generate_invite
 from intel.source.yaml import load
 
@@ -35,7 +35,7 @@ class TestCaseGenerateInvite(unittest.TestCase):
             The generated invites should not contain whitespace characters.
             The length of each invite should be equal to INVITE_LENGTH.
         """
-        model = load(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML)
+        model = load(PATH_TO_MODEL_SOURCE + SOURCE_EXTENSION_YAML)
         invite = generate_invite(model)
         invite_length = model['invite']['item']['length']['max']
         for token in invite:

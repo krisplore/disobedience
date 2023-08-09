@@ -5,7 +5,7 @@ or user. Validates values in progress. Writes the file back to the storage.
 
 import sys
 
-from intel.definitions import PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML, PATH_TO_STORAGE, ERR_DEFAULT
+from intel.definitions import PATH_TO_MODEL_SOURCE, SOURCE_EXTENSION_YAML, PATH_TO_STORAGE, ERR_DEFAULT
 from intel.logger import setup as logger_setup
 from intel.source.edit_parser import parse_edit_options
 from intel.source.functions import print_dictionary, get_time
@@ -38,7 +38,7 @@ def edit():
     source.update(arguments)
     logger.info('The original dictionary merged with the new data')
 
-    model = load(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML)
+    model = load(PATH_TO_MODEL_SOURCE + SOURCE_EXTENSION_YAML)
     logger.info('Model source was read')
 
     result = validate(source, model)

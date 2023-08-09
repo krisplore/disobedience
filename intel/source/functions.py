@@ -8,7 +8,7 @@ import string
 import uuid
 from babel import default_locale, UnknownLocaleError
 from babel.dates import format_datetime
-from intel.definitions import SOURCE_SCHEMA_VERSION, PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML
+from intel.definitions import SOURCE_SCHEMA_VERSION, PATH_TO_MODEL_SOURCE, SOURCE_EXTENSION_YAML
 from intel.logger import setup as logger_setup
 from intel.source.yaml import load
 from intel.types.process import write
@@ -103,7 +103,7 @@ def create_stub():
         'note': '',
         'created': time_of_creation,
         'modified': time_of_creation,
-        'invite': generate_invite(load(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML)),
+        'invite': generate_invite(load(PATH_TO_MODEL_SOURCE + SOURCE_EXTENSION_YAML)),
         'stats': {
             'facts': {
                 'total': 0,

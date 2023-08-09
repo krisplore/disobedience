@@ -5,7 +5,7 @@ The module is responsible for the function that retrieves the values for the opt
 import getopt
 import sys
 
-from intel.definitions import PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML, ERR_DEFAULT
+from intel.definitions import PATH_TO_MODEL_SOURCE, SOURCE_EXTENSION_YAML, ERR_DEFAULT
 from intel.logger import setup as logger_setup
 from intel.source.functions import sync_name
 from intel.source.generator import generate_options
@@ -27,7 +27,7 @@ def parse_edit_options(argv):
     :rtype: dict
     """
     logger.info('Parse_edit_options function started')
-    model = load(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML)
+    model = load(PATH_TO_MODEL_SOURCE + SOURCE_EXTENSION_YAML)
     options = generate_options(model)
 
     try:

@@ -11,7 +11,7 @@ import unittest
 import io
 from io import StringIO
 
-from intel.definitions import PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML
+from intel.definitions import PATH_TO_MODEL_SOURCE, SOURCE_EXTENSION_YAML
 from intel.source.functions import print_dictionary
 from intel.source.yaml import load
 
@@ -47,7 +47,7 @@ class TestCasePrintDictionary(unittest.TestCase):
         self.captured_output = io.StringIO()
         sys.stdout = self.captured_output
 
-        print_dictionary(test_dictionary, load(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML))
+        print_dictionary(test_dictionary, load(PATH_TO_MODEL_SOURCE + SOURCE_EXTENSION_YAML))
 
         output = self.captured_output.getvalue()
 

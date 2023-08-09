@@ -4,7 +4,7 @@ Responsible for managing the process of adding a new source.
 
 import sys
 
-from intel.definitions import SOURCE_EXTENSION_YAML, PATH_TO_SOURCE_MODEL, ERR_DEFAULT
+from intel.definitions import SOURCE_EXTENSION_YAML, PATH_TO_MODEL_SOURCE, ERR_DEFAULT
 from intel.logger import setup as logger_setup
 from intel.source.functions import create_stub, print_dictionary
 from intel.source.load.file import parse_filename
@@ -29,7 +29,7 @@ def add():
     logger.info("Add function started")
     print(_("Language"))
 
-    model = load(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML)
+    model = load(PATH_TO_MODEL_SOURCE + SOURCE_EXTENSION_YAML)
     source = create_stub()
     logger.info("The stub for the source was created")
 
