@@ -10,9 +10,9 @@ from intel.log import logger_setup
 from intel.source.functions import sync_name
 from intel.source.generator import generate_options
 from intel.source.yaml import load
-from intel.translation import setup
+from intel.translation import setup as translation_setup
 
-_ = setup()
+_ = translation_setup()
 
 logger = logger_setup()
 

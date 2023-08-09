@@ -9,10 +9,10 @@ import sys
 from intel.definitions import PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML, ERR_DEFAULT
 from intel.log import logger_setup
 from intel.source.yaml import load
-from intel.translation import setup
+from intel.translation import setup as translation_setup
 from intel.types.process import read
 
-_ = setup()
+_ = translation_setup()
 
 logger = logger_setup()
 

@@ -7,9 +7,9 @@ import sys
 
 from intel.definitions import ERR_DEFAULT
 from intel.log import logger_setup
-from intel.translation import setup
+from intel.translation import setup as translation_setup
 
-_ = setup()
+_ = translation_setup()
 
 logger = logger_setup()
 
