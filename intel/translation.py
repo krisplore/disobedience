@@ -10,12 +10,12 @@ to translate strings into the user's preferred language.
 
 import gettext
 from intel.definitions import NAME_PROJECT, PATH_BASE
-from intel.log import setup_logger
+from intel.log import logger_setup
 
 PATH_TO_LOCALES: str = PATH_BASE + '/locales'
 
 
-logger = setup_logger()
+logger = logger_setup()
 
 
 def start_translating():

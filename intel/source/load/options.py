@@ -7,14 +7,14 @@ import getopt
 import sys
 
 from intel.definitions import PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML, ERR_DEFAULT
-from intel.log import setup_logger
+from intel.log import logger_setup
 from intel.source.yaml import load
 from intel.translation import start_translating
 from intel.types.process import read
 
 _ = start_translating()
 
-logger = setup_logger()
+logger = logger_setup()
 
 
 def parse_options(argv):

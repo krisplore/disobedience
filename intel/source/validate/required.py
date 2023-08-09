@@ -5,9 +5,9 @@ This module contains the following function:
     - validate_required: Check if all required fields are present in the data dictionary.
 """
 
-from intel.log import setup_logger
+from intel.log import logger_setup
 
-logger = setup_logger()
+logger = logger_setup()
 
 
 def validate_required(raw_source: dict, model: dict, result: dict):

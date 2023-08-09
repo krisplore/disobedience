@@ -6,7 +6,7 @@ import getopt
 import sys
 
 from intel.definitions import PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML, ERR_DEFAULT
-from intel.log import setup_logger
+from intel.log import logger_setup
 from intel.source.functions import sync_name
 from intel.source.generator import generate_options
 from intel.source.yaml import load
@@ -14,7 +14,7 @@ from intel.translation import start_translating
 
 _ = start_translating()
 
-logger = setup_logger()
+logger = logger_setup()
 
 
 def parse_edit_options(argv):
