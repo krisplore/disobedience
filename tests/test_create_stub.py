@@ -25,7 +25,7 @@ class TestCreateStub(unittest.TestCase):
         with open(source_yaml_path, "r", encoding="utf-8") as file:
             model = yaml.safe_load(file)
 
-        with patch("intel.source.functions.read", return_value=model):
+        with patch("intel.source.functions.load", return_value=model):
             result = create_stub()
 
         self.assertIsInstance(result, dict, "The function must return a dictionary")
