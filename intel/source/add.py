@@ -39,7 +39,7 @@ def add():
     match method_input:
         case 'file':
             logger.info("Case input method - file defined")
-            raw_source = read(load(parse_filename(sys.argv[4:])), model)
+            raw_source = load(parse_filename(sys.argv[4:]))
         case 'opt':
             logger.info("Case input method - options defined")
             raw_source = parse_options(sys.argv[4:])
@@ -62,6 +62,9 @@ def add():
 
         source.update(raw_source)
         logger.info("The raw source was merged into the stub source")
+
+        source = read(source, model)
+        logger.info("The source was sent to the read function")
 
         save(source, source['id'])
         logger.info("The source was written to a file")
