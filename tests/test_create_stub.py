@@ -10,10 +10,9 @@ from intel.source.functions import create_stub
 
 class TestCreateStub(unittest.TestCase):
     """
-    The class contains a test case for the function.
-    The function must return the created stub - a dictionary.
+    The class contains a test case for the function that must return the created stub - a dictionary.
     """
-    def test_return_type(self):
+    def test_create_stub(self):
         """
         The test case is built on the use of a patch in order to open the model in the test
         and get as close as possible to natural conditions without changing the function.
