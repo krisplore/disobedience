@@ -37,7 +37,7 @@ class TestCaseGenerateInvite(unittest.TestCase):
         """
         model = load(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML)
         invite = generate_invite(model)
-        invite_length = model['invite']['item']['length']
+        invite_length = model['invite']['item']['length']['max']
         for token in invite:
             self.assertFalse(token.isspace(), 'Invite should not be a whitespace character')
             self.assertEqual(invite_length, len(token), f'The length of the invite must be = {invite_length}')
