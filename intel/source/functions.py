@@ -93,7 +93,7 @@ def create_stub():
     logger.info("Time of creation was set")
 
     source = {
-        '_source_schema_version': SOURCE_SCHEMA_VERSION,
+        '_schema_version': SOURCE_SCHEMA_VERSION,
         'callsign': '',
         'tags': '',
         'invited_by': '',
