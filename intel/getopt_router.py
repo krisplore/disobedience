@@ -5,7 +5,7 @@ Define entity and action
 
 import sys
 
-from intel.logging import setup as logging_setup
+from intel.logger import setup as logging_setup
 
 logger = logging_setup()
 

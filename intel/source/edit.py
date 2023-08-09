@@ -6,7 +6,7 @@ or user. Validates values in progress. Writes the file back to the storage.
 import sys
 
 from intel.definitions import PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML, PATH_TO_STORAGE, ERR_DEFAULT
-from intel.logging import setup as logging_setup
+from intel.logger import setup as logging_setup
 from intel.source.edit_parser import parse_edit_options
 from intel.source.functions import print_dictionary, get_time
 from intel.source.yaml import load, save

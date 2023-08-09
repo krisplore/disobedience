@@ -6,7 +6,7 @@ This module contains the following function:
       as list with options as values.
 """
 
-from intel.logging import setup as logging_setup
+from intel.logger import setup as logging_setup
 
 logger = logging_setup()
 

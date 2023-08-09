@@ -5,7 +5,7 @@ Responsible for managing the process of adding a new source.
 import sys
 
 from intel.definitions import SOURCE_EXTENSION_YAML, PATH_TO_SOURCE_MODEL, ERR_DEFAULT
-from intel.logging import setup as logging_setup
+from intel.logger import setup as logging_setup
 from intel.source.functions import create_stub, print_dictionary
 from intel.source.load.file import parse_filename
 from intel.source.load.method import parse_method_input

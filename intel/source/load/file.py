@@ -6,7 +6,7 @@ import getopt
 import sys
 
 from intel.definitions import ERR_DEFAULT
-from intel.logging import setup as logging_setup
+from intel.logger import setup as logging_setup
 from intel.translation import setup as translation_setup
 
 _ = translation_setup()

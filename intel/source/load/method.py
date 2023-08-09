@@ -3,7 +3,7 @@ Module provides a function for parsing input argument and retrieving the data in
 """
 
 import sys
-from intel.logging import setup as logging_setup
+from intel.logger import setup as logging_setup
 
 logger = logging_setup()
 

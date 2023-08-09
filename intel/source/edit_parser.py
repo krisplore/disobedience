@@ -6,7 +6,7 @@ import getopt
 import sys
 
 from intel.definitions import PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML, ERR_DEFAULT
-from intel.logging import setup as logging_setup
+from intel.logger import setup as logging_setup
 from intel.source.functions import sync_name
 from intel.source.generator import generate_options
 from intel.source.yaml import load

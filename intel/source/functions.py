@@ -9,7 +9,7 @@ import uuid
 from babel import default_locale, UnknownLocaleError
 from babel.dates import format_datetime
 from intel.definitions import SOURCE_SCHEMA_VERSION, PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML
-from intel.logging import setup as logging_setup
+from intel.logger import setup as logging_setup
 from intel.source.yaml import load
 from intel.types.process import write
 
