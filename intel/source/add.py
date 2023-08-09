@@ -53,7 +53,7 @@ def add():
     if not result['status']:
         logger.error("File validation failed")
         print(result)
-        sys.exit(2)
+        sys.exit(ERR_DEFAULT)
     else:
         logger.info("File validation completed successfully")
 
