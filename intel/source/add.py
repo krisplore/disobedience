@@ -39,7 +39,7 @@ def add():
     match method_input:
         case 'file':
             logger.info("Case input method - file defined")
-            raw_source = load(parse_filename(sys.argv[4:]))
+            raw_source = read(load(parse_filename(sys.argv[4:])), model)
         case 'opt':
             logger.info("Case input method - options defined")
             raw_source = parse_options(sys.argv[4:])
