@@ -11,6 +11,7 @@ from babel.dates import format_datetime
 from intel.definitions import SOURCE_SCHEMA_VERSION, PATH_TO_SOURCE_MODEL, SOURCE_EXTENSION_YAML
 from intel.log import setup_logger
 from intel.source.yaml import load
+from intel.types.process import write
 
 logger = setup_logger()
 
@@ -161,6 +162,7 @@ def print_dictionary(dictionary, model):
     """
     logger.info("print_dictionary function was called")
 
+    dictionary = write(dictionary, model)
     sorted_items = sorted(dictionary.items())
     for key, value in sorted_items:
         if key in model and model[key].get('type') == 'date':
