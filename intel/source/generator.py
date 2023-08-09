@@ -6,9 +6,9 @@ This module contains the following function:
       as list with options as values.
 """
 
-from intel.log import setup
+from intel.logging import setup as logging_setup
 
-logger = setup()
+logger = logging_setup()
 
 
 def generate_options(model):

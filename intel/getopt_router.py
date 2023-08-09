@@ -5,9 +5,9 @@ Define entity and action
 
 import sys
 
-from intel.log import setup
+from intel.logging import setup as logging_setup
 
-logger = setup()
+logger = logging_setup()
 
 
 def getopt_entity_action():

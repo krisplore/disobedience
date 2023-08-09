@@ -5,12 +5,12 @@ This module contains the following function:
     - validate: Check if all required fields are present in the data dictionary and have non-empty values.
 """
 
-from intel.log import setup
+from intel.logging import setup as logging_setup
 from intel.source.validate.list import validate_list_as_string
 from intel.source.validate.required import validate_required
 from intel.source.validate.string import validate_length_string
 
-logger = setup()
+logger = logging_setup()
 
 
 def validate(raw_source: dict, model: dict) -> dict:
