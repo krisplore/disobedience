@@ -8,7 +8,7 @@ import os
 from intel.definitions import LOG_LEVEL
 
 
-def logger_setup():
+def setup():
     """
     The function sets up and returns a logger object for writing logs to the 'logs/disobedience.log' file
     :return: the created and configured logger object

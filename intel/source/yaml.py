@@ -8,11 +8,11 @@ The module includes the following functions:
 
 import yaml
 from intel.definitions import SOURCE_EXTENSION_YAML, PATH_BASE
-from intel.log import logger_setup
+from intel.log import setup
 
 PATH_TO_STORAGE: str = PATH_BASE + '/data/source/'
 
-logger = logger_setup()
+logger = setup()
 
 
 def load(filename):

@@ -9,14 +9,14 @@ import sys
 
 from intel.definitions import ERR_DEFAULT
 from intel.getopt_router import getopt_entity_action
-from intel.log import logger_setup
+from intel.log import setup
 from intel.source.add import add as source_add
 from intel.translation import setup as translation_setup
 from intel.source.edit import edit as source_edit
 
 _ = translation_setup()
 
-logger = logger_setup()
+logger = setup()
 
 
 def main():

@@ -6,9 +6,9 @@ This module contains the following function:
     meets the validation rules.
 """
 
-from intel.log import logger_setup
+from intel.log import setup
 
-logger = logger_setup()
+logger = setup()
 
 
 def validate_length_string(raw_source: dict, model: dict, result: dict):
