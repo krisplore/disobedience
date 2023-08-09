@@ -18,7 +18,7 @@ PATH_TO_LOCALES: str = PATH_BASE + '/locales'
 logger = logger_setup()
 
 
-def start_translating():
+def setup():
     """
     Initialize the translation module and return a translation function.
 

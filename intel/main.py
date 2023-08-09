@@ -11,10 +11,10 @@ from intel.definitions import ERR_DEFAULT
 from intel.getopt_router import getopt_entity_action
 from intel.log import logger_setup
 from intel.source.add import add as source_add
-from intel.translation import start_translating
+from intel.translation import setup
 from intel.source.edit import edit as source_edit
 
-_ = start_translating()
+_ = setup()
 
 logger = logger_setup()
 

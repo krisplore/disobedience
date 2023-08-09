@@ -12,10 +12,10 @@ from intel.source.load.method import parse_method_input
 from intel.source.load.options import parse_options
 from intel.source.validate.validator import validate
 from intel.source.yaml import load, save
-from intel.translation import start_translating
+from intel.translation import setup
 from intel.types.process import read
 
-_ = start_translating()
+_ = setup()
 
 logger = logger_setup()
 
