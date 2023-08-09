@@ -1,9 +1,6 @@
 """
 Module containing test cases for the 'convert_date' function.
 
-This module provides test cases to verify the behavior of the 'convert_date'
-function in accurately format date values in the desired format.
-
 Test case:
 - TestConvertDate: Test case for conversion of a timestamp to a formatted date.
 """
@@ -16,7 +13,7 @@ from intel.source.functions import convert_date
 
 class TestConvertDate(unittest.TestCase):
     """
-    This test case verifies that the 'convert_date' function accurately format date values in
+    This test case verifies that the 'convert_date' function format date values in
     the desired format. It also checks that an error has occurred.
     """
 
