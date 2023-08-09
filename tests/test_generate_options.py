@@ -1,7 +1,7 @@
 """
 The model provides a test case for the function generate_options.
 """
-
+from pathlib import Path
 import unittest
 import yaml
 from intel.source.generator import generate_options
@@ -16,7 +16,9 @@ class MyTestCase(unittest.TestCase):
         """
         The function is given a test model, according to which it will make a list of options for the command line.
         """
-        with open('tests/test_files/test_model.yaml', 'r', encoding='utf-8') as file:
+        base = str(Path(__file__).parent.parent)
+        filename = base + '/tests/test_files/test_model.yaml'
+        with open(filename, 'r', encoding='utf-8') as file:
             model: dict = yaml.safe_load(file)
         result = generate_options(model)
         expected_result = ['where.id=', 'new.callsign=', 'new.invited-by=', 'new.tags=', 'new.invite=',
