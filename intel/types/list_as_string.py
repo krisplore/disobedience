@@ -6,7 +6,6 @@ def las_read(value, separator):
 
 
 def las_write(value: list, separator):
-    print(11, value)
     if isinstance(value, list):
         value = separator.join(value)
 
