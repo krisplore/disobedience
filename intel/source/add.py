@@ -13,6 +13,7 @@ from intel.source.load.options import parse_options
 from intel.source.validate.validator import validate
 from intel.source.yaml import load, save
 from intel.translation import start_translating
+from intel.types.process import read
 
 _ = start_translating()
 
@@ -28,6 +29,7 @@ def add():
     logger.info("Add function started")
     print(_("Language"))
 
+    model = load(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML)
     source = create_stub()
     logger.info("The stub for the source was created")
 
@@ -46,7 +48,7 @@ def add():
             print(_('Method does not exist'))
             sys.exit(ERR_DEFAULT)
 
-    result = validate(raw_source, load(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML))
+    result = validate(raw_source, model)
 
     if not result['status']:
         logger.error("File validation failed")
@@ -55,7 +57,7 @@ def add():
     else:
         logger.info("File validation completed successfully")
 
-        print_dictionary(result, load(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML))
+        print_dictionary(result, model)
         logger.info("The result was printed")
 
         source.update(raw_source)
@@ -64,5 +66,5 @@ def add():
         save(source, source['id'])
         logger.info("The source was written to a file")
 
-        print_dictionary(source, load(PATH_TO_SOURCE_MODEL + SOURCE_EXTENSION_YAML))
+        print_dictionary(source, model)
         logger.info("The source was printed")
