@@ -11,7 +11,7 @@ from intel.source.edit_parser import parse_edit_options
 from intel.source.functions import print_dictionary, get_time
 from intel.source.yaml import load, save
 from intel.source.validate.validator import validate
-
+from intel.types.process import read
 
 logger = setup_logger()
 
@@ -50,8 +50,12 @@ def edit():
 
     else:
         logger.info("File validation completed successfully")
+
+        source = read(source, model)
+        logger.info("The source was sent to the read function")
+
         save(source, filename)
-        logger.info("The updated file was written")
+        logger.info("The updated source was written")
 
         print_dictionary(result, model)
         logger.info("The result was printed")
