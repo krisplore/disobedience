@@ -1,5 +1,5 @@
-from intel.types.list_as_string import las_read, las_write
 from intel.logger import setup as logger_setup
+from intel.types.list_as_string import las_read, las_write
 
 logger = logger_setup()
 
