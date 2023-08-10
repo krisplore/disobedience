@@ -26,12 +26,11 @@ def load(filename):
     :return: A dictionary representing the parsed content from the YAML file.
     :rtype: dict
     """
-    logger.info("read function was called")
 
     try:
         with open(filename, 'r', encoding='utf-8') as file:
             file_parsed: dict = yaml.safe_load(file)
-            logger.info("File '%s' successfully read.", filename)
+            logger.debug("File '%s' successfully read.", filename)
             return file_parsed
     except FileNotFoundError as error:
         logger.error("File not found: %s", filename)
@@ -53,12 +52,11 @@ def save(dictionary, filename):
 
     :return: None
     """
-    logger.info("write function was called")
 
     try:
         with open(PATH_TO_STORAGE + filename + SOURCE_EXTENSION_YAML, 'w', encoding='utf-8') as file:
             yaml.dump(dictionary, file)
-        logger.info("Dictionary successfully written to file '%s'.", filename + SOURCE_EXTENSION_YAML)
+        logger.info("Dictionary successfully written to file '%s'.", filename)
     except Exception as error:
-        logger.error("Error writing dictionary to file '%s': %s", filename + SOURCE_EXTENSION_YAML, error)
+        logger.error("Error writing dictionary to file: %s", error)
         raise error
