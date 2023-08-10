@@ -27,7 +27,6 @@ def add():
     It prompts the user for required information, generates relevant data,
     and saves it to a file.
     """
-    print(_("Language"))
 
     model = load(PATH_TO_MODEL_SOURCE + SOURCE_EXTENSION_YAML)
     source = create_stub()
