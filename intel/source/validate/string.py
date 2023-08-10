@@ -22,8 +22,6 @@ def validate_length_string(raw_source: dict, model: dict, result: dict):
     :return: dictionary with the results of the check
     """
 
-    logger.info("validate_length_string function was called")
-
     for field, properties in model.items():
         if 'type' in properties and properties['type'] == 'string' and 'length' in properties:
             min_length = properties['length'].get('min')
