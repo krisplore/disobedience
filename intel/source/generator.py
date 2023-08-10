@@ -22,7 +22,6 @@ def generate_options(model):
     :return: List of command line options.
     :rtype: List
     """
-    logger.info("generate_options function was called")
 
     searchable_options = {}
     editable_options = {}
@@ -31,12 +30,12 @@ def generate_options(model):
         if 'can_be_searched' in properties and properties['can_be_searched']:
             option = properties.get('option', {})
             searchable_options[field] = 'where.' + option + '='
-            logger.info("Added searchable option: %s", searchable_options[field])
+            logger.debug("Added searchable option: %s", searchable_options[field])
 
         if 'can_be_edited' in properties and properties['can_be_edited']:
             option = properties.get('option', {})
             editable_options[field] = 'new.' + option + '='
-            logger.info("Added editable option: %s", editable_options[field])
+            logger.debug("Added editable option: %s", editable_options[field])
 
     options = searchable_options.copy()
     options.update(editable_options)
