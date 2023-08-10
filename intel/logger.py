@@ -17,7 +17,7 @@ def setup():
         os.makedirs('logs')
 
     handler = logging.FileHandler('logs/disobedience.log', mode='w')
-    formatter = logging.Formatter("%(name)s %(asctime)s %(levelname)s %(message)s")
+    formatter = logging.Formatter("%(name)s %(asctime)s %(levelname)s %(message)s", datefmt="%H:%M:%S")
     handler.setFormatter(formatter)
 
     logger = logging.getLogger('disobedience')
