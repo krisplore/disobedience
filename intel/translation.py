@@ -32,7 +32,7 @@ def setup():
 
     try:
         language.install()
-        logger.info("Translation language installed successfully.")
+        logger.debug("Translation language installed successfully.")
     except FileNotFoundError as err:
         logger.error("Failed to install translation language: %s", err)
     translate = language.gettext
