@@ -26,15 +26,19 @@ def setup():
     :return: A function that can be used to translate strings into the user's preferred language.
     :rtype: function
     """
-    logger.info("start_translating function was called")
 
     language = gettext.translation(NAME_PROJECT, localedir=PATH_TO_LOCALES)
 
     try:
         language.install()
-        logger.info("Translation language installed successfully.")
+        logger.debug("Translation language installed successfully.")
     except FileNotFoundError as err:
         logger.error("Failed to install translation language: %s", err)
     translate = language.gettext
 
     return translate
+
+
+_ = setup()
+
+logger.debug(_("Language"))

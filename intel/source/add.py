@@ -27,22 +27,20 @@ def add():
     It prompts the user for required information, generates relevant data,
     and saves it to a file.
     """
-    logger.info("Add function started")
-    print(_("Language"))
 
     model = load(PATH_TO_MODEL_SOURCE + SOURCE_EXTENSION_YAML)
     source = create_stub()
-    logger.info("The stub for the source was created")
+    if source:
+        logger.debug("The stub for the source was created")
 
     method_input = parse_method_input()
-    logger.info("Input method defined")
 
     match method_input:
         case 'file':
-            logger.info("Case input method - file defined")
+            logger.debug("Case input method - file defined")
             raw_source = load(parse_filename(sys.argv[4:]))
         case 'opt':
-            logger.info("Case input method - options defined")
+            logger.debug("Case input method - options defined")
             raw_source = parse_options(sys.argv[4:])
         case _:
             logger.error("Case input method not defined")
@@ -59,16 +57,11 @@ def add():
         logger.info("File validation completed successfully")
 
         print_dictionary(result, model)
-        logger.info("The result was printed")
 
         source.update(raw_source)
-        logger.info("The raw source was merged into the stub source")
 
         source = read(source, model)
-        logger.info("The source was sent to the read function")
 
         save(source, source['id'])
-        logger.info("The source was written to a file")
 
         print_dictionary(source, model)
-        logger.info("The source was printed")

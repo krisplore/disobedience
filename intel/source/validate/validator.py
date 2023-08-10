@@ -29,7 +29,6 @@ def validate(raw_source: dict, model: dict) -> dict:
              If no errors are found, the 'errors' list will be empty.
     :rtype: dict
     """
-    logger.info("validate function was called")
 
     result = {
         'status': True,
@@ -37,9 +36,10 @@ def validate(raw_source: dict, model: dict) -> dict:
     }
 
     result = validate_required(raw_source, model, result)
-    logger.info("Result after validate_required received")
+    logger.debug("Result after validate_required received")
     result = validate_list_as_string(raw_source, model, result)
+    logger.debug("Result after validate_list_as_string received")
     result = validate_length_string(raw_source, model, result)
-    logger.info("Result after validate_length received")
+    logger.debug("Result after validate_length received")
 
     return result

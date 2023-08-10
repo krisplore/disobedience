@@ -16,8 +16,8 @@ def parse_method_input():
     :return: The data input method.
     :rtype: str.
     """
-    logger.info("parse_method_input function was called")
 
     way: str = sys.argv[3]
-
+    if way:
+        logger.debug("Input method defined")
     return way

@@ -30,7 +30,7 @@ def main():
     args_entity_action: list = getopt_entity_action()
     entity: object = args_entity_action[0]
     action: object = args_entity_action[1]
-    logger.info("Entity and action parsed")
+
     route_request(entity, action)
 
 
@@ -60,7 +60,7 @@ def route_request(entity, action):
 
     if entity in entities_actions:
         if action in entities_actions[entity]:
-            logger.info("Entity and action defined")
+            logger.debug("Entity and action defined")
             return entities_actions[entity][action]()
         logger.error("Action not defined")
         print(_(f'Unknown action for {entity}'))

@@ -23,24 +23,20 @@ def edit():
     and overwrites the file.
     :return: None
     """
-    logger.info('Edit function started')
 
     arguments = parse_edit_options(sys.argv[3:])
-    logger.info('Parsed options received')
+    if arguments:
+        logger.debug('Parsed options received')
 
     filename = arguments['id']
 
     source = load(PATH_TO_STORAGE + filename + SOURCE_EXTENSION_YAML)
-    logger.info('Dictionary source was read')
 
     source['modified'] = get_time()
-    logger.info('Modification time set')
 
     source.update(arguments)
-    logger.info('The original dictionary merged with the new data')
 
     model = load(PATH_TO_MODEL_SOURCE + SOURCE_EXTENSION_YAML)
-    logger.info('Model source was read')
 
     result = validate(source, model)
 
@@ -53,13 +49,9 @@ def edit():
         logger.info("File validation completed successfully")
 
         source = read(source, model)
-        logger.info("The source was sent to the read function")
 
         save(source, filename)
-        logger.info("The updated source was written")
 
         print_dictionary(result, model)
-        logger.info("The result was printed")
 
         print_dictionary(source, model)
-        logger.info("The source was printed")

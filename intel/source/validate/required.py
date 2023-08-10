@@ -28,23 +28,24 @@ def validate_required(raw_source: dict, model: dict, result: dict):
     :return: The modified 'result' dictionary after checking for missing required fields.
     :rtype: dict
     """
-    logger.info("validate_required function was called")
 
     for field, properties in model.items():
         if properties.get('required', False) and field not in raw_source:
-            logger.warning("Missing argument: %s", field)
             result['status'] = False
             result['errors'].append(f'Missing argument {field}')
+
+            logger.warning("Missing argument: %s", field)
 
         if field in raw_source:
             value = raw_source[field]
 
             if properties.get('required', True) and properties.get('type') == 'string':
                 if value is None or value.strip() == "":
-                    logger.warning("Invalid value for '%s'. It must not be None, empty, "
-                                   "or contain only whitespace.", field)
                     result['status'] = False
                     result['errors'].append(f"The value for '{field}' must not be None, "
                                             f"empty, or contain only whitespace")
+
+                    logger.warning("Invalid value for '%s'. It must not be None, empty, "
+                                   "or contain only whitespace.", field)
 
     return result

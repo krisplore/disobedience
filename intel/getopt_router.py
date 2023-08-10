@@ -22,9 +22,11 @@ def getopt_entity_action():
 
     :rtype: list
     """
-    logger.info("getopt_entity_action function was called")
 
     entity = sys.argv[1]
     action = sys.argv[2]
     args_entity_action = [entity, action]
+    if args_entity_action:
+        logger.debug("Entity and action were parsed")
+
     return args_entity_action
