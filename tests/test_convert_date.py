@@ -10,7 +10,6 @@ Test case:
 
 import unittest
 
-
 from intel.source.functions import convert_date
 
 

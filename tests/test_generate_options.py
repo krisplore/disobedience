@@ -1,9 +1,11 @@
 """
 The model provides a test case for the function generate_options.
 """
-from pathlib import Path
 import unittest
+from pathlib import Path
+
 import yaml
+
 from intel.source.generator import generate_options
 
 

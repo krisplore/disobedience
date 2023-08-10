@@ -2,6 +2,7 @@
 Module to test the function parse_edit_options. Contains a test case TestParseEditOptions.
 """
 import unittest
+
 from intel.source.edit_parser import parse_edit_options
 
 

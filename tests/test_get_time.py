@@ -10,6 +10,7 @@ Test cases:
 
 import time
 import unittest
+
 from intel.source.functions import get_time
 
 

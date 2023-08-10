@@ -5,6 +5,7 @@ function by adding a patch to the program
 
 import unittest
 from unittest.mock import patch
+
 from intel.source.functions import get_system_locale
 
 

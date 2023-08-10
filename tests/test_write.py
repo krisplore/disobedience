@@ -12,7 +12,7 @@ import os
 import unittest
 
 from intel.definitions import SOURCE_EXTENSION_YAML
-from intel.source.yaml import save, PATH_TO_STORAGE
+from intel.source.yaml import PATH_TO_STORAGE, save
 
 
 class TestCaseSaveToYAML(unittest.TestCase):

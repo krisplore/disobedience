@@ -9,6 +9,7 @@ Test cases:
 """
 
 import unittest
+
 from intel.source.functions import set_type
 
 

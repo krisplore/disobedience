@@ -6,9 +6,9 @@ The 'print_dictionary' function is responsible for printing the key-value pairs
 of a given dictionary in a specific format.
 """
 
+import io
 import sys
 import unittest
-import io
 from io import StringIO
 
 from intel.definitions import PATH_TO_MODEL_SOURCE, SOURCE_EXTENSION_YAML

@@ -4,7 +4,9 @@ The module contains a test case for the create_stub function
 import os
 import unittest
 from unittest.mock import patch
+
 import yaml
+
 from intel.source.functions import create_stub
 
 

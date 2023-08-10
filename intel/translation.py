@@ -9,6 +9,7 @@ to translate strings into the user's preferred language.
 """
 
 import gettext
+
 from intel.definitions import NAME_PROJECT, PATH_BASE
 from intel.logger import setup as logger_setup
 
