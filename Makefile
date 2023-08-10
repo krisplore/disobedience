@@ -54,4 +54,4 @@ clean:
 	rm locales/en_US/LC_MESSAGES/disobedience.mo
 	rm locales/ru_RU/LC_MESSAGES/disobedience.mo
 
-.PHONY: all lint build test pylint bandit scan-translation locales unittest coverage setup install-deps collect-deps clean
+.PHONY: all lint build test commit bandit scan-translation locales unittest coverage setup install-deps collect-deps check-outdated clean
