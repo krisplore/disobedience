@@ -6,7 +6,7 @@
 .PHONY commit:
 	# Lint with pylint
 	PYTHONPATH=$(shell pwd) venv/bin/pylint --recursive=y intel tests || true
-	isort .
+	venv/bin/isort .
 
 bandit:
 	venv/bin/bandit -r intel tests
