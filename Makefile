@@ -1,4 +1,4 @@
-.PHONY all: lint build test
+.PHONY all: lint build test check-outdated
 .PHONY lint: pylint bandit
 .PHONY build: locales
 .PHONY test: smoke-test unittest coverage
@@ -45,6 +45,9 @@ install-deps:
 
 collect-deps:
 	venv/bin/pip freeze > requirements.txt
+
+check-outdated:
+	pip list --outdated /venv/pip
 
 clean:
 	rm locales/en_US/LC_MESSAGES/disobedience.mo
