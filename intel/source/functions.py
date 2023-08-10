@@ -73,7 +73,7 @@ def generate_invite(model):
     for _ in range(invite_length):
         token_bytes: bytes = secrets.token_bytes(invite_item_max_length)
         invite.append(''.join(characters[b % len(characters)] for b in token_bytes))
-    if len(invite):
+    if invite:
         logger.debug("Invite was generated")
 
     return invite
