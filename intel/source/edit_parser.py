@@ -27,13 +27,13 @@ def parse_edit_options(argv):
     :return: a dictionary from command line values
     :rtype: dict
     """
-    logger.info('Parse_edit_options function started')
+
     model = load(PATH_TO_MODEL_SOURCE + SOURCE_EXTENSION_YAML)
     options = generate_options(model)
 
     try:
         opts = getopt.getopt(argv, '', options)[0]
-        logger.info('Command line options processed successfully')
+        logger.debug('Command line options processed successfully')
     except getopt.GetoptError as err:
         logger.error("Error raised while parsing options: %s", str(err))
         print(str(err))
@@ -51,7 +51,5 @@ def parse_edit_options(argv):
             key = sync_name(key)
             new_values[key] = arg
             logger.info('Defined option %s and value %s in dictionary', key, arg)
-
-    logger.info('Data type "list string separator comma" was extracted')
 
     return new_values
