@@ -48,7 +48,7 @@ collect-deps:
 	venv/bin/pip freeze > requirements.txt
 
 check-outdated:
-	pip list --outdated /venv/pip
+	venv/bin/pip list --outdated
 
 clean:
 	rm locales/en_US/LC_MESSAGES/disobedience.mo
