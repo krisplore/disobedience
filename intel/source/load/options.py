@@ -28,7 +28,6 @@ def parse_options(argv):
     :return: A dictionary representing the parsed options.
     :rtype: dict
     """
-    logger.info("parse_options function was called")
 
     map_options: dict[str, tuple[str, str]] = {
         'callsign': ('-c', '--callsign'),
@@ -52,6 +51,5 @@ def parse_options(argv):
                 break
 
     options_parsed = read(options_parsed, load(PATH_TO_MODEL_SOURCE + SOURCE_EXTENSION_YAML))
-    logger.info('Data type "list string separator comma" was extracted')
 
     return options_parsed
