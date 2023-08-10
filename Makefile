@@ -1,9 +1,9 @@
 .PHONY all: lint build test check-outdated
-.PHONY lint: pylint bandit
+.PHONY lint: commit bandit
 .PHONY build: locales
 .PHONY test: smoke-test unittest coverage
 
-.PHONY pylint:
+.PHONY commit:
 	# Lint with pylint
 	PYTHONPATH=$(shell pwd) venv/bin/pylint --recursive=y intel tests || true
 
