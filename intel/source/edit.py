@@ -5,12 +5,13 @@ or user. Validates values in progress. Writes the file back to the storage.
 
 import sys
 
-from intel.definitions import PATH_TO_MODEL_SOURCE, SOURCE_EXTENSION_YAML, PATH_TO_STORAGE, ERR_DEFAULT
+from intel.definitions import (ERR_DEFAULT, PATH_TO_MODEL_SOURCE,
+                               PATH_TO_STORAGE, SOURCE_EXTENSION_YAML)
 from intel.logger import setup as logger_setup
 from intel.source.edit_parser import parse_edit_options
-from intel.source.functions import print_dictionary, get_time
-from intel.source.yaml import load, save
+from intel.source.functions import get_time, print_dictionary
 from intel.source.validate.validator import validate
+from intel.source.yaml import load, save
 from intel.types.process import read
 
 logger = logger_setup()

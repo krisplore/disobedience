@@ -6,7 +6,8 @@ and returns a dictionary of the parsed options.
 import getopt
 import sys
 
-from intel.definitions import PATH_TO_MODEL_SOURCE, SOURCE_EXTENSION_YAML, ERR_DEFAULT
+from intel.definitions import (ERR_DEFAULT, PATH_TO_MODEL_SOURCE,
+                               SOURCE_EXTENSION_YAML)
 from intel.logger import setup as logger_setup
 from intel.source.yaml import load
 from intel.translation import setup as translation_setup

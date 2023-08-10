@@ -5,7 +5,8 @@ The module is responsible for the function that retrieves the values for the opt
 import getopt
 import sys
 
-from intel.definitions import PATH_TO_MODEL_SOURCE, SOURCE_EXTENSION_YAML, ERR_DEFAULT
+from intel.definitions import (ERR_DEFAULT, PATH_TO_MODEL_SOURCE,
+                               SOURCE_EXTENSION_YAML)
 from intel.logger import setup as logger_setup
 from intel.source.functions import sync_name
 from intel.source.generator import generate_options
