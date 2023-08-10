@@ -15,6 +15,7 @@ def setup():
     """
     if not os.path.exists('logs'):
         os.makedirs('logs')
+    if not os.path.exists(PATH_TO_LOGS):
 
     handler = logging.FileHandler('logs/disobedience.log', mode='w')
     formatter = logging.Formatter("%(name)s %(asctime)s %(levelname)s %(message)s", datefmt="%H:%M:%S")
