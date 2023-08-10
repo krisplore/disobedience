@@ -23,7 +23,6 @@ def parse_filename(argv):
     :return: The filename extracted from the command line arguments.
     :rtype: str
     """
-    logger.info("parse_filename function was called")
 
     try:
         opts = getopt.getopt(argv, "f:", ["filename="])[0]
@@ -33,7 +32,7 @@ def parse_filename(argv):
         sys.exit(ERR_DEFAULT)
 
     if opts:
-        logger.info("Filename provided")
+        logger.debug("Filename provided")
         filename = opts[0][1]
         return filename
 
