@@ -1,4 +1,7 @@
 from intel.types.list_as_string import las_read, las_write
+from intel.logger import setup as logger_setup
+
+logger = logger_setup()
 
 
 def read(data, model):
@@ -9,6 +12,7 @@ def read(data, model):
             match field_type:
                 case 'list_as_string':
                     data[field] = las_read(value, properties)
+                    logger.debug('Case match %s and "list_as_string" in read function', field_type)
 
     return data
 
@@ -21,5 +25,6 @@ def write(data, model):
             match field_type:
                 case 'list_as_string':
                     data[field] = las_write(value, properties)
+                    logger.debug('Case match %s and "list_as_string" in write function', field_type)
 
     return data
