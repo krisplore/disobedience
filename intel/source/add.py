@@ -6,7 +6,7 @@ import sys
 
 from intel.definitions import (ERR_DEFAULT, PATH_TO_MODEL_SOURCE,
                                SOURCE_EXTENSION_YAML)
-from intel.logger import setup as logger_setup
+from intel.logger import logger
 from intel.source.functions import create_stub, print_dictionary
 from intel.source.load.file import parse_filename
 from intel.source.load.method import parse_method_input
@@ -17,8 +17,6 @@ from intel.translation import setup as translation_setup
 from intel.types.process import read
 
 _ = translation_setup()
-
-logger = logger_setup()
 
 
 def add():

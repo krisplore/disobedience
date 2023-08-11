@@ -4,9 +4,7 @@ Module provides a function for parsing input argument and retrieving the data in
 
 import sys
 
-from intel.logger import setup as logger_setup
-
-logger = logger_setup()
+from intel.logger import logger
 
 
 def parse_method_input():

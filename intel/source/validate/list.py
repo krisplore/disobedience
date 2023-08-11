@@ -6,9 +6,8 @@ Functions:
 - validate_item_length
 - validate_list_as_string
 """
-from intel.logger import setup as logger_setup
+from intel.logger import logger
 
-logger = logger_setup()
 
 def validate_item_length(field, item, item_props, result):
     """
