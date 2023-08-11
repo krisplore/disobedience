@@ -12,11 +12,9 @@ from babel.dates import format_datetime
 
 from intel.definitions import (PATH_TO_MODEL_SOURCE, SOURCE_EXTENSION_YAML,
                                SOURCE_SCHEMA_VERSION)
-from intel.logger import setup as logger_setup
+from intel.logger import logger
 from intel.source.yaml import load
 from intel.types.process import write
-
-logger = logger_setup()
 
 
 def generate_id():

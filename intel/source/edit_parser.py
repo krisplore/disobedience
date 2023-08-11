@@ -7,15 +7,13 @@ import sys
 
 from intel.definitions import (ERR_DEFAULT, PATH_TO_MODEL_SOURCE,
                                SOURCE_EXTENSION_YAML)
-from intel.logger import setup as logger_setup
+from intel.logger import logger
 from intel.source.functions import sync_name
 from intel.source.generator import generate_options
 from intel.source.yaml import load
 from intel.translation import setup as translation_setup
 
 _ = translation_setup()
-
-logger = logger_setup()
 
 
 def parse_edit_options(argv):
@@ -44,12 +42,12 @@ def parse_edit_options(argv):
         if '--where' in opt:
             key = opt.split('.')[-1]
             new_values[key] = arg
-            logger.info('Defined option %s and value %s in dictionary', key, arg)
+            logger.debug('Defined option %s and value %s in dictionary', key, arg)
 
         elif '--new' in opt:
             key = opt.split('.')[-1]
             key = sync_name(key)
             new_values[key] = arg
-            logger.info('Defined option %s and value %s in dictionary', key, arg)
+            logger.debug('Defined option %s and value %s in dictionary', key, arg)
 
     return new_values

@@ -1,9 +1,8 @@
 """
 The module is responsible for converting information into the desired format.
 """
-from intel.logger import setup as logger_setup
 
-logger = logger_setup()
+from intel.logger import logger
 
 
 def las_read(value, properties):

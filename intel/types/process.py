@@ -5,10 +5,8 @@ and to a file for the program.
 The functions determine the data type and sends the information to the next function.
 """
 
-from intel.logger import setup as logger_setup
+from intel.logger import logger
 from intel.types.list_as_string import las_read, las_write
-
-logger = logger_setup()
 
 
 def read(data, model):

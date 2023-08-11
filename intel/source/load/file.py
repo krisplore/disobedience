@@ -6,12 +6,10 @@ import getopt
 import sys
 
 from intel.definitions import ERR_DEFAULT
-from intel.logger import setup as logger_setup
+from intel.logger import logger
 from intel.translation import setup as translation_setup
 
 _ = translation_setup()
-
-logger = logger_setup()
 
 
 def parse_filename(argv):

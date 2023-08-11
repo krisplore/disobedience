@@ -9,11 +9,9 @@ The module includes the following functions:
 import yaml
 
 from intel.definitions import PATH_BASE, SOURCE_EXTENSION_YAML
-from intel.logger import setup as logger_setup
+from intel.logger import logger
 
 PATH_TO_STORAGE: str = PATH_BASE + '/data/source/'
-
-logger = logger_setup()
 
 
 def load(filename):
@@ -56,7 +54,7 @@ def save(dictionary, filename):
     try:
         with open(PATH_TO_STORAGE + filename + SOURCE_EXTENSION_YAML, 'w', encoding='utf-8') as file:
             yaml.dump(dictionary, file)
-        logger.info("Dictionary successfully written to file '%s'.", filename)
+        logger.info("Dictionary successfully written to file '%s'.", filename + SOURCE_EXTENSION_YAML)
     except Exception as error:
         logger.error("Error writing dictionary to file: %s", error)
         raise error
