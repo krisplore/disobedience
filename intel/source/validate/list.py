@@ -34,48 +34,15 @@ def validate_item_length(field, item, item_props, result):
     return result
 
 
-def validate_list(field, value, list_props, item_props, result):
-    """
-    Validate the list field.
-
-    :param field: name of the field being validated
-    :param value: value of the list field.
-    :param list_props: validation properties for the list as a whole.
-    :param item_props: validation properties for each item in the list.
-    :param result: dictionary with the results of the check
-    :return: dictionary with the results of the check
-    """
-
-    list_min, list_max = list_props.get('min'), list_props.get('max')
-
-    if list_min is not None and len(value) < list_min:
-        result['status'] = False
-        result['errors'].append(f"Field '{field}' must have at least {list_min} items.")
-
-    if list_max is not None and len(value) > list_max:
-        result['status'] = False
-        result['errors'].append(f"Field '{field}' must have at most {list_max} items.")
-
-    for item in value:
-        if not isinstance(item, str):
-            result['status'] = False
-            result['errors'].append(f"Invalid value for field '{field}'. Expected a string or a list.")
-        else:
-            result = validate_item_length(field, item, item_props, result)
-
-    return result
-
-
 def validate_list_as_string(raw_source: dict, model: dict, result: dict):
     """
-    The function gets the maximum and minimum values for the length of the list and its elements.
+    Validate a dictionary field that should be represented as a list of strings.
 
-    :param raw_source: dictionary with data to be checked
-    :param model: dict of rules
-    :param result: dictionary with the results of the check
-    :return: dictionary with the results of the check
+    :param raw_source: Dictionary with data to be checked
+    :param model: Dictionary of rules
+    :param result: Dictionary to store the validation results
+    :return: Updated result dictionary
     """
-
     for field, properties in model.items():
         if 'type' in properties and properties['type'] == 'list_as_string':
             value = raw_source.get(field)
@@ -86,6 +53,21 @@ def validate_list_as_string(raw_source: dict, model: dict, result: dict):
                 if not isinstance(value, list):
                     value = [value]
 
-                validate_list(field, value, list_props, item_props, result)
+                list_min, list_max = list_props.get('min'), list_props.get('max')
+
+                if list_min is not None and len(value) < list_min:
+                    result['status'] = False
+                    result['errors'].append(f"Field '{field}' must have at least {list_min} items.")
+
+                if list_max is not None and len(value) > list_max:
+                    result['status'] = False
+                    result['errors'].append(f"Field '{field}' must have at most {list_max} items.")
+
+                for item in value:
+                    if not isinstance(item, str):
+                        result['status'] = False
+                        result['errors'].append(f"Invalid value for field '{field}'. Expected a string")
+                    else:
+                        result = validate_item_length(field, item, item_props, result)
 
     return result
