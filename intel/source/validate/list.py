@@ -75,7 +75,7 @@ def validate_list_as_string(raw_source: dict, model: dict, result: dict):
                     if not isinstance(item, str):
                         result['status'] = False
                         result['errors'].append(f"Invalid value for field '{field}'. Expected a string")
-                        logger.error(f"Validation error: Invalid value for field '%s'. Expected a string", field)
+                        logger.error("Validation error: Invalid value for field '%s'. Expected a string", field)
                     else:
                         result = validate_item_length(field, item, item_props, result)
 
