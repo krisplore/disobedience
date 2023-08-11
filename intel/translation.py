@@ -38,4 +38,4 @@ def setup():
 
 _ = setup()
 
-logger.debug(_("Language"))
+logger.info(_("Language"))
