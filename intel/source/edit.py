@@ -38,6 +38,8 @@ def edit():
 
     model = load(PATH_TO_MODEL_SOURCE + SOURCE_EXTENSION_YAML)
 
+    source = read(source, model)
+
     result = validate(source, model)
 
     if not result['status']:
