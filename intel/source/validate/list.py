@@ -27,13 +27,13 @@ def validate_item_length(field, item, item_props, result):
         result['status'] = False
         result['errors'].append(f"Each item in field '{field}' must have length at least {item_min}.")
 
-        logger.error("Validation error: Each item in field '$s' must have length at least %s.", field, item_min)
+        logger.error("Validation error: Each item in field '%s' must have length at least %s.", field, item_min)
 
     if item_max is not None and item_len > item_max:
         result['status'] = False
         result['errors'].append(f"Each item in field '{field}' must have length at most {item_max}.")
 
-        logger.error("Validation error: Each item in field '$s' must have length at most %s.", field, item_max)
+        logger.error("Validation error: Each item in field '%s' must have length at most %s.", field, item_max)
 
     return result
 
