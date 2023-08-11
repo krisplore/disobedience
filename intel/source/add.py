@@ -52,7 +52,7 @@ def add():
         print(result)
         sys.exit(ERR_DEFAULT)
     else:
-        logger.info("File validation completed successfully")
+        logger.debug("File validation completed successfully")
 
         print_dictionary(result, model)
 
