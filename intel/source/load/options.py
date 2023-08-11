@@ -45,7 +45,7 @@ def parse_options(argv):
         for key, value in map_options.items():
             if opt in value:
                 options_parsed[key] = arg
-                logger.info('Defined option %s and value %s in dictionary', key, arg)
+                logger.debug('Defined option %s and value %s in dictionary', key, arg)
                 break
 
     options_parsed = read(options_parsed, load(PATH_TO_MODEL_SOURCE + SOURCE_EXTENSION_YAML))
