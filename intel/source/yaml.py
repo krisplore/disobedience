@@ -54,7 +54,7 @@ def save(dictionary, filename):
     try:
         with open(PATH_TO_STORAGE + filename + SOURCE_EXTENSION_YAML, 'w', encoding='utf-8') as file:
             yaml.dump(dictionary, file)
-        logger.info("Dictionary successfully written to file '%s'.", filename)
+        logger.info("Dictionary successfully written to file '%s'.", filename + SOURCE_EXTENSION_YAML)
     except Exception as error:
         logger.error("Error writing dictionary to file: %s", error)
         raise error
