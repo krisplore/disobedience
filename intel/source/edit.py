@@ -46,7 +46,7 @@ def edit():
         sys.exit(ERR_DEFAULT)
 
     else:
-        logger.info("File validation completed successfully")
+        logger.debug("File validation completed successfully")
 
         source = read(source, model)
 
