@@ -4,10 +4,11 @@ The check goes over the fields of the model.
 
 Functions:
 - validate_item_length
-- validate_list
 - validate_list_as_string
 """
+from intel.logger import setup as logger_setup
 
+logger = logger_setup()
 
 def validate_item_length(field, item, item_props, result):
     """
@@ -27,9 +28,13 @@ def validate_item_length(field, item, item_props, result):
         result['status'] = False
         result['errors'].append(f"Each item in field '{field}' must have length at least {item_min}.")
 
+        logger.error("Validation error: Each item in field '$s' must have length at least %s.", field, item_min)
+
     if item_max is not None and item_len > item_max:
         result['status'] = False
         result['errors'].append(f"Each item in field '{field}' must have length at most {item_max}.")
+
+        logger.error("Validation error: Each item in field '$s' must have length at most %s.", field, item_max)
 
     return result
 
@@ -59,14 +64,19 @@ def validate_list_as_string(raw_source: dict, model: dict, result: dict):
                     result['status'] = False
                     result['errors'].append(f"Field '{field}' must have at least {list_min} items.")
 
+                    logger.error("Validation error: Field '%s' must have at least %s items.", field, list_min)
+
                 if list_max is not None and len(value) > list_max:
                     result['status'] = False
                     result['errors'].append(f"Field '{field}' must have at most {list_max} items.")
+
+                    logger.error("Validation error: Field '%s' must have at least %s items.", field, list_max)
 
                 for item in value:
                     if not isinstance(item, str):
                         result['status'] = False
                         result['errors'].append(f"Invalid value for field '{field}'. Expected a string")
+                        logger.error(f"Validation error: Invalid value for field '%s'. Expected a string", field)
                     else:
                         result = validate_item_length(field, item, item_props, result)
 
