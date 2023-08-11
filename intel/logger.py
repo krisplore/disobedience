@@ -9,8 +9,6 @@ import colorlog
 
 from intel.definitions import LOG_LEVEL, NAME_PROJECT, PATH_TO_LOGS
 
-global logger
-
 if not os.path.exists(PATH_TO_LOGS):
     os.makedirs(PATH_TO_LOGS)
 
