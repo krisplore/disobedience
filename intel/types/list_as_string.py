@@ -1,9 +1,19 @@
+"""
+The module is responsible for converting information into the desired format.
+"""
 from intel.logger import setup as logger_setup
 
 logger = logger_setup()
 
 
 def las_read(value, properties):
+    """
+    The function splits the value by the separator from a string and writes it to the list.
+
+    :param value: value to be changed
+    :param properties: the rules by which the value changes
+    :return: correctly written value
+    """
     separator = properties.get('separator', ',')
     if isinstance(value, str):
         value = [item.strip() for item in value.split(separator) if item.strip()]
@@ -12,6 +22,13 @@ def las_read(value, properties):
 
 
 def las_write(value: list, properties):
+    """
+    The function joins a string by the separator from the list.
+
+    :param value: value to be changed
+    :param properties: the rules by which the value changes
+    :return: correctly written value
+    """
     separator = properties.get('separator', ',')
     if isinstance(value, list):
         separator += " "
