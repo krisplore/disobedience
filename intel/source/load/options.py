@@ -35,9 +35,8 @@ def parse_options(argv):
 
     try:
         opts = getopt.getopt(argv, "c:i:t:", ["callsign=", "invited-by=", "tags="])[0]
-    except getopt.GetoptError as error:  # invalid options - not c, i, t / if option without argument
-        logger.error("Error parsing command-line options: %s", error)
-        print(_("Invalid options or missing required arguments"))
+    except getopt.GetoptError:  # invalid options - not c, i, t / if option without argument
+        logger.error(_("Invalid options or missing required arguments"))
         sys.exit(ERR_DEFAULT)
 
     options_parsed = {}
