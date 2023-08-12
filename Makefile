@@ -53,8 +53,11 @@ collect-deps:
 check-outdated:
 	venv/bin/pip list --outdated
 
+deps-tree:
+	venv/bin/pipdeptree
+
 clean:
 	rm locales/en_US/LC_MESSAGES/disobedience.mo
 	rm locales/ru_RU/LC_MESSAGES/disobedience.mo
 
-.PHONY: all lint build test commit pylint isort bandit scan-translation locales unittest coverage setup install-deps collect-deps check-outdated clean
+.PHONY: all lint build test commit pylint isort bandit scan-translation locales unittest coverage setup install-deps collect-deps check-outdated deps-tree clean
