@@ -34,7 +34,6 @@ def parse_edit_options(argv):
         logger.debug('Command line options processed successfully')
     except getopt.GetoptError as err:
         logger.error("Error raised while parsing options: %s", str(err))
-        print(str(err))
         sys.exit(ERR_DEFAULT)
 
     new_values = {}
