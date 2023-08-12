@@ -42,7 +42,7 @@ def edit():
 
     if not result['status']:
         logger.error("File validation failed")
-        print(result)
+        print_dictionary(result, model)
         sys.exit(ERR_DEFAULT)
 
     else:
