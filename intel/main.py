@@ -60,12 +60,10 @@ def route_request(entity, action):
         if action in entities_actions[entity]:
             logger.debug("Entity and action defined")
             return entities_actions[entity][action]()
-        logger.error("Action not defined")
-        print(_(f'Unknown action for {entity}'))
+        logger.error(_(f'Unknown action for {entity}'))
         sys.exit(ERR_DEFAULT)
     else:
-        logger.error("Entity not defined")
-        print(_('No match for entity'))
+        logger.error(_('No match for entity'))
         sys.exit(ERR_DEFAULT)
 
 
