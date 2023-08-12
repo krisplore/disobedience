@@ -1,9 +1,10 @@
 .PHONY all: lint build test check-outdated
-.PHONY lint: commit bandit
+.PHONY lint: pylint bandit
 .PHONY build: locales
 .PHONY test: smoke-test unittest coverage
+.PHONY commit: isort pylint
 
-.PHONY commit:
+.PHONY pylint:
 	# Lint with pylint
 	PYTHONPATH=$(shell pwd) venv/bin/pylint --recursive=y intel tests || true
 
@@ -56,4 +57,4 @@ clean:
 	rm locales/en_US/LC_MESSAGES/disobedience.mo
 	rm locales/ru_RU/LC_MESSAGES/disobedience.mo
 
-.PHONY: all lint build test commit bandit scan-translation locales unittest coverage setup install-deps collect-deps check-outdated clean
+.PHONY: all lint build test commit pylint isort bandit scan-translation locales unittest coverage setup install-deps collect-deps check-outdated clean
