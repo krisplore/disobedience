@@ -41,15 +41,14 @@ def add():
             logger.debug("Case input method - options defined")
             raw_source = parse_options(sys.argv[4:])
         case _:
-            logger.error("Case input method not defined")
-            print(_('Method does not exist'))
+            logger.error(_('Method does not exist'))
             sys.exit(ERR_DEFAULT)
 
     result = validate(raw_source, model)
 
     if not result['status']:
         logger.error("File validation failed")
-        print(result)
+        print_dictionary(result, model)
         sys.exit(ERR_DEFAULT)
     else:
         logger.debug("File validation completed successfully")
