@@ -163,7 +163,6 @@ def convert_date(value, user_locale):
             return formatted_date
         except UnknownLocaleError as error:
             logger.error("Error formatting date: %s", error)
-            print("Error formatting date: %s", error)
 
     return str(value)
 
