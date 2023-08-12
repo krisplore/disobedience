@@ -24,9 +24,8 @@ def parse_filename(argv):
 
     try:
         opts = getopt.getopt(argv, "f:", ["filename="])[0]
-    except getopt.GetoptError as error:
-        logger.error("Error parsing filename option: %s", error)
-        print(_("Invalid option or missing required argument"))
+    except getopt.GetoptError:
+        logger.error(_("Invalid option or missing required argument"))
         sys.exit(ERR_DEFAULT)
 
     if opts:
@@ -34,6 +33,5 @@ def parse_filename(argv):
         filename = opts[0][1]
         return filename
 
-    logger.warning("No filename provided")
-    print(_("No filename provided"))  # if admin did not enter option at all
+    logger.warning(_("No filename provided"))  # if admin did not enter option at all
     sys.exit(ERR_DEFAULT)
